@@ -1,1 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0f17" />
+<title>K1 — Built Intelligence for Construction</title>
+<meta name="description" content="K1 turns every project into intelligence. Powered by the Infinity Loop and The Vault." />
 
+<style>
+  :root {
+    --bg: #0b0f17;
+    --bg-2: #0e1422;
+    --ink: #e9edf5;
+    --ink-dim: #aab3c5;
+    --line: rgba(255,255,255,0.08);
+    --line-2: rgba(255,255,255,0.14);
+    --accent: #c9a86a;     /* warm investor gold */
+    --accent-2: #6ea8ff;   /* cool steel blue */
+    --ring: 0 0 0 2px rgba(201,168,106,0.55);
+    --radius: 14px;
+    --maxw: 1080px;
+    --t: 220ms cubic-bezier(.2,.7,.2,1);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: radial-gradient(1200px 700px at 70% -10%, #15203a 0%, var(--bg) 55%, var(--bg) 100%);
+    color: var(--ink);
+    font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100dvh;
+  }
+
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+
+  /* ---------- Site shell (lives behind the modal) ---------- */
+  .site { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 96px; }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 0 28px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 600; letter-spacing: 0.02em;
+  }
+  .brand-mark {
+    width: 28px; height: 28px; display: inline-block;
+  }
+  .nav a {
+    text-decoration: none; color: var(--ink-dim);
+    margin-left: 22px; font-size: 14px; letter-spacing: 0.04em;
+  }
+  .nav a:hover { color: var(--ink); }
+
+  .hero {
+    padding: 32px 0 24px;
+    display: grid; gap: 28px;
+    grid-template-columns: 1.1fr 1fr; align-items: center;
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; }
+  }
+  .eyebrow {
+    color: var(--accent);
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.08; margin: 0 0 14px; letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  h1 .accent { color: var(--accent); }
+  .lede {
+    color: var(--ink-dim); font-size: 18px; max-width: 56ch; margin: 0 0 22px;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn {
+    appearance: none; border: 1px solid var(--line-2);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    color: var(--ink);
+    padding: 12px 18px; border-radius: 10px; cursor: pointer;
+    transition: transform var(--t), border-color var(--t), background var(--t);
+  }
+  .btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btn:focus-visible { outline: none; box-shadow: var(--ring); }
+
+  .btn-primary {
+    background: linear-gradient(180deg, #d6b884, #b48b4a);
+    color: #1a1208;
+    border-color: transparent;
+    font-weight: 600;
+  }
+  .btn-primary:hover { filter: brightness(1.04); }
+
+  .btn-ghost {
+    background: transparent; color: var(--ink-dim);
+  }
+  .btn-ghost:hover { color: var(--ink); }
+
+  .hero-art {
+    aspect-ratio: 1.2 / 1; min-height: 280px;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(600px 300px at 30% 30%, rgba(110,168,255,0.10), transparent 60%),
+      radial-gradient(500px 280px at 75% 70%, rgba(201,168,106,0.10), transparent 60%),
+      linear-gradient(180deg, var(--bg-2), #0a1020);
+    border: 1px solid var(--line);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+
+  /* ---------- Cards ---------- */
+  .grid {
+    display: grid; gap: 18px; margin-top: 48px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 17px; }
+  .card p { margin: 0; color: var(--ink-dim); font-size: 14.5px; }
+
+  .footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-dim); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  /* ---------- Intro modal ---------- */
+  .intro {
+    position: fixed; inset: 0;
+    background: radial-gradient(900px 500px at 50% 20%, rgba(20,30,55,0.92), rgba(7,10,18,0.96));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: grid; place-items: center;
+    z-index: 1000;
+    padding: 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 280ms ease;
+  }
+  .intro[data-open="true"] { opacity: 1; pointer-events: auto; }
+
+  .intro-card {
+    width: min(880px, 100%);
+    max-height: calc(100dvh - 48px);
+    overflow: auto;
+    background: linear-gradient(180deg, #10172a, #0a1020);
+    border: 1px solid var(--line-2);
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02) inset;
+    padding: 28px;
+    transform: translateY(8px) scale(0.985);
+    transition: transform 320ms cubic-bezier(.2,.7,.2,1);
+  }
+  .intro[data-open="true"] .intro-card { transform: none; }
+
+  .intro-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-bottom: 6px;
+  }
+  .intro-brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--ink-dim); letter-spacing: 0.06em; font-size: 12px; text-transform: uppercase;
+  }
+  .intro-close {
+    appearance: none; background: transparent; border: 1px solid var(--line-2);
+    color: var(--ink-dim); width: 36px; height: 36px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: color var(--t), border-color var(--t);
+  }
+  .intro-close:hover { color: var(--ink); border-color: var(--accent); }
+  .intro-close:focus-visible { outline: none; box-shadow: var(--ring); }
+
+  .intro h2 {
+    font-size: clamp(22px, 3.2vw, 30px);
+    margin: 10px 0 8px; letter-spacing: -0.005em; font-weight: 600;
+  }
+  .intro h2 .accent { color: var(--accent); }
+  .intro p.lede { font-size: 16px; max-width: 64ch; }
+
+  .intro-art {
+    margin: 14px 0 18px;
+    border: 1px solid var(--line);
+    background:
+      radial-gradient(420px 220px at 30% 35%, rgba(110,168,255,0.10), transparent 60%),
+      radial-gradient(380px 200px at 70% 65%, rgba(201,168,106,0.10), transparent 60%),
+      #0a1020;
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .intro-meta {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    margin: 8px 0 18px;
+  }
+  @media (max-width: 620px) { .intro-meta { grid-template-columns: 1fr; } }
+  .meta-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    border: 1px solid var(--line); padding: 12px 14px; border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .meta-row b { color: var(--ink); font-weight: 600; }
+  .meta-row span { color: var(--ink-dim); font-size: 14px; }
+  .meta-row .dot {
+    width: 8px; height: 8px; border-radius: 50%; margin-top: 7px;
+    background: var(--accent); flex: 0 0 auto;
+  }
+  .meta-row.is-loop .dot { background: var(--accent-2); }
+
+  .intro-cta {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .intro-foot {
+    margin-top: 14px; color: var(--ink-dim); font-size: 12px;
+    text-align: center; letter-spacing: 0.04em;
+  }
+
+  /* ---------- SVG diagram ---------- */
+  .loop-svg { width: 100%; height: auto; display: block; }
+  .loop-track { fill: none; stroke: rgba(255,255,255,0.18); stroke-width: 1.4; }
+  .loop-flow {
+    fill: none;
+    stroke: url(#loopGrad);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-dasharray: 8 10;
+    animation: dash 14s linear infinite;
+  }
+  @keyframes dash { to { stroke-dashoffset: -360; } }
+
+  .node {
+    fill: #0e1525; stroke: rgba(255,255,255,0.25); stroke-width: 1.2;
+  }
+  .node.is-accent { stroke: var(--accent); }
+  .node.is-blue { stroke: var(--accent-2); }
+  .node-label {
+    fill: var(--ink); font: 600 12px ui-sans-serif, system-ui, sans-serif;
+    text-anchor: middle;
+  }
+  .node-sub {
+    fill: var(--ink-dim); font: 11px ui-sans-serif, system-ui, sans-serif;
+    text-anchor: middle;
+  }
+  .vault {
+    fill: rgba(201,168,106,0.08);
+    stroke: var(--accent); stroke-width: 1.4;
+  }
+  .vault-label {
+    fill: var(--accent);
+    font: 700 11px ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: 0.14em;
+    text-anchor: middle; text-transform: uppercase;
+  }
+  .vault-sub {
+    fill: var(--ink-dim);
+    font: 11px ui-sans-serif, system-ui, sans-serif;
+    text-anchor: middle;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .intro, .intro-card, .btn { transition: none !important; }
+    .loop-flow { animation: none !important; stroke-dasharray: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus-visible polish */
+  :focus-visible { outline: none; }
+  a:focus-visible, button:focus-visible { box-shadow: var(--ring); border-radius: 8px; }
+
+  /* Hide app from AT while intro is open */
+  body.intro-open .site { /* visual cue only; aria-hidden handled in JS */ }
+</style>
+</head>
+<body>
+
+  <!-- Background site (shown after intro) -->
+  <main class="site" id="site">
+    <header class="topbar">
+      <a href="#" class="brand" aria-label="K1 home">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M4 14 C 4 8, 11 8, 14 14 C 17 20, 24 20, 24 14 C 24 8, 17 8, 14 14 C 11 20, 4 20, 4 14 Z"
+                fill="none" stroke="#c9a86a" stroke-width="1.6" />
+        </svg>
+        <span>K1</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#loop">Infinity Loop</a>
+        <a href="#vault">The Vault</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Built Intelligence for Construction</div>
+        <h1>K1 turns every project into <span class="accent">intelligence</span>.</h1>
+        <p class="lede">
+          The Infinity Loop moves work from intake to office to field and back again.
+          The Vault stores what the business learns, so every job makes the next job smarter.
+        </p>
+        <div class="cta-row">
+          <button class="btn btn-primary" id="open-intro-btn" type="button">
+            Replay intro
+          </button>
+          <a class="btn btn-ghost" href="#loop">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- Compact echo of the loop graphic -->
+        <svg class="loop-svg" viewBox="0 0 520 320" role="img" aria-label="Infinity loop with Vault">
+          <defs>
+            <linearGradient id="loopGrad2" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#6ea8ff" />
+              <stop offset="1" stop-color="#c9a86a" />
+            </linearGradient>
+          </defs>
+          <path class="loop-track"
+                d="M70 160 C 70 70, 220 70, 260 160 C 300 250, 450 250, 450 160 C 450 70, 300 70, 260 160 C 220 250, 70 250, 70 160 Z"/>
+          <circle class="vault" cx="260" cy="160" r="34"/>
+          <text class="vault-label" x="260" y="158">The Vault</text>
+          <text class="vault-sub" x="260" y="176">memory layer</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="grid" id="loop">
+      <article class="card">
+        <h3>Intake</h3>
+        <p>Front-office capture — leads, scope notes, customer history. Nothing dropped, nothing retyped.</p>
+      </article>
+      <article class="card">
+        <h3>Office Planning</h3>
+        <p>Estimating and scope built on real cost history and prior outcomes — not guesses.</p>
+      </article>
+      <article class="card">
+        <h3>Field Execution</h3>
+        <p>The plan reaches the crew intact. Changes and conditions flow back the same channel.</p>
+      </article>
+      <article class="card">
+        <h3>Feedback</h3>
+        <p>Change orders, actuals, and lessons return to the office to sharpen the next estimate.</p>
+      </article>
+      <article class="card" id="vault">
+        <h3>The Vault</h3>
+        <p>The protected memory layer — scope memory, cost history, documentation, lessons — feeding every loop.</p>
+      </article>
+      <article class="card">
+        <h3>Patent-pending</h3>
+        <p>Powered by a patent-pending C-Loop workflow that compounds project knowledge over time.</p>
+      </article>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div>© <span id="yr"></span> K1 · WellBuilt AI</div>
+      <div>Powered by the Infinity Loop and The Vault</div>
+    </footer>
+  </main>
+
+  <!-- Intro modal -->
+  <div class="intro" id="intro"
+       role="dialog" aria-modal="true"
+       aria-labelledby="intro-title" aria-describedby="intro-desc"
+       hidden>
+    <div class="intro-card" tabindex="-1">
+      <div class="intro-head">
+        <div class="intro-brand">
+          <svg width="18" height="18" viewBox="0 0 28 28" aria-hidden="true">
+            <path d="M4 14 C 4 8, 11 8, 14 14 C 17 20, 24 20, 24 14 C 24 8, 17 8, 14 14 C 11 20, 4 20, 4 14 Z"
+                  fill="none" stroke="#c9a86a" stroke-width="1.6" />
+          </svg>
+          <span>K1 · Built Intelligence</span>
+        </div>
+        <button class="intro-close" id="intro-close" type="button" aria-label="Skip intro">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M2 2 L12 12 M12 2 L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 id="intro-title">
+        K1 turns every project into <span class="accent">intelligence</span>.
+      </h2>
+      <p class="lede" id="intro-desc">
+        The Infinity Loop moves work from intake to office to field and back again.
+        The Vault stores what the business learns, so every job makes the next job smarter.
+      </p>
+
+      <div class="intro-art" aria-hidden="true">
+        <!-- Main infinity-loop diagram with Vault core -->
+        <svg class="loop-svg" viewBox="0 0 720 340" role="img" aria-label="Infinity loop diagram: Intake, Office Planning, Field Execution, Feedback, with The Vault at center">
+          <defs>
+            <linearGradient id="loopGrad" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#6ea8ff" />
+              <stop offset="0.5" stop-color="#c9a86a" />
+              <stop offset="1" stop-color="#6ea8ff" />
+            </linearGradient>
+          </defs>
+
+          <!-- Infinity path -->
+          <path class="loop-track"
+                d="M90 170 C 90 70, 300 70, 360 170 C 420 270, 630 270, 630 170 C 630 70, 420 70, 360 170 C 300 270, 90 270, 90 170 Z"/>
+          <path class="loop-flow"
+                d="M90 170 C 90 70, 300 70, 360 170 C 420 270, 630 270, 630 170 C 630 70, 420 70, 360 170 C 300 270, 90 270, 90 170 Z"/>
+
+          <!-- Office side nodes (left lobe) -->
+          <g>
+            <circle class="node is-blue" cx="160" cy="110" r="10"/>
+            <text class="node-label" x="160" y="92">Intake</text>
+            <text class="node-sub" x="160" y="138">front office</text>
+          </g>
+          <g>
+            <circle class="node is-blue" cx="160" cy="230" r="10"/>
+            <text class="node-label" x="160" y="258">Office Planning</text>
+            <text class="node-sub" x="160" y="274">estimating · scope</text>
+          </g>
+
+          <!-- Field side nodes (right lobe) -->
+          <g>
+            <circle class="node is-accent" cx="560" cy="110" r="10"/>
+            <text class="node-label" x="560" y="92">Field Execution</text>
+            <text class="node-sub" x="560" y="138">crews · install</text>
+          </g>
+          <g>
+            <circle class="node is-accent" cx="560" cy="230" r="10"/>
+            <text class="node-label" x="560" y="258">Feedback</text>
+            <text class="node-sub" x="560" y="274">change orders · actuals</text>
+          </g>
+
+          <!-- Vault core at the crossover -->
+          <g>
+            <circle class="vault" cx="360" cy="170" r="40"/>
+            <circle cx="360" cy="170" r="6" fill="#c9a86a" opacity="0.85"/>
+            <text class="vault-label" x="360" y="166">The Vault</text>
+            <text class="vault-sub" x="360" y="184">memory · cost history</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="intro-meta">
+        <div class="meta-row is-loop">
+          <span class="dot" aria-hidden="true"></span>
+          <span><b>The Infinity Loop</b> — the circular office-field-office workflow: intake → planning → field → feedback → better future work.</span>
+        </div>
+        <div class="meta-row">
+          <span class="dot" aria-hidden="true"></span>
+          <span><b>The Vault</b> — the protected knowledge layer storing scope memory, cost history, lessons learned, and documentation, then feeding the loop.</span>
+        </div>
+      </div>
+
+      <div class="intro-cta">
+        <button class="btn btn-ghost" id="intro-skip" type="button">Skip</button>
+        <button class="btn btn-primary" id="intro-enter" type="button" autofocus>Enter K1</button>
+      </div>
+      <div class="intro-foot">Powered by a patent-pending C-Loop workflow.</div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  var SESSION_KEY = 'k1-intro-seen-v1';
+  var intro = document.getElementById('intro');
+  var site = document.getElementById('site');
+  var card = intro.querySelector('.intro-card');
+  var btnEnter = document.getElementById('intro-enter');
+  var btnSkip  = document.getElementById('intro-skip');
+  var btnClose = document.getElementById('intro-close');
+  var btnReplay = document.getElementById('open-intro-btn');
+
+  var lastFocus = null;
+
+  function getFocusable() {
+    return card.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, select, textarea'
+    );
+  }
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    var nodes = getFocusable();
+    if (!nodes.length) { e.preventDefault(); card.focus(); return; }
+    var first = nodes[0], last = nodes[nodes.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }
+
+  function onKey(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeIntro();
+    } else {
+      trapFocus(e);
+    }
+  }
+
+  function openIntro() {
+    lastFocus = document.activeElement;
+    intro.hidden = false;
+    // next frame so the transition runs
+    requestAnimationFrame(function () {
+      intro.setAttribute('data-open', 'true');
+    });
+    document.body.classList.add('intro-open');
+    site.setAttribute('aria-hidden', 'true');
+    site.setAttribute('inert', '');
+    document.addEventListener('keydown', onKey);
+    // Move focus inside the dialog
+    setTimeout(function () {
+      (btnEnter || card).focus();
+    }, 30);
+  }
+
+  function closeIntro() {
+    intro.removeAttribute('data-open');
+    document.body.classList.remove('intro-open');
+    site.removeAttribute('aria-hidden');
+    site.removeAttribute('inert');
+    document.removeEventListener('keydown', onKey);
+
+    var done = function () {
+      intro.hidden = true;
+      intro.removeEventListener('transitionend', done);
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        try { lastFocus.focus(); } catch (_) {}
+      }
+    };
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      done();
+    } else {
+      intro.addEventListener('transitionend', done, { once: true });
+      // Safety fallback in case transitionend doesn't fire
+      setTimeout(done, 500);
+    }
+
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (_) {}
+  }
+
+  // Click outside the card closes
+  intro.addEventListener('click', function (e) {
+    if (e.target === intro) closeIntro();
+  });
+
+  btnEnter.addEventListener('click', closeIntro);
+  btnSkip.addEventListener('click', closeIntro);
+  btnClose.addEventListener('click', closeIntro);
+  btnReplay.addEventListener('click', openIntro);
+
+  // Footer year
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // Decide whether to show on load
+  var seen = false;
+  try { seen = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (_) {}
+  if (!seen) {
+    // Show after first paint so background is visible behind the modal
+    requestAnimationFrame(openIntro);
+  }
+})();
+</script>
+</body>
+</html>
