@@ -138,94 +138,50 @@
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
   }
 
-  /* ---------- Intro modal ---------- */
-  .intro {
-    position: fixed; inset: 0;
-    background: radial-gradient(900px 500px at 50% 20%, rgba(20,30,55,0.92), rgba(7,10,18,0.96));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: grid; place-items: center;
-    z-index: 1000;
-    padding: 24px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 280ms ease;
-  }
-  .intro[data-open="true"] { opacity: 1; pointer-events: auto; }
-
-  .intro-card {
-    width: min(880px, 100%);
-    max-height: calc(100dvh - 48px);
-    overflow: auto;
-    background: linear-gradient(180deg, #10172a, #0a1020);
+  /* ---------- Exploratory review notice (non-blocking) ---------- */
+  .notice {
+    margin: 0 0 24px;
     border: 1px solid var(--line-2);
-    border-radius: 18px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02) inset;
-    padding: 28px;
-    transform: translateY(8px) scale(0.985);
-    transition: transform 320ms cubic-bezier(.2,.7,.2,1);
+    border-radius: 12px;
+    background:
+      linear-gradient(180deg, rgba(201,168,106,0.06), rgba(255,255,255,0.01)),
+      #0c1322;
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: flex-start;
   }
-  .intro[data-open="true"] .intro-card { transform: none; }
-
-  .intro-head {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; margin-bottom: 6px;
+  .notice[hidden] { display: none; }
+  .notice-icon {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--accent); border: 1px solid var(--accent);
+    font-size: 13px; font-weight: 700; line-height: 1;
+    margin-top: 1px;
+    flex: 0 0 auto;
   }
-  .intro-brand {
-    display: inline-flex; align-items: center; gap: 10px;
-    color: var(--ink-dim); letter-spacing: 0.06em; font-size: 12px; text-transform: uppercase;
+  .notice-body { color: var(--ink-dim); font-size: 14px; }
+  .notice-title {
+    color: var(--ink); font-weight: 600; font-size: 14px;
+    letter-spacing: 0.02em; margin-bottom: 4px;
   }
-  .intro-close {
+  .notice-body p { margin: 0 0 6px; }
+  .notice-body p:last-child { margin-bottom: 0; }
+  .notice-body ul { margin: 4px 0 6px; padding-left: 18px; }
+  .notice-body li { margin: 2px 0; }
+  .notice-dismiss {
     appearance: none; background: transparent; border: 1px solid var(--line-2);
-    color: var(--ink-dim); width: 36px; height: 36px; border-radius: 50%;
+    color: var(--ink-dim); width: 32px; height: 32px; border-radius: 8px;
     cursor: pointer; display: grid; place-items: center;
     transition: color var(--t), border-color var(--t);
+    flex: 0 0 auto;
   }
-  .intro-close:hover { color: var(--ink); border-color: var(--accent); }
-  .intro-close:focus-visible { outline: none; box-shadow: var(--ring); }
-
-  .intro h2 {
-    font-size: clamp(22px, 3.2vw, 30px);
-    margin: 10px 0 8px; letter-spacing: -0.005em; font-weight: 600;
-  }
-  .intro h2 .accent { color: var(--accent); }
-  .intro p.lede { font-size: 16px; max-width: 64ch; }
-
-  .intro-art {
-    margin: 14px 0 18px;
-    border: 1px solid var(--line);
-    background:
-      radial-gradient(420px 220px at 30% 35%, rgba(110,168,255,0.10), transparent 60%),
-      radial-gradient(380px 200px at 70% 65%, rgba(201,168,106,0.10), transparent 60%),
-      #0a1020;
-    border-radius: 14px;
-    padding: 14px;
-  }
-
-  .intro-meta {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
-    margin: 8px 0 18px;
-  }
-  @media (max-width: 620px) { .intro-meta { grid-template-columns: 1fr; } }
-  .meta-row {
-    display: flex; gap: 10px; align-items: flex-start;
-    border: 1px solid var(--line); padding: 12px 14px; border-radius: 12px;
-    background: rgba(255,255,255,0.02);
-  }
-  .meta-row b { color: var(--ink); font-weight: 600; }
-  .meta-row span { color: var(--ink-dim); font-size: 14px; }
-  .meta-row .dot {
-    width: 8px; height: 8px; border-radius: 50%; margin-top: 7px;
-    background: var(--accent); flex: 0 0 auto;
-  }
-  .meta-row.is-loop .dot { background: var(--accent-2); }
-
-  .intro-cta {
-    display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end;
-    margin-top: 8px;
-  }
-  .intro-foot {
-    margin-top: 14px; color: var(--ink-dim); font-size: 12px;
-    text-align: center; letter-spacing: 0.04em;
+  .notice-dismiss:hover { color: var(--ink); border-color: var(--accent); }
+  .notice-dismiss:focus-visible { outline: none; box-shadow: var(--ring); }
+  @media (max-width: 620px) {
+    .notice { grid-template-columns: auto 1fr; }
+    .notice-dismiss { grid-column: 2; justify-self: end; margin-top: 6px; }
   }
 
   /* ---------- SVG diagram ---------- */
@@ -272,7 +228,7 @@
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .intro, .intro-card, .btn { transition: none !important; }
+    .btn { transition: none !important; }
     .loop-flow { animation: none !important; stroke-dasharray: 0; }
     html { scroll-behavior: auto; }
   }
@@ -280,15 +236,28 @@
   /* Focus-visible polish */
   :focus-visible { outline: none; }
   a:focus-visible, button:focus-visible { box-shadow: var(--ring); border-radius: 8px; }
-
-  /* Hide app from AT while intro is open */
-  body.intro-open .site { /* visual cue only; aria-hidden handled in JS */ }
 </style>
 </head>
 <body>
 
-  <!-- Background site (shown after intro) -->
   <main class="site" id="site">
+
+    <!-- Non-blocking exploratory review notice (dismissible) -->
+    <aside class="notice" id="review-notice" role="note" aria-labelledby="review-notice-title">
+      <div class="notice-icon" aria-hidden="true">i</div>
+      <div class="notice-body">
+        <div class="notice-title" id="review-notice-title">Exploratory review notice</div>
+        <p>This site is shared for a high-level exploratory discussion and demo only. No customer-, Sika-, or project-specific confidential data, project files, pricing, contracts, source code, or detailed patent claims are required or expected to be shared at this stage.</p>
+        <p>Any AI assistance or transcription used in our conversations is only for notes and summarization — it is not intended to train public models or be shared externally.</p>
+        <p>Materials here are for the intended reviewer's review only and should not be forwarded or distributed without permission. No party is undertaking any obligation, and nothing here should be relied on, until a formal written agreement is in place.</p>
+      </div>
+      <button class="notice-dismiss" id="notice-dismiss" type="button" aria-label="Dismiss notice" aria-controls="review-notice">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+          <path d="M2 2 L12 12 M12 2 L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </aside>
+
     <header class="topbar">
       <a href="#" class="brand" aria-label="K1 home">
         <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true">
@@ -313,10 +282,10 @@
           The Vault stores what the business learns, so every job makes the next job smarter.
         </p>
         <div class="cta-row">
-          <button class="btn btn-primary" id="open-intro-btn" type="button">
-            Replay intro
+          <a class="btn btn-primary" href="#loop">See how it works</a>
+          <button class="btn btn-ghost" id="show-notice-btn" type="button">
+            View review notice
           </button>
-          <a class="btn btn-ghost" href="#loop">See how it works</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -370,212 +339,40 @@
     </footer>
   </main>
 
-  <!-- Intro modal -->
-  <div class="intro" id="intro"
-       role="dialog" aria-modal="true"
-       aria-labelledby="intro-title" aria-describedby="intro-desc"
-       hidden>
-    <div class="intro-card" tabindex="-1">
-      <div class="intro-head">
-        <div class="intro-brand">
-          <svg width="18" height="18" viewBox="0 0 28 28" aria-hidden="true">
-            <path d="M4 14 C 4 8, 11 8, 14 14 C 17 20, 24 20, 24 14 C 24 8, 17 8, 14 14 C 11 20, 4 20, 4 14 Z"
-                  fill="none" stroke="#c9a86a" stroke-width="1.6" />
-          </svg>
-          <span>K1 · Built Intelligence</span>
-        </div>
-        <button class="intro-close" id="intro-close" type="button" aria-label="Skip intro">
-          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-            <path d="M2 2 L12 12 M12 2 L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <h2 id="intro-title">
-        K1 turns every project into <span class="accent">intelligence</span>.
-      </h2>
-      <p class="lede" id="intro-desc">
-        The Infinity Loop moves work from intake to office to field and back again.
-        The Vault stores what the business learns, so every job makes the next job smarter.
-      </p>
-
-      <div class="intro-art" aria-hidden="true">
-        <!-- Main infinity-loop diagram with Vault core -->
-        <svg class="loop-svg" viewBox="0 0 720 340" role="img" aria-label="Infinity loop diagram: Intake, Office Planning, Field Execution, Feedback, with The Vault at center">
-          <defs>
-            <linearGradient id="loopGrad" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0" stop-color="#6ea8ff" />
-              <stop offset="0.5" stop-color="#c9a86a" />
-              <stop offset="1" stop-color="#6ea8ff" />
-            </linearGradient>
-          </defs>
-
-          <!-- Infinity path -->
-          <path class="loop-track"
-                d="M90 170 C 90 70, 300 70, 360 170 C 420 270, 630 270, 630 170 C 630 70, 420 70, 360 170 C 300 270, 90 270, 90 170 Z"/>
-          <path class="loop-flow"
-                d="M90 170 C 90 70, 300 70, 360 170 C 420 270, 630 270, 630 170 C 630 70, 420 70, 360 170 C 300 270, 90 270, 90 170 Z"/>
-
-          <!-- Office side nodes (left lobe) -->
-          <g>
-            <circle class="node is-blue" cx="160" cy="110" r="10"/>
-            <text class="node-label" x="160" y="92">Intake</text>
-            <text class="node-sub" x="160" y="138">front office</text>
-          </g>
-          <g>
-            <circle class="node is-blue" cx="160" cy="230" r="10"/>
-            <text class="node-label" x="160" y="258">Office Planning</text>
-            <text class="node-sub" x="160" y="274">estimating · scope</text>
-          </g>
-
-          <!-- Field side nodes (right lobe) -->
-          <g>
-            <circle class="node is-accent" cx="560" cy="110" r="10"/>
-            <text class="node-label" x="560" y="92">Field Execution</text>
-            <text class="node-sub" x="560" y="138">crews · install</text>
-          </g>
-          <g>
-            <circle class="node is-accent" cx="560" cy="230" r="10"/>
-            <text class="node-label" x="560" y="258">Feedback</text>
-            <text class="node-sub" x="560" y="274">change orders · actuals</text>
-          </g>
-
-          <!-- Vault core at the crossover -->
-          <g>
-            <circle class="vault" cx="360" cy="170" r="40"/>
-            <circle cx="360" cy="170" r="6" fill="#c9a86a" opacity="0.85"/>
-            <text class="vault-label" x="360" y="166">The Vault</text>
-            <text class="vault-sub" x="360" y="184">memory · cost history</text>
-          </g>
-        </svg>
-      </div>
-
-      <div class="intro-meta">
-        <div class="meta-row is-loop">
-          <span class="dot" aria-hidden="true"></span>
-          <span><b>The Infinity Loop</b> — the circular office-field-office workflow: intake → planning → field → feedback → better future work.</span>
-        </div>
-        <div class="meta-row">
-          <span class="dot" aria-hidden="true"></span>
-          <span><b>The Vault</b> — the protected knowledge layer storing scope memory, cost history, lessons learned, and documentation, then feeding the loop.</span>
-        </div>
-      </div>
-
-      <div class="intro-cta">
-        <button class="btn btn-ghost" id="intro-skip" type="button">Skip</button>
-        <button class="btn btn-primary" id="intro-enter" type="button" autofocus>Enter K1</button>
-      </div>
-      <div class="intro-foot">Powered by a patent-pending C-Loop workflow.</div>
-    </div>
-  </div>
-
 <script>
 (function () {
   'use strict';
 
-  var SESSION_KEY = 'k1-intro-seen-v1';
-  var intro = document.getElementById('intro');
-  var site = document.getElementById('site');
-  var card = intro.querySelector('.intro-card');
-  var btnEnter = document.getElementById('intro-enter');
-  var btnSkip  = document.getElementById('intro-skip');
-  var btnClose = document.getElementById('intro-close');
-  var btnReplay = document.getElementById('open-intro-btn');
+  var DISMISS_KEY = 'k1-review-notice-dismissed-v1';
+  var notice = document.getElementById('review-notice');
+  var btnDismiss = document.getElementById('notice-dismiss');
+  var btnShow = document.getElementById('show-notice-btn');
 
-  var lastFocus = null;
-
-  function getFocusable() {
-    return card.querySelectorAll(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, select, textarea'
-    );
+  function hideNotice() {
+    if (!notice) return;
+    notice.hidden = true;
+    try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (_) {}
+  }
+  function showNotice() {
+    if (!notice) return;
+    notice.hidden = false;
+    try { sessionStorage.removeItem(DISMISS_KEY); } catch (_) {}
+    try { notice.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {}
   }
 
-  function trapFocus(e) {
-    if (e.key !== 'Tab') return;
-    var nodes = getFocusable();
-    if (!nodes.length) { e.preventDefault(); card.focus(); return; }
-    var first = nodes[0], last = nodes[nodes.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault(); last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault(); first.focus();
+  if (btnDismiss) btnDismiss.addEventListener('click', hideNotice);
+  if (btnShow) btnShow.addEventListener('click', showNotice);
+
+  // Persist dismissal across reloads within the session
+  try {
+    if (sessionStorage.getItem(DISMISS_KEY) === '1' && notice) {
+      notice.hidden = true;
     }
-  }
-
-  function onKey(e) {
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      closeIntro();
-    } else {
-      trapFocus(e);
-    }
-  }
-
-  function openIntro() {
-    lastFocus = document.activeElement;
-    intro.hidden = false;
-    // next frame so the transition runs
-    requestAnimationFrame(function () {
-      intro.setAttribute('data-open', 'true');
-    });
-    document.body.classList.add('intro-open');
-    site.setAttribute('aria-hidden', 'true');
-    site.setAttribute('inert', '');
-    document.addEventListener('keydown', onKey);
-    // Move focus inside the dialog
-    setTimeout(function () {
-      (btnEnter || card).focus();
-    }, 30);
-  }
-
-  function closeIntro() {
-    intro.removeAttribute('data-open');
-    document.body.classList.remove('intro-open');
-    site.removeAttribute('aria-hidden');
-    site.removeAttribute('inert');
-    document.removeEventListener('keydown', onKey);
-
-    var done = function () {
-      intro.hidden = true;
-      intro.removeEventListener('transitionend', done);
-      if (lastFocus && typeof lastFocus.focus === 'function') {
-        try { lastFocus.focus(); } catch (_) {}
-      }
-    };
-
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
-      done();
-    } else {
-      intro.addEventListener('transitionend', done, { once: true });
-      // Safety fallback in case transitionend doesn't fire
-      setTimeout(done, 500);
-    }
-
-    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (_) {}
-  }
-
-  // Click outside the card closes
-  intro.addEventListener('click', function (e) {
-    if (e.target === intro) closeIntro();
-  });
-
-  btnEnter.addEventListener('click', closeIntro);
-  btnSkip.addEventListener('click', closeIntro);
-  btnClose.addEventListener('click', closeIntro);
-  btnReplay.addEventListener('click', openIntro);
+  } catch (_) {}
 
   // Footer year
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
-
-  // Decide whether to show on load
-  var seen = false;
-  try { seen = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (_) {}
-  if (!seen) {
-    // Show after first paint so background is visible behind the modal
-    requestAnimationFrame(openIntro);
-  }
 })();
 </script>
 </body>
