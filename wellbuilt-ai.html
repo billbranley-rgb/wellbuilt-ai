@@ -343,7 +343,6 @@
 (function () {
   'use strict';
 
-  var DISMISS_KEY = 'k1-review-notice-dismissed-v1';
   var notice = document.getElementById('review-notice');
   var btnDismiss = document.getElementById('notice-dismiss');
   var btnShow = document.getElementById('show-notice-btn');
@@ -351,24 +350,15 @@
   function hideNotice() {
     if (!notice) return;
     notice.hidden = true;
-    try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (_) {}
   }
   function showNotice() {
     if (!notice) return;
     notice.hidden = false;
-    try { sessionStorage.removeItem(DISMISS_KEY); } catch (_) {}
     try { notice.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {}
   }
 
   if (btnDismiss) btnDismiss.addEventListener('click', hideNotice);
   if (btnShow) btnShow.addEventListener('click', showNotice);
-
-  // Persist dismissal across reloads within the session
-  try {
-    if (sessionStorage.getItem(DISMISS_KEY) === '1' && notice) {
-      notice.hidden = true;
-    }
-  } catch (_) {}
 
   // Footer year
   var yr = document.getElementById('yr');
