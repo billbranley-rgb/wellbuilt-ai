@@ -304,6 +304,47 @@ p { margin: 0; }
   margin-bottom: 28px;
 }
 
+/* ---- Hero mission card ---- */
+.hero-mission {
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 26px clamp(20px, 3vw, 32px);
+  border: 1px solid rgba(201, 157, 63, 0.28);
+  border-left: 3px solid var(--gold);
+  background: linear-gradient(180deg, rgba(20, 42, 48, 0.55), rgba(10, 26, 30, 0.55));
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
+}
+.hero-mission-eyebrow { margin-bottom: 14px; }
+.hero-mission-lead {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--text-on-dark);
+  margin: 0 0 14px;
+}
+.hero-mission-lead strong {
+  color: #F2D88A;
+  font-weight: 600;
+}
+.hero-mission-body {
+  font-family: var(--f-body, var(--f-display));
+  font-size: clamp(14.5px, 1.15vw, 16px);
+  line-height: 1.55;
+  color: var(--text-on-dark-mu);
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .hero-mission {
+    margin-top: 32px;
+    padding: 22px 18px;
+  }
+  .hero-mission-lead { font-size: 17px; }
+  .hero-mission-body { font-size: 14.5px; }
+}
+
 /* ============================================================
    THESIS
    ============================================================ */
