@@ -244,6 +244,215 @@
   <div class="container">
     <div class="explainer-grid">
       <div class="explainer-video">
+        <figure class="infinity-ratchet" aria-labelledby="ic-title" role="img">
+          <svg class="infinity-ratchet-svg" viewBox="0 0 720 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="ic-teal" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"  stop-color="#6BD3DC" stop-opacity="0"/>
+                <stop offset="22%" stop-color="#6BD3DC" stop-opacity="0.95"/>
+                <stop offset="55%" stop-color="#3FA8B5" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#0E5B63" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="ic-gold" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#8A6418" stop-opacity="0"/>
+                <stop offset="30%"  stop-color="#C99D3F" stop-opacity="1"/>
+                <stop offset="65%"  stop-color="#EFC766" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#EFC766" stop-opacity="0"/>
+              </linearGradient>
+              <radialGradient id="ic-field" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"   stop-color="#3FA8B5" stop-opacity="0.28"/>
+                <stop offset="55%"  stop-color="#0E5B63" stop-opacity="0.10"/>
+                <stop offset="100%" stop-color="#0E5B63" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="ic-vault-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"   stop-color="#EFC766" stop-opacity="0.45"/>
+                <stop offset="60%"  stop-color="#C99D3F" stop-opacity="0.10"/>
+                <stop offset="100%" stop-color="#C99D3F" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="ic-ratchet-body" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"  stop-color="#142A30"/>
+                <stop offset="100%" stop-color="#0A1A1E"/>
+              </linearGradient>
+              <filter id="ic-soft" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4.5" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <pattern id="ic-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+                <path d="M48 0H0V48" fill="none" stroke="#1B3338" stroke-width="0.55"/>
+              </pattern>
+
+              <!-- Reusable ratchet wheel: 16 teeth, asymmetric (forward-locking) -->
+              <g id="ic-ratchet-wheel">
+                <circle r="58" fill="url(#ic-ratchet-body)" stroke="#C99D3F" stroke-width="1.6"/>
+                <circle r="40" fill="none" stroke="#C99D3F" stroke-width="0.7" opacity="0.55"/>
+                <!-- 16 asymmetric teeth around r=58 → r=70 -->
+                <g fill="#C99D3F" stroke="#0A1A1E" stroke-width="0.6" stroke-linejoin="miter">
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(0)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(22.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(45)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(67.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(90)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(112.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(135)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(157.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(180)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(202.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(225)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(247.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(270)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(292.5)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(315)"/>
+                  <polygon points="58,0 70,-3 70,3" transform="rotate(337.5)"/>
+                </g>
+                <!-- Inner spokes -->
+                <g stroke="#C99D3F" stroke-width="1.1" opacity="0.85">
+                  <line x1="-32" y1="0"  x2="32"  y2="0"/>
+                  <line x1="0"   y1="-32" x2="0"  y2="32"/>
+                  <line x1="-22" y1="-22" x2="22" y2="22"/>
+                  <line x1="-22" y1="22"  x2="22" y2="-22"/>
+                </g>
+                <!-- Hub -->
+                <circle r="9" fill="#0A1416" stroke="#EFC766" stroke-width="1.4"/>
+                <circle r="2.4" fill="#EFC766"/>
+              </g>
+            </defs>
+
+            <!-- Blueprint grid backdrop -->
+            <rect x="0" y="0" width="720" height="460" fill="url(#ic-grid)"/>
+            <!-- Field/vault ambient glows -->
+            <circle cx="220" cy="230" r="170" fill="url(#ic-field)"/>
+            <circle cx="500" cy="230" r="170" fill="url(#ic-vault-glow)"/>
+
+            <!-- Tier rings (compounding intelligence: each lap stacks higher) -->
+            <g opacity="0.45" stroke="#1E5961" stroke-width="0.8" fill="none">
+              <ellipse cx="360" cy="232" rx="220" ry="76"/>
+              <ellipse cx="360" cy="222" rx="240" ry="92"/>
+              <ellipse cx="360" cy="210" rx="262" ry="112"/>
+            </g>
+
+            <!-- Year/turn labels (subtle, like a control board) -->
+            <g font-family="Inter, sans-serif" font-size="9.5" letter-spacing="2.2" fill="#6FA8B0" opacity="0.78">
+              <text x="36" y="240">FIELD</text>
+              <text x="36" y="256" fill="#A9E6EE">TRUTH IN</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="9.5" letter-spacing="2.2" fill="#B8965A" opacity="0.85" text-anchor="end">
+              <text x="688" y="240">PROOF</text>
+              <text x="688" y="256" fill="#F2D88A">OUT</text>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="8.5" letter-spacing="2.6" fill="#6FA8B0" opacity="0.7" text-anchor="middle">
+              <text x="220" y="138">TURN 1</text>
+              <text x="220" y="332">VALIDATE</text>
+              <text x="500" y="138">LOCK</text>
+              <text x="500" y="332">COMPOUND</text>
+            </g>
+
+            <!-- INFINITY CURVE — a true lemniscate-like double loop -->
+            <!-- Left lobe (field): clockwise; Right lobe (vault): also forward through the gate -->
+            <!-- Underlay for glow -->
+            <path d="M 360,230
+                     C 360,130 220,130 160,200
+                     C 100,270 100,330 160,330
+                     C 240,330 320,260 360,230
+                     C 400,200 480,130 560,130
+                     C 620,130 620,200 560,260
+                     C 500,320 400,330 360,230 Z"
+                  fill="none" stroke="#0E5B63" stroke-width="14" opacity="0.42" filter="url(#ic-soft)"/>
+
+            <!-- Field side (teal) — from FIELD TRUTH IN, through the left lobe, into the gate -->
+            <path id="ic-field-arc"
+                  d="M 40,230
+                     C 110,230 140,250 160,200
+                     C 200,110 320,130 360,230"
+                  fill="none" stroke="url(#ic-teal)" stroke-width="4.6" filter="url(#ic-soft)"/>
+            <path d="M 40,230
+                     C 110,230 140,250 160,200
+                     C 200,110 320,130 360,230"
+                  fill="none" stroke="#A9E6EE" stroke-width="1.4" opacity="0.85"/>
+
+            <!-- Proof side (gold) — out of the gate, through the right lobe, into PROOF OUT -->
+            <path id="ic-proof-arc"
+                  d="M 360,230
+                     C 400,130 520,110 560,200
+                     C 580,250 610,230 680,230"
+                  fill="none" stroke="url(#ic-gold)" stroke-width="4.6" filter="url(#ic-soft)"/>
+            <path d="M 360,230
+                     C 400,130 520,110 560,200
+                     C 580,250 610,230 680,230"
+                  fill="none" stroke="#F2D88A" stroke-width="1.4" opacity="0.9"/>
+
+            <!-- Lower halves of each lobe, drawn dashed to suggest the locked, validated thread -->
+            <path d="M 360,230
+                     C 320,260 240,330 160,330
+                     C 100,330 100,270 160,200"
+                  fill="none" stroke="#3FA8B5" stroke-width="1.6" opacity="0.55" stroke-dasharray="3 5"/>
+            <path d="M 360,230
+                     C 400,330 500,320 560,260
+                     C 620,200 620,130 560,130"
+                  fill="none" stroke="#C99D3F" stroke-width="1.6" opacity="0.65" stroke-dasharray="3 5"/>
+
+            <!-- Traveling proof pulses along the curve (teal in, gold out) -->
+            <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0.95">
+              <animateMotion dur="7s" repeatCount="indefinite"
+                path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
+            </circle>
+            <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0.95">
+              <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s"
+                path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
+            </circle>
+
+            <!-- THE RATCHET — at the crossing point of the infinity curve (the gate) -->
+            <g class="ic-ratchet" transform="translate(360 230)">
+              <!-- Backplate halo so the wheel feels mounted on the board -->
+              <circle r="86" fill="#0A1416" opacity="0.85"/>
+              <circle r="86" fill="none" stroke="#1E3338" stroke-width="1"/>
+              <circle r="78" fill="none" stroke="#C99D3F" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 6"/>
+
+              <!-- Slow forward-only rotation -->
+              <g class="ic-ratchet-spin">
+                <use href="#ic-ratchet-wheel"/>
+              </g>
+
+              <!-- Pawl — drops into a tooth, locks the forward direction -->
+              <g class="ic-pawl">
+                <path d="M 0,-86 L 8,-72 L -2,-64 L -8,-78 Z"
+                      fill="#EFC766" stroke="#0A1416" stroke-width="0.8"/>
+                <circle cx="0" cy="-86" r="3" fill="#0A1416" stroke="#EFC766" stroke-width="1.1"/>
+              </g>
+
+              <!-- Center K1 mark, lit gold to read like a control hub -->
+              <g font-family="'Fraunces', Georgia, serif" font-weight="700" text-anchor="middle">
+                <text y="6" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
+              </g>
+            </g>
+
+            <!-- End caps: field signal source + vault terminal -->
+            <g>
+              <circle cx="40"  cy="230" r="6" fill="#6BD3DC" filter="url(#ic-soft)"/>
+              <circle cx="40"  cy="230" r="2.4" fill="#EAFBFD"/>
+              <rect x="664" y="218" width="22" height="24" rx="2"
+                    fill="#0A1416" stroke="#C99D3F" stroke-width="1.4"/>
+              <rect x="670" y="224" width="10" height="12" rx="1" fill="#1E3338" stroke="#EFC766" stroke-width="0.8"/>
+              <circle cx="675" cy="230" r="1.4" fill="#EFC766"/>
+            </g>
+
+            <!-- Caption legend at bottom of board -->
+            <g font-family="Inter, sans-serif" font-size="10" letter-spacing="1.8" fill="#9FB1B5">
+              <text x="40"  y="416">CAPTURE</text>
+              <text x="200" y="416">VALIDATE</text>
+              <text x="360" y="416" text-anchor="middle" fill="#EFC766" font-weight="700">RATCHET LOCK</text>
+              <text x="520" y="416">ADVANCE</text>
+              <text x="680" y="416" text-anchor="end">VAULT</text>
+            </g>
+            <!-- Underline rule -->
+            <line x1="40" y1="396" x2="680" y2="396" stroke="#1E3338" stroke-width="1"/>
+          </svg>
+
+          <figcaption class="infinity-ratchet-cap">
+            <span id="ic-title" class="infinity-ratchet-title">The Infinity Curve &amp; the Ratchet</span>
+            <span class="infinity-ratchet-sub">Field truth in. Validated through the gate. Locked by the ratchet. Compounded back into the next job.</span>
+          </figcaption>
+        </figure>
+
         <div class="vp vp--featured" data-src="https://k1.construction/assets/video/k1-infinity-curve-explainer.mp4">
           <div class="vp-poster" style="background-image:url('https://k1.construction/assets/posters/k1-infinity-curve-explainer.jpg');"></div>
           <div class="vp-overlay"></div>
