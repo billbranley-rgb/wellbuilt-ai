@@ -116,6 +116,54 @@ function extractKeyframesBody(src, name) {
   }
 }
 
+// 6) Isotope rings tighten upward only — no scale > 1, no positive translateY.
+{
+  const body = extractKeyframesBody(css, "ic-isotope-cinch");
+  if (body === null) fail("missing @keyframes ic-isotope-cinch — concentric rings will not tighten");
+  else {
+    // Scale values must be <= 1 (rings only tighten, never widen mid-loop).
+    const scales = [...body.matchAll(/scale\(\s*(-?\d+(?:\.\d+)?)\s*\)/g)].map(m => parseFloat(m[1]));
+    if (scales.length === 0) fail("ic-isotope-cinch has no scale() — rings won't visibly tighten");
+    let sawTightening = false;
+    for (const s of scales) {
+      if (s > 1) fail(`ic-isotope-cinch has scale(${s}) > 1 — rings would widen, not tighten`);
+      if (s < 1 && s > 0) sawTightening = true;
+    }
+    if (sawTightening) ok(`ic-isotope-cinch tightens (scales: ${scales.join(" → ")})`);
+
+    // translateY must be 0 or negative — rings only drift upward.
+    const ys = [...body.matchAll(/translateY\(\s*(-?\d+(?:\.\d+)?)\s*px?\s*\)/g)].map(m => parseFloat(m[1]));
+    let sawUpward = false;
+    for (const y of ys) {
+      if (y > 0) fail(`ic-isotope-cinch has DOWNWARD translateY(${y}px) — must be 0 or negative`);
+      if (y < 0) sawUpward = true;
+    }
+    if (sawUpward) ok(`ic-isotope-cinch drifts upward only (max ${Math.min(...ys)}px)`);
+
+    // The ring animation must be stepped to match the vault click cadence.
+    const ringRule = css.match(/\.ic-isotope-rings\s*\{([\s\S]*?)\}/);
+    if (!ringRule) fail("missing .ic-isotope-rings rule");
+    else {
+      const stepsMatch = ringRule[1].match(/steps\(\s*(\d+)/);
+      if (!stepsMatch) fail(".ic-isotope-rings is not stepped — rings should cinch in clicks, not smoothly");
+      else ok(`.ic-isotope-rings uses steps(${stepsMatch[1]}, end) — synced with vault clicks`);
+    }
+  }
+}
+
+// 7) Isotope seam hides the reset behind opacity 0 at both ends.
+{
+  const body = extractKeyframesBody(css, "ic-isotope-seam");
+  if (body === null) fail("missing @keyframes ic-isotope-seam");
+  else {
+    const startsAtZero = /(?:^|[^\d])0%\s*\{\s*opacity:\s*0\s*[;}]/.test(body);
+    const endsAtZero   = /100%\s*\{\s*opacity:\s*0\s*[;}]/.test(body);
+    if (!startsAtZero) fail("ic-isotope-seam does not start at opacity 0 — ring reset will be visible");
+    if (!endsAtZero)   fail("ic-isotope-seam does not end at opacity 0 — ring reset will be visible");
+    if (startsAtZero && endsAtZero) ok("ic-isotope-seam hides the ring reset (opacity 0 at both 0% and 100%)");
+  }
+}
+
 if (errors.length) {
   console.error("\nratchet-check: FAILED");
   for (const e of errors) console.error("  - " + e);

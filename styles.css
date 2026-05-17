@@ -1391,6 +1391,40 @@ html, body { overflow-x: hidden; }
   100% { opacity: 0; }
 }
 
+/* ISOTOPE RINGS — the concentric contour stack tightens (scales down) and
+   lifts in lockstep with the vault's six ratchet clicks. Each pass of the
+   information flow visibly cinches the rings closer to the central record.
+
+   transform-origin is anchored at the gate (360,230 in SVG user units) via
+   transform-box: view-box, so the rings scale toward the central vault and
+   the upward translate compounds the cinch — they pull in AND drift up.
+
+   Scale: 1 → 0.82 (six 3% steps). translateY: 0 → -10px (six ~1.7px steps).
+   Both values are monotonically forward — no positive translateY and no
+   scale > 1 in the keyframes. The reset back to scale(1) translateY(0) is
+   masked by ic-isotope-seam (opacity drops to 0 at 86%–100%). */
+.ic-isotope-rings {
+  transform-box: view-box;
+  transform-origin: 360px 230px;
+  animation:
+    ic-isotope-cinch 7s steps(6, end) infinite,
+    ic-isotope-seam  7s linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes ic-isotope-cinch {
+  from { transform: translateY(0)     scale(1); }
+  to   { transform: translateY(-10px) scale(0.82); }
+}
+@keyframes ic-isotope-seam {
+  /* Floor opacity = 0.18 so the rings don't go fully invisible mid-cycle
+     (the stack should always read as ambient structure); the seam dips to
+     0 briefly at 88%–100% to hide the snap back to the widest state. */
+  0%   { opacity: 0; }
+  6%   { opacity: 0.45; }
+  86%  { opacity: 0.45; }
+  100% { opacity: 0; }
+}
+
 /* LOCK TICKS — six gold tick marks along the threaded rod that light in
    sequence as the vault clicks upward. Each tick lights at the moment its
    corresponding step occurs in the 7s cycle (tick 1 ≈ step 1 at ~14%, tick
@@ -1457,13 +1491,16 @@ html, body { overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .ic-ratchet-spin,
   .ic-ratchet-cinch,
-  .ic-cinch-tooth { animation: none; }
+  .ic-cinch-tooth,
+  .ic-isotope-rings { animation: none; }
   /* With animations off, the cinch wrapper rests at translateY(0) and the
      vault sits at the gate (its parent <g transform="translate(360 230)">).
      Teeth fall back to a calm half-lit opacity so the rail stays legible
      without flicker. The proof pulses are hidden entirely since SMIL
-     animateMotion isn't governed by CSS animation: none. */
+     animateMotion isn't governed by CSS animation: none. The isotope
+     rings hold at their widest state with the original ambient opacity. */
   .ic-cinch-tooth { opacity: 0.55; }
+  .ic-isotope-rings { opacity: 0.45; }
   .ic-proof-pulses { display: none; }
 }
 .vp--featured {

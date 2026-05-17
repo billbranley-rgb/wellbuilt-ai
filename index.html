@@ -335,11 +335,32 @@
             <circle cx="220" cy="230" r="170" fill="url(#ic-field)"/>
             <circle cx="500" cy="230" r="170" fill="url(#ic-vault-glow)"/>
 
-            <!-- Tier rings (compounding intelligence: each lap stacks higher) -->
-            <g opacity="0.45" stroke="#1E5961" stroke-width="0.8" fill="none">
+            <!-- Tier rings — the concentric "isotope" contours around the gate.
+                 Each ring sits at a wider radius; as the vault ratchets upward,
+                 the whole stack cinches inward (scales down) AND lifts a few
+                 pixels per click. The metaphor: every pass through the curve
+                 pulls the record tighter into control. Reset is masked by the
+                 seam fade (.ic-isotope-rings opacity goes to 0 at the cycle
+                 boundary), so the snap back to the widest state is invisible.
+
+                 transform-origin is the gate (cx=360, cy=230). Scale only ever
+                 shrinks (1 → 0.82); translateY only ever moves up. The stepped
+                 animation matches the .ic-ratchet-cinch 7s / 6-click cadence
+                 so the rings and the vault visibly cinch on the same beat. -->
+            <g class="ic-isotope-rings" opacity="0.45" stroke="#1E5961" stroke-width="0.8" fill="none">
               <ellipse cx="360" cy="232" rx="220" ry="76"/>
               <ellipse cx="360" cy="222" rx="240" ry="92"/>
               <ellipse cx="360" cy="210" rx="262" ry="112"/>
+              <!-- Outermost contour: a lemniscate halo that traces the field
+                   and vault lobes. It cinches with the rest of the stack. -->
+              <path d="M 360,230
+                       C 360,118 208,118 142,200
+                       C 80,278 80,338 152,338
+                       C 244,338 326,262 360,230
+                       C 394,198 478,118 568,118
+                       C 632,118 632,200 568,272
+                       C 502,344 394,344 360,230 Z"
+                    stroke="#1E5961" stroke-width="0.7" opacity="0.7"/>
             </g>
 
             <!-- Year/turn labels (subtle, like a control board) -->
