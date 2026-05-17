@@ -989,6 +989,110 @@ p { margin: 0; }
 }
 
 /* ============================================================
+   MOBILE OPTIMIZATION (<=720px)
+   Tighter spacing, readable type, full-width CTAs, no overflow.
+   Desktop layout is preserved.
+   ============================================================ */
+html, body { overflow-x: hidden; }
+
+@media (max-width: 720px) {
+  :root { --gutter: 18px; }
+
+  body { font-size: 16px; line-height: 1.55; }
+
+  /* Section vertical rhythm: was clamp(72,9vw,128) → clamp(40,8vw,72) */
+  .section { padding: clamp(40px, 8vw, 72px) 0; }
+  .section--walk { padding-top: clamp(48px, 9vw, 80px); }
+
+  /* Explainer was forcing full-viewport height; release on phone */
+  .section--explainer {
+    min-height: 0;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  /* Headlines: cap large clamps so phones don't get desktop sizing */
+  .display { font-size: clamp(28px, 7.4vw, 36px); margin: 16px 0 18px; }
+  .display--md { font-size: clamp(24px, 6.2vw, 30px); }
+  .hero-headline h1 { font-size: clamp(30px, 7.6vw, 40px); line-height: 1.06; }
+  .lede { font-size: 16px; margin-bottom: 24px; }
+
+  /* CTAs stack and fill width for tap targets */
+  .hero-cta, .command-actions { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn, .command-actions .btn { width: 100%; justify-content: center; }
+  .btn { padding: 14px 18px; font-size: 15px; min-height: 44px; }
+
+  /* Walkthrough feature cards: trim internal padding, equalize spacing */
+  .walk-feature { padding: 14px; gap: 18px; margin-bottom: 18px; }
+  .walk-feature .vp.portrait { max-height: 70vh; }
+  .walk-feature-text h3 { font-size: clamp(22px, 5.4vw, 28px); }
+
+  /* Tutorial card grid already collapses; tighten paddings */
+  .walk-card-body { padding: 16px 16px 18px; }
+  .walk-card h3 { font-size: 18px; }
+
+  /* Formula box: prevent overflow of long math line and shrink legend gap */
+  .formula { padding: 22px 18px; }
+  .formula-line { font-size: clamp(22px, 6vw, 30px); word-break: break-word; }
+  .formula-legend { gap: 12px; }
+
+  /* Cards: tighten paddings so content gets more horizontal room */
+  .p-card { padding: 20px 18px 22px; }
+  .vs-card { padding: 22px 20px 26px; }
+  .g-step { padding: 18px 16px 20px; }
+  .gauntlet-foot { padding: 20px 18px; gap: 18px; }
+  .pilot-block { padding: 22px 20px 24px; }
+  .contact-form { padding: 20px 18px 22px; }
+
+  /* Quote/proof note */
+  .quote-block { padding: 18px 18px; }
+  .quote { font-size: 19px; }
+  .proof-note { padding-left: 14px; font-size: 14.5px; }
+
+  /* Contact meta: collapse k/value to stacked for narrow screens */
+  .contact-meta li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px 0;
+    font-size: 15px;
+  }
+  .cm-k { padding-top: 0; }
+
+  /* Footer: keep brand/cols stacked and tighten */
+  .site-footer { padding: 40px 0 28px; }
+  .foot-cols { gap: 16px 20px; }
+
+  /* Header polish on phones */
+  .nav-wrap { padding: 10px var(--gutter); gap: 16px; }
+  .brand { font-size: 16px; }
+  .brand .k1-mark { width: 26px; height: 26px; }
+  .nav-toggle { padding: 10px; min-width: 44px; min-height: 44px; display: flex; flex-direction: column; justify-content: center; }
+  .primary-nav { padding: 4px var(--gutter) 12px; }
+  .primary-nav a { font-size: 15px; padding: 14px 2px; }
+  .primary-nav .nav-cta { padding: 12px 16px; font-size: 15px; }
+
+  /* Tap-target hardening for any inline links/buttons */
+  .vp .vp-play .play-disc { width: 62px; height: 62px; }
+  .vp--featured .vp-play .play-disc { width: 70px; height: 70px; }
+
+  /* Media safety: every embed/image stays within viewport */
+  img, svg, video, iframe { max-width: 100%; height: auto; }
+
+  /* Ratchet figure was overflowing into long aspect; keep contained */
+  .ratchet-svg { max-width: 240px; }
+
+  /* Field-first callout: stay readable, no clip */
+  .field-first-callout { font-size: 14px; padding: 9px 12px 8px; letter-spacing: 0.08em; }
+}
+
+/* Extra-small phones (<=380px) — pull padding in a bit more */
+@media (max-width: 380px) {
+  :root { --gutter: 14px; }
+  .display { font-size: clamp(24px, 7vw, 30px); }
+  .hero-headline h1 { font-size: clamp(26px, 7.4vw, 34px); }
+}
+
+/* ============================================================
    Interaction states added by script.js
    ============================================================ */
 .site-header.is-scrolled {
