@@ -746,9 +746,72 @@ p { margin: 0; }
 .vp.playing .vp-overlay,
 .vp.playing .vp-play,
 .vp.playing .vp-label,
-.vp.playing .vp-duration { opacity: 0; pointer-events: none; }
+.vp.playing .vp-duration,
+.vp.playing .vp-audio { opacity: 0; pointer-events: none; }
 .vp video { opacity: 0; transition: opacity .35s var(--ease); }
 .vp.playing video { opacity: 1; }
+
+/* Audio affordance — tells the recipient that a click will play sound,
+   or that the loop is silent by design. Sits at the top-left so it does
+   not overlap the duration chip on the right or the label on the bottom. */
+.vp .vp-audio {
+  position: absolute; left: 14px; top: 14px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  background: rgba(10,20,22,0.72);
+  border: 1px solid rgba(244,233,204,0.22);
+  padding: 4px 9px 4px 8px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.vp .vp-audio svg { width: 12px; height: 12px; flex: 0 0 12px; }
+.vp .vp-audio svg path { fill: currentColor; }
+.vp[data-audio="yes"] .vp-audio { color: var(--gold); border-color: rgba(239,199,102,0.42); }
+.vp[data-audio="yes"] .vp-audio::after { content: "Plays with sound"; }
+.vp[data-audio="silent"] .vp-audio { color: var(--text-on-dark-mu); }
+.vp[data-audio="silent"] .vp-audio::after { content: "Silent visual loop"; }
+.vp[data-audio="silent"] .vp-audio svg { display: none; }
+/* When the browser blocked unmuted playback and we fell back to muted, surface
+   a faint "Tap volume to hear" reminder so the user knows it is recoverable. */
+.vp.autoplay-muted .vp-audio { opacity: 1 !important; }
+.vp.autoplay-muted .vp-audio::after { content: "Tap volume to hear"; }
+
+/* Out-of-band note that lives below the player. We use it on silent loops
+   so the executive viewer sees an explicit caption explaining the silence
+   (and a pointer to the operating view for the real product) — and on
+   videos with audio, a quiet reminder that sound is intended. */
+.vp-note {
+  margin-top: 10px;
+  font-size: 12px; line-height: 1.45;
+  color: var(--text-on-dark-mu);
+  letter-spacing: 0.02em;
+}
+.vp-note--silent { color: var(--text-on-dark-mu); }
+.vp-note b { color: var(--text-on-dark); font-weight: 600; }
+.vp-note a { color: var(--gold); border-bottom: 1px solid rgba(239,199,102,0.4); }
+.vp-note a:hover { border-bottom-color: var(--gold); }
+
+/* Section-level reminder that the films are narrated. Subtle, executive,
+   not apologetic — a single line above the player grid. */
+.walk-sound-note {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-top: 14px;
+  font-size: 13px; line-height: 1.5;
+  color: var(--text-on-dark-mu);
+  letter-spacing: 0.01em;
+}
+.walk-sound-note b { color: var(--text-on-dark); font-weight: 600; }
+.walk-sound-note i { color: var(--gold); font-style: normal; }
+.walk-sound-note .walk-sound-dot {
+  flex: 0 0 8px;
+  width: 8px; height: 8px; margin-top: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(239,199,102,0.18);
+}
+.walk-sound-note--inline { margin-top: 10px; }
 
 /* tutorial grid */
 .walk-grid {

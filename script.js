@@ -78,11 +78,17 @@
     history.replaceState(null, '', href);
   });
 
-  /* ---------- Video player (.vp) — click to play ---------- */
+  /* ---------- Video player (.vp) — click to play with sound ----------
+     Hotfix: several recipients reported "the videos don't play / I can't
+     hear them." Every K1 film with narration is tagged data-audio="yes".
+     Silent visual loops are tagged data-audio="silent" and labeled in
+     markup. We explicitly unmute on user-initiated play and always show
+     native controls so the volume affordance is reachable. */
   var players = Array.prototype.slice.call(document.querySelectorAll('.vp[data-src]'));
   players.forEach(function (vp) {
     var play = vp.querySelector('.vp-play');
     if (!play) return;
+    var silent = vp.getAttribute('data-audio') === 'silent';
 
     function load() {
       if (vp.dataset.loaded === '1') return;
@@ -93,6 +99,17 @@
       v.playsInline = true;
       v.preload = 'metadata';
       v.setAttribute('controlsList', 'nodownload');
+      if (silent) {
+        // No real audio track — mute so the browser will never block playback
+        // and the user does not waste a click hunting for a missing volume.
+        v.muted = true;
+        v.setAttribute('muted', '');
+      } else {
+        // User just clicked Play — they want sound. Don't let any prior
+        // browser autoplay heuristic leave us muted.
+        v.muted = false;
+        v.volume = 1;
+      }
       // Pause others on play
       v.addEventListener('play', function () {
         document.querySelectorAll('.vp.playing video').forEach(function (other) {
@@ -119,9 +136,22 @@
     play.addEventListener('click', function () {
       var v = vp.querySelector('video') || load();
       if (!v) return;
+      if (!silent) { v.muted = false; v.volume = 1; }
       vp.classList.add('playing');
       var p = v.play();
-      if (p && typeof p.catch === 'function') p.catch(function () { /* autoplay blocked — user can use controls */ });
+      if (p && typeof p.catch === 'function') {
+        p.catch(function () {
+          // iOS / strict autoplay rules: a user gesture should already allow
+          // unmuted playback, but if the browser still blocks it we fall back
+          // to muted playback so the visual at least plays, then surface the
+          // muted state so the user can tap the volume control.
+          if (!silent) {
+            v.muted = true;
+            vp.classList.add('autoplay-muted');
+            v.play().catch(function () { /* leave controls for the user */ });
+          }
+        });
+      }
     });
   });
 
