@@ -533,6 +533,82 @@ p { margin: 0; }
 @media (max-width: 780px) { .gauntlet-foot { grid-template-columns: 1fr; } }
 
 /* ============================================================
+   PROJECT LIFECYCLE (M01 → M08)
+   Mirrors the gauntlet rail visually but uses a 4×2 grid and a
+   milestone tag (M01–M08) so the lifecycle board reads as a more
+   operational, named-stage view of the same flow.
+   ============================================================ */
+.section--lifecycle { border-top: 1px solid rgba(244,233,204,0.06); }
+.lifecycle-rail {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+}
+.lc-step {
+  background: rgba(244,233,204,0.04);
+  border: 1px solid rgba(244,233,204,0.08);
+  padding: 22px 20px 24px;
+  position: relative;
+}
+.lc-rule {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--teal-bright));
+}
+.lc-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.lc-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-bright);
+  margin-bottom: 14px;
+}
+.lc-step h3 {
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--text-on-dark);
+  line-height: 1.25;
+}
+.lc-step p {
+  font-size: 13.5px;
+  color: var(--text-on-dark-mu);
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 1000px) { .lifecycle-rail { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .lifecycle-rail { grid-template-columns: 1fr; } }
+
+.lifecycle-foot {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: center;
+  background: rgba(244,233,204,0.03);
+  border: 1px solid rgba(244,233,204,0.08);
+  padding: 26px 32px;
+}
+.lf-copy p { color: var(--text-on-dark-mu); font-size: 15px; margin: 0; }
+.lf-copy .eyebrow { margin-bottom: 10px; }
+.lf-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.lf-cta-sub { color: var(--text-on-dark-mu); font-size: 13px; }
+@media (max-width: 780px) {
+  .lifecycle-foot { grid-template-columns: 1fr; padding: 22px 20px; }
+}
+
+/* ============================================================
    VAULT
    ============================================================ */
 .vault-grid {
