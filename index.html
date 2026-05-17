@@ -402,15 +402,45 @@
                      C 620,200 620,130 560,130"
                   fill="none" stroke="#C99D3F" stroke-width="1.6" opacity="0.65" stroke-dasharray="3 5"/>
 
-            <!-- Traveling proof pulses along the curve (teal in, gold out) -->
-            <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0.95">
-              <animateMotion dur="7s" repeatCount="indefinite"
-                path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
-            </circle>
-            <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0.95">
-              <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s"
-                path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
-            </circle>
+            <!-- Traveling proof pulses along the curve (teal in, gold out).
+                 Each pulse traverses its arc forward, then fades out before the
+                 motion resets so the snap back to the path start is invisible.
+                 Multiple staggered pulses keep at least one bead visible at all
+                 times — the eye reads continuous forward flow, never a rewind. -->
+            <g class="ic-proof-pulses">
+              <!-- Teal stream — FIELD TRUTH IN → gate. Two pulses, 3.5s apart. -->
+              <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+              <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+
+              <!-- Gold stream — gate → PROOF OUT. Offset by 3.5s from teal start
+                   so the bead hands off through the gate as forward motion. -->
+              <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+              <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="7s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="7s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+            </g>
 
             <!-- THE RATCHET — at the crossing point of the infinity curve (the gate).
                  Outer <g> places the ratchet at the gate; inner .ic-ratchet-advance

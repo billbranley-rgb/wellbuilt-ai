@@ -1370,6 +1370,9 @@ html, body { overflow-x: hidden; }
   .ic-ratchet-advance,
   .ic-ratchet-trail circle { animation: none; }
   .ic-ratchet-trail { display: none; }
+  /* SMIL animateMotion isn't governed by CSS animation; hide the pulses
+     entirely under reduced motion so nothing flickers or snaps. */
+  .ic-proof-pulses { display: none; }
 }
 .vp--featured {
   aspect-ratio: 16 / 9;
