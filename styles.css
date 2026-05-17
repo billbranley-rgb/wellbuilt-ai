@@ -1058,6 +1058,20 @@ html, body { overflow-x: hidden; }
   .hero-headline h1 { font-size: clamp(30px, 7.6vw, 40px); line-height: 1.06; }
   .lede { font-size: 16px; margin-bottom: 24px; }
 
+  /* Mobile hero reorder: open the page with the Mobile Command Center copy,
+     not the SVG diagram. The DOM order is eyebrow → visual → headline so we
+     flip to a flex column with explicit `order` values: eyebrow first,
+     headline (H1 + pill + body + CTAs) second, then the visual after. The
+     visual still appears in the hero, just below the call-to-action so the
+     copy lands first. Desktop layout (no flex applied) is unchanged. */
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-eyebrow  { order: 1; }
+  .hero-headline { order: 2; }
+  .hero-visual   { order: 3; margin-top: 28px; margin-bottom: 16px; }
+
   /* CTAs stack and fill width for tap targets */
   .hero-cta, .command-actions { flex-direction: column; align-items: stretch; }
   .hero-cta .btn, .command-actions .btn { width: 100%; justify-content: center; }
@@ -1553,6 +1567,26 @@ html, body { overflow-x: hidden; }
   .vp--featured .vp-play .play-disc {
     width: 70px;
     height: 70px;
+  }
+  /* Mobile video overlay: give the label and duration more breathing room
+     and a slightly deeper bottom gradient so they don't crowd the play
+     button or each other on narrow screens. */
+  .vp--featured .vp-overlay {
+    background: linear-gradient(180deg, rgba(10,20,22,0) 30%, rgba(10,20,22,0.78) 80%, rgba(10,20,22,0.92));
+  }
+  .vp--featured .vp-label {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+  }
+  .vp--featured .vp-duration {
+    right: 12px;
+    top: 12px;
+    font-size: 10.5px;
+    padding: 3px 8px;
   }
   .command-tutorials {
     margin-top: 32px;
