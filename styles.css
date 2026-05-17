@@ -1330,27 +1330,13 @@ html, body { overflow-x: hidden; }
   to   { transform: rotate(360deg); }
 }
 
-/* Forward-only orbit around the lemniscate. The path is the same closed
-   double loop as the SVG underlay (centered at 360,230 in the 720x460
-   viewBox). Because the path is closed and starts/ends at the gate, the
-   animation repeat seam is at the same screen position — no backward snap.
-   `offset-rotate: 0deg` keeps the wheel upright as it travels. */
-.ic-ratchet-orbit {
-  offset-path: path("M 360,230 C 360,130 220,130 160,200 C 100,270 100,330 160,330 C 240,330 320,260 360,230 C 400,200 480,130 560,130 C 620,130 620,200 560,260 C 500,320 400,330 360,230 Z");
-  offset-rotate: 0deg;
-  animation: ic-ratchet-orbit 18s linear infinite;
-  transform-box: fill-box;
-}
-@keyframes ic-ratchet-orbit {
-  from { offset-distance: 0%; }
-  to   { offset-distance: 100%; }
-}
-
-/* CINCH — forward-only upward drift on the orbiting ratchet wrapper.
-   The wrapper rises a little with each lap (~6px over a full cinch cycle),
-   reads as "tightening" like a zip tie. The reset back to translate(0,0)
-   happens while opacity is 0, so the eye never sees a downward snap.
-   One cinch cycle covers one full orbit (18s). */
+/* CINCH — forward-only upward drift on the central ratchet/vault. The
+   vault is anchored at the gate (its parent <g> applies translate(360,230));
+   this rule layers a vertical lift + opacity fade on top. The wrapper
+   rises ~8px over each 18s cycle, reads as "tightening" like a zip tie.
+   The reset back to translateY(0) happens while opacity is 0, so the eye
+   never sees a downward snap. The vault stays centered horizontally; the
+   field-event flow advances around it via the proof pulses. */
 .ic-ratchet-cinch {
   transform-box: fill-box;
   transform-origin: center;
@@ -1360,11 +1346,11 @@ html, body { overflow-x: hidden; }
 @keyframes ic-ratchet-cinch {
   /* Fade in low, rise upward, hold lifted, fade out high. The wrapper is
      invisible at both the seam end (100%) and the seam start (0%), so the
-     position reset from -6px back to 0px is never visible. */
+     position reset from -8px back to 0px is never visible. */
   0%   { transform: translateY(0);    opacity: 0; }
   8%   { transform: translateY(0);    opacity: 1; }
-  92%  { transform: translateY(-6px); opacity: 1; }
-  100% { transform: translateY(-6px); opacity: 0; }
+  92%  { transform: translateY(-8px); opacity: 1; }
+  100% { transform: translateY(-8px); opacity: 0; }
 }
 
 /* ZIP-TIE CINCH RAIL — five gold teeth at the gate, lighting in sequence.
@@ -1427,15 +1413,13 @@ html, body { overflow-x: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .ic-ratchet-spin,
-  .ic-ratchet-orbit,
   .ic-ratchet-cinch,
   .ic-cinch-tooth { animation: none; }
-  /* When the orbit animation is off, offset-distance defaults to 0% which
-     places the wheel at the path's start (the gate at 360,230) — exactly
-     where the original static composition expected it. Cinch wrapper has
-     no base transform so the wheel sits at translate(0,0). Teeth default
-     to opacity 0 (the rail's static state with all locks "unfired") — a
-     calm resting board for users with reduced-motion on. */
+  /* With animations off, the cinch wrapper rests at translateY(0) and the
+     vault sits at the gate (its parent <g transform="translate(360 230)">).
+     Teeth fall back to a calm half-lit opacity so the rail stays legible
+     without flicker. The proof pulses are hidden entirely since SMIL
+     animateMotion isn't governed by CSS animation: none. */
   .ic-cinch-tooth { opacity: 0.55; }
   .ic-proof-pulses { display: none; }
 }

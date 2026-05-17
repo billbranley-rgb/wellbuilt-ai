@@ -465,33 +465,30 @@
               </g>
             </g>
 
-            <!-- THE RATCHET — travels forward along the closed lemniscate path.
-                 The orbit path is closed (it starts and ends at the gate),
-                 so the loop is seamless: the wheel always advances around the
-                 infinity curve and never appears to slip, recoil, or reset.
-                 The wheel itself spins forward-only as it travels.
-                 Orbit is driven by CSS offset-path; an outer .ic-ratchet-cinch
-                 wrapper layers a forward-only upward drift on top, so the
-                 marker rises a little with each lap (the "cinch") before
-                 fading out invisibly and starting the next cinch cycle. -->
-            <g class="ic-ratchet-cinch">
-              <g class="ic-ratchet-orbit">
-                <!-- Soft halo travels with the wheel; mounts it on the board visually. -->
-                <circle cx="0" cy="0" r="44" fill="#0A1416" opacity="0.55"/>
-                <circle cx="0" cy="0" r="44" fill="none" stroke="#1E3338" stroke-width="1"/>
-                <circle cx="0" cy="0" r="40" fill="none" stroke="#C99D3F" stroke-width="0.5" opacity="0.45" stroke-dasharray="2 6"/>
+            <!-- THE RATCHET / VAULT — anchored at the gate (360,230). It does
+                 NOT travel the lemniscate; the information (proof pulses) does.
+                 The vault stays centered and only moves upward (and fades at
+                 the seam) via the .ic-ratchet-cinch wrapper — the visual
+                 metaphor is the central record cinching tighter each cycle
+                 while the field-event flow advances around it. -->
+            <g transform="translate(360 230)">
+              <g class="ic-ratchet-cinch">
+                <!-- Static halo mounts the vault on the board. Sized to read
+                     as the central hub of the diagram, not a roaming marker. -->
+                <circle cx="0" cy="0" r="64" fill="#0A1416" opacity="0.85"/>
+                <circle cx="0" cy="0" r="64" fill="none" stroke="#1E3338" stroke-width="1"/>
+                <circle cx="0" cy="0" r="58" fill="none" stroke="#C99D3F" stroke-width="0.5" opacity="0.5" stroke-dasharray="2 6"/>
 
-                <!-- The ratchet wheel — scaled down to read as a traveling marker,
-                     and rotated forward-only via .ic-ratchet-spin. -->
+                <!-- The ratchet wheel — full hub size, rotated forward-only. -->
                 <g class="ic-ratchet-spin">
-                  <g transform="scale(0.5)">
+                  <g transform="scale(0.85)">
                     <use href="#ic-ratchet-wheel"/>
                   </g>
                 </g>
 
-                <!-- Center K1 mark, lit gold to read like the control marker. -->
+                <!-- Center K1 mark, lit gold like the control hub. -->
                 <g font-family="'Fraunces', Georgia, serif" font-weight="700" text-anchor="middle">
-                  <text x="0" y="4.5" font-size="14" fill="#EFC766" letter-spacing="-0.5">K1</text>
+                  <text x="0" y="7" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
                 </g>
               </g>
             </g>
