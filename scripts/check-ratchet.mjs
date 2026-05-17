@@ -326,25 +326,31 @@ function extractKeyframesBody(src, name) {
 //     the Infinity Curve. The "traditional construction" path should read as
 //     the OLD lifecycle, visually separate from the live Infinity Curve.
 //
-//     Strategy: confirm a warm rust/amber color (any color containing the
-//     "C76830" / "A04A1E" / "E08856" / "6E2F12" family of legacy-accent
-//     hexes) appears inside the linear-path figure AND that the strip's
-//     dominant labels are NOT the cool teal (#6FA8B0/#8FA3A8) used by the
-//     Infinity Curve board.
+//     Strategy: confirm a Seahawks-style action / construction green color
+//     (any color in the "69BE28" / "3F7A18" / "A8D169" / "0F3D08" family of
+//     legacy-accent hexes) appears inside the linear-path figure AND that
+//     the strip's dominant labels are NOT the cool teal (#6FA8B0/#8FA3A8)
+//     used by the Infinity Curve board. The strip must also be free of
+//     the gold (#C99D3F/#E2B860) tones the Infinity Curve uses, so the two
+//     palettes remain visually distinct.
 {
   const linOpen = html.indexOf('class="linear-path"');
   if (linOpen === -1) fail("missing .linear-path — traditional strip is gone");
   else {
     const linClose = html.indexOf("</figure>", linOpen);
     const block = html.slice(linOpen, linClose);
-    const RUST = /#C76830|#A04A1E|#E08856|#6E2F12/i;
+    const GREEN = /#69BE28|#3F7A18|#A8D169|#0F3D08/i;
     const COOL = /#6FA8B0|#8FA3A8|#5C7378|#3A4F54/i;
-    const hasRust = RUST.test(block);
+    const GOLD = /#C99D3F|#E2B860|#B58A2A/i;
+    const hasGreen = GREEN.test(block);
     const stillCool = COOL.test(block);
-    if (!hasRust) fail("linear strip has no rust/amber accent color (#C76830/#A04A1E/#E08856) — should read as the legacy 'before' path");
-    else ok("linear strip uses a distinct rust accent palette");
+    const stillGold = GOLD.test(block);
+    if (!hasGreen) fail("linear strip has no construction-green accent color (#69BE28/#3F7A18/#A8D169) — should read as the legacy 'before' path");
+    else ok("linear strip uses a distinct construction-green accent palette");
     if (stillCool) fail(`linear strip still contains steel/teal palette hex (${(block.match(COOL) || [""])[0]}) — accent must be distinct from Infinity Curve cool tones`);
     else ok("linear strip is free of the Infinity Curve's steel/teal palette");
+    if (stillGold) fail(`linear strip contains Infinity Curve gold hex (${(block.match(GOLD) || [""])[0]}) — green accent must stay distinct from the gold/teal palette`);
+    else ok("linear strip is free of the Infinity Curve's gold palette");
 
     // Five stage labels are still all present (regression-guard the rename).
     const stages = ["RFI", "SUBMITTAL", "CHANGE ORDER", "PUNCH", "CLOSEOUT"];
@@ -352,13 +358,13 @@ function extractKeyframesBody(src, name) {
     if (missing.length) fail(`linear path lost stage label(s) during recolor: ${missing.join(", ")}`);
     else ok(`linear strip preserves stage labels (${stages.join(" → ")})`);
 
-    // The linear strip's CSS border-left must use the same rust accent so
+    // The linear strip's CSS border-left must use the same green accent so
     // the panel chrome agrees with the SVG inside it.
     const linRule = css.match(/\.linear-path\s*\{([\s\S]*?)\}/);
     if (!linRule) fail("missing .linear-path CSS rule");
-    else if (!/#C76830|rgba\(199,\s*104,\s*48/i.test(linRule[1])) {
-      fail(".linear-path CSS rule does not include the rust accent (#C76830 / rgba(199,104,48,...)) — panel chrome should match the SVG palette");
-    } else ok(".linear-path panel chrome uses the rust accent");
+    else if (!/#69BE28|rgba\(105,\s*190,\s*40/i.test(linRule[1])) {
+      fail(".linear-path CSS rule does not include the construction-green accent (#69BE28 / rgba(105,190,40,...)) — panel chrome should match the SVG palette");
+    } else ok(".linear-path panel chrome uses the construction-green accent");
   }
 }
 

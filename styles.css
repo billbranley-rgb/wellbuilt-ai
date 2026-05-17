@@ -1496,16 +1496,17 @@ html, body { overflow-x: hidden; }
 .linear-path {
   margin: 0 0 8px;
   padding: 10px clamp(14px, 2vw, 22px) 8px;
-  /* LEGACY-PATH ACCENT: a warm rust wash so the traditional construction
-     strip reads as the OLD path, distinct from the cool gold/teal of the
-     Infinity Curve below. Subtle saturation — distinct, not overpowering. */
+  /* LEGACY-PATH ACCENT: a Seahawks-style action / construction green so the
+     traditional construction strip reads as the OLD path, distinct from the
+     gold/teal Infinity Curve below. Bright enough to pop, still subordinate
+     in scale so the Infinity Curve remains the focal point. */
   background:
-    linear-gradient(180deg, rgba(30,14,8,0.85), rgba(18,8,4,0.85));
-  border: 1px solid rgba(199,104,48,0.42);
-  border-left: 3px solid #C76830;
+    linear-gradient(180deg, rgba(8,22,6,0.85), rgba(4,14,3,0.85));
+  border: 1px solid rgba(105,190,40,0.42);
+  border-left: 3px solid #69BE28;
   border-radius: 2px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.28),
-              inset 0 0 0 1px rgba(199,104,48,0.06);
+              inset 0 0 0 1px rgba(105,190,40,0.06);
   position: relative;
 }
 .linear-path-svg {
@@ -1519,21 +1520,21 @@ html, body { overflow-x: hidden; }
   gap: 2px;
   margin-top: 4px;
   padding-top: 6px;
-  border-top: 1px solid rgba(199,104,48,0.24);
+  border-top: 1px solid rgba(105,190,40,0.24);
 }
 .linear-path-title {
   font-family: var(--f-display);
   font-size: clamp(13px, 1.3vw, 15px);
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #E08856;
+  color: #A8D169;
 }
 .linear-path-sub {
   font-family: var(--f-sans);
   font-size: 11.5px;
   line-height: 1.4;
   letter-spacing: 0.01em;
-  color: rgba(224,136,86,0.82);
+  color: rgba(168,209,105,0.82);
 }
 
 /* TRANSFORM CONNECTOR — bridges the linear strip and the Infinity Curve.
