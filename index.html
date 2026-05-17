@@ -467,11 +467,14 @@
 
             <!-- THE RATCHET / VAULT — anchored at the gate (360,230). It does
                  NOT travel the lemniscate; the information (proof pulses) does.
-                 The vault stays centered and only moves upward (and fades at
-                 the seam) via the .ic-ratchet-cinch wrapper — the visual
-                 metaphor is the central record cinching tighter each cycle
-                 while the field-event flow advances around it. -->
-            <g transform="translate(360 230)">
+                 The vault stays centered horizontally and only moves upward
+                 (and fades at the seam) via the .ic-ratchet-cinch wrapper —
+                 the visual metaphor is the central record cinching tighter
+                 each cycle while the field-event flow advances around it.
+                 The outer .ic-ratchet-anchor has no animation and no class-
+                 based positioning; the translate() is the single source of
+                 truth for "stays at the gate." Do not add an orbit wrapper. -->
+            <g class="ic-ratchet-anchor" transform="translate(360 230)">
               <g class="ic-ratchet-cinch">
                 <!-- Static halo mounts the vault on the board. Sized to read
                      as the central hub of the diagram, not a roaming marker. -->

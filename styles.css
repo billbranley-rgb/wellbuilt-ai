@@ -1331,12 +1331,21 @@ html, body { overflow-x: hidden; }
 }
 
 /* CINCH — forward-only upward drift on the central ratchet/vault. The
-   vault is anchored at the gate (its parent <g> applies translate(360,230));
-   this rule layers a vertical lift + opacity fade on top. The wrapper
-   rises ~8px over each 18s cycle, reads as "tightening" like a zip tie.
-   The reset back to translateY(0) happens while opacity is 0, so the eye
-   never sees a downward snap. The vault stays centered horizontally; the
-   field-event flow advances around it via the proof pulses. */
+   vault is anchored at the gate (its parent .ic-ratchet-anchor applies
+   transform="translate(360 230)" inline); this rule layers a vertical
+   lift + opacity fade on top. The wrapper rises ~8px over each 18s cycle,
+   reads as "tightening" like a zip tie. The reset back to translateY(0)
+   happens while opacity is 0, so the eye never sees a downward snap. The
+   vault stays centered horizontally; the field-event flow advances around
+   it via the proof pulses.
+
+   IMPORTANT: there is intentionally NO motion-path or horizontal travel
+   animation on the vault. An earlier iteration sent the vault traveling
+   around the lemniscate via a CSS motion path; that was removed because
+   the central record must stay put. If you find yourself adding a motion
+   path, an animateMotion element, or a translateX animation to anything
+   inside `.ic-ratchet-anchor`, you are reverting that decision — talk
+   to product first. */
 .ic-ratchet-cinch {
   transform-box: fill-box;
   transform-origin: center;
