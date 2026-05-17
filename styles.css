@@ -1058,20 +1058,6 @@ html, body { overflow-x: hidden; }
   .hero-headline h1 { font-size: clamp(30px, 7.6vw, 40px); line-height: 1.06; }
   .lede { font-size: 16px; margin-bottom: 24px; }
 
-  /* Mobile hero reorder: open the page with the Mobile Command Center copy,
-     not the SVG diagram. The DOM order is eyebrow → visual → headline so we
-     flip to a flex column with explicit `order` values: eyebrow first,
-     headline (H1 + pill + body + CTAs) second, then the visual after. The
-     visual still appears in the hero, just below the call-to-action so the
-     copy lands first. Desktop layout (no flex applied) is unchanged. */
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-  }
-  .hero-eyebrow  { order: 1; }
-  .hero-headline { order: 2; }
-  .hero-visual   { order: 3; margin-top: 28px; margin-bottom: 16px; }
-
   /* CTAs stack and fill width for tap targets */
   .hero-cta, .command-actions { flex-direction: column; align-items: stretch; }
   .hero-cta .btn, .command-actions .btn { width: 100%; justify-content: center; }
@@ -1196,13 +1182,22 @@ html, body { overflow-x: hidden; }
   gap: 48px;
   align-items: center;
 }
-/* DOM order is video-first (so on mobile the Infinity Curve leads and the
-   Command Center follows). On desktop, preserve the original visual layout
-   with text on the left and video on the right. */
-@media (min-width: 981px) {
-  .explainer-grid .explainer-text  { order: 1; }
-  .explainer-grid .explainer-video { order: 2; }
-}
+/* Section order — load-bearing for the mobile opening view:
+   - DOM order is .explainer-video first, .explainer-text second.
+   - The hero <section class="hero"> at the top of the page is
+     `display: none` (a design decision in the original commit), so
+     this explainer section is what users actually see first under
+     the header on every viewport.
+   - Mobile (single-column grid, ≤980px): without these `order` rules
+     the Infinity Curve graphic would render before the Mobile
+     Command Center copy. With them, text renders first.
+   - Desktop (two-column grid, ≥981px): CSS Grid honors `order` for
+     auto-placement, so text occupies the left column and the video
+     the right column. The desktop visual layout is unchanged.
+   These `order` values are intentionally applied at all viewports —
+   one rule, no special-casing. */
+.explainer-grid .explainer-text  { order: 1; }
+.explainer-grid .explainer-video { order: 2; }
 .explainer-text h2 { max-width: 18ch; margin-bottom: 14px; }
 .explainer-text .lede { max-width: 50ch; margin-bottom: 22px; }
 .command-actions {
