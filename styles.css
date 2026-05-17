@@ -1893,3 +1893,333 @@ html, body { overflow-x: hidden; }
   padding: 6px 0 6px 14px;
   max-width: 32ch;
 }
+
+/* ============== K1 ARCHITECTURE / LIFECYCLE / PERMISSIONS ============== */
+/* Section sits between the cream explainer and the cream thesis. Visually
+   echoes the .gauntlet rail / Evidence Vault palette so the lifecycle and
+   four-gate architecture read as a single sealed system. */
+
+.section--k1arch { padding-top: 88px; padding-bottom: 88px; }
+.section--k1arch .display { margin-bottom: 8px; }
+.section--k1arch .lede { max-width: 70ch; }
+
+.k1arch-block + .k1arch-block { margin-top: 72px; }
+
+/* ----- A) Lifecycle rail ----- */
+.k1arch-rail {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  counter-reset: k1arch-rail;
+}
+.k1arch-stage {
+  position: relative;
+  padding: 18px 18px 18px 18px;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-line);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  min-height: 100%;
+}
+.k1arch-stage h3 {
+  font-family: var(--f-display);
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: var(--text-on-dark);
+  margin: 0 0 6px;
+}
+.k1arch-stage p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-on-dark-mu);
+  margin: 0 0 6px;
+}
+.k1arch-stage p:last-child { margin-bottom: 0; }
+.k1arch-stage-lede {
+  color: var(--gold-soft) !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.k1arch-stage-num {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.k1arch-stage--ip {
+  border-left-color: var(--teal-bright);
+  background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink-soft) 100%);
+}
+.k1arch-stage--ip .k1arch-stage-num { color: var(--teal-glow); }
+
+/* ----- B) Architecture / four gates ----- */
+.k1arch-arch-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.k1arch-ip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.k1arch-ip-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--ink);
+  background: var(--gold-bright);
+  border-radius: 4px;
+}
+.k1arch-ip-pat {
+  display: inline-block;
+  padding: 6px 12px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  color: var(--teal-glow);
+  border: 1px solid rgba(107, 211, 220, 0.45);
+  border-radius: 4px;
+}
+
+.k1arch-gate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.k1arch-gate {
+  padding: 20px;
+  background: var(--ink-2);
+  border: 1px solid var(--ink-line);
+  border-top: 2px solid var(--teal-bright);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+.k1arch-gate-head { margin-bottom: 10px; }
+.k1arch-gate-num {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--teal-glow);
+  display: block;
+  margin-bottom: 4px;
+}
+.k1arch-gate h4 {
+  font-family: var(--f-display);
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-on-dark);
+  letter-spacing: 0.005em;
+}
+.k1arch-gate > p {
+  color: var(--text-on-dark-mu);
+  font-size: 13.5px;
+  margin: 0 0 12px;
+}
+.k1arch-gate-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.k1arch-gate-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  color: var(--text-on-dark);
+  line-height: 1.45;
+}
+.k1arch-gate-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  transform: rotate(45deg);
+}
+
+.k1arch-vault-record {
+  margin-top: 32px;
+  padding: 24px 24px 20px;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+  border-left: 3px solid var(--gold-bright);
+  border-radius: 6px;
+}
+.k1arch-vault-record .eyebrow { margin-bottom: 12px; }
+.k1arch-vault-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 28px;
+}
+.k1arch-vault-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-on-dark-mu);
+}
+.k1arch-vault-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.k1arch-vault-list b { color: var(--text-on-dark); font-weight: 600; }
+
+.k1arch-verbs {
+  margin-top: 28px;
+  text-align: center;
+  font-family: var(--f-display);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-size: 14px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.k1arch-verb {
+  display: inline-block;
+  padding: 0 4px;
+  color: var(--gold);
+}
+.k1arch-verb-sep { color: var(--text-on-dark-mu); padding: 0 6px; }
+
+.k1arch-posture {
+  margin-top: 24px;
+  padding: 22px 24px;
+  background: rgba(14, 91, 99, 0.10);
+  border: 1px solid rgba(107, 211, 220, 0.20);
+  border-radius: 6px;
+  max-width: 90ch;
+}
+.k1arch-posture p {
+  color: var(--text-on-dark);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.k1arch-posture p:last-child { margin-bottom: 0; }
+.k1arch-posture-lede { color: var(--text-on-dark) !important; font-size: 16px !important; }
+.k1arch-posture-safety { color: var(--text-on-dark-mu) !important; font-style: italic; }
+
+/* ----- C) Permission matrix ----- */
+.k1arch-matrix-wrap {
+  margin-top: 24px;
+  overflow-x: auto;
+  border: 1px solid var(--ink-line);
+  border-radius: 6px;
+  background: var(--ink-2);
+}
+.k1arch-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: 13.5px;
+}
+.k1arch-matrix thead th {
+  text-align: center;
+  padding: 14px 12px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  background: var(--ink-soft);
+  border-bottom: 1px solid var(--ink-line);
+}
+.k1arch-matrix thead th.k1arch-mx-cap {
+  text-align: left;
+  color: var(--text-on-dark-mu);
+}
+.k1arch-matrix tbody tr + tr th,
+.k1arch-matrix tbody tr + tr td {
+  border-top: 1px solid var(--ink-line);
+}
+.k1arch-matrix tbody th {
+  text-align: left;
+  padding: 14px 14px;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  font-size: 13.5px;
+  vertical-align: middle;
+}
+.k1arch-matrix tbody th .mx-sub {
+  color: var(--text-on-dark-mu);
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 4px;
+}
+.k1arch-matrix tbody td {
+  text-align: center;
+  padding: 14px 8px;
+  font-size: 17px;
+  line-height: 1;
+}
+.k1arch-matrix tbody tr:hover { background: rgba(255, 255, 255, 0.015); }
+.mx-full { color: var(--gold-bright); font-weight: 700; }
+.mx-cond { color: var(--teal-glow); font-weight: 700; }
+.mx-none { color: var(--text-on-dark-mu); }
+
+.k1arch-legend {
+  margin: 14px 0 0;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-on-dark-mu);
+  text-transform: uppercase;
+}
+
+/* ----- CTA ----- */
+.k1arch-cta {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 22px;
+}
+.k1arch-cta-note {
+  font-size: 13px;
+  color: var(--text-on-dark-mu);
+  letter-spacing: 0.01em;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1100px) {
+  .k1arch-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .k1arch-gate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .section--k1arch { padding-top: 64px; padding-bottom: 64px; }
+  .k1arch-rail { grid-template-columns: 1fr; }
+  .k1arch-gate-grid { grid-template-columns: 1fr; }
+  .k1arch-vault-list { grid-template-columns: 1fr; }
+  .k1arch-arch-head { grid-template-columns: 1fr; }
+  .k1arch-ip { align-items: flex-start; flex-direction: row; }
+  .k1arch-block + .k1arch-block { margin-top: 56px; }
+}
