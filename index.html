@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>K1 — Field change in. Vault-backed evidence out.</title>
+<meta name="description" content="K1 is the field-first, mobile-first, field-change evidence system. Capture, validate, vault, route. Field truth into commercial proof." />
+<meta name="theme-color" content="#0B1416" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-wrap">
+    <a href="#top" class="brand" aria-label="K1 home">
+      <svg class="k1-mark" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M9 8 V32 M9 21 L19 8 M9 21 L20 32" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="square"/>
+        <path d="M27 32 V12.5 L24 14.5" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      <span class="brand-text">K1</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#explainer">Command Center</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#problem">Problem</a>
+      <a href="#system">System</a>
+      <a href="#vault">Vault</a>
+      <a href="#walkthrough">Tutorials</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow eyebrow--gold">K1 &nbsp;·&nbsp; The field-change evidence system</span>
+    </div>
+
+    <!-- Field gravity / Evidence Vault / Infinity visual -->
+    <div class="hero-visual" aria-label="K1 field gravity diagram: field truth in, evidence vault, project intelligence out">
+      <svg viewBox="0 0 1200 520" class="hero-svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="blueStream" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#6BD3DC" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#6BD3DC" stop-opacity="0.9"/>
+            <stop offset="65%" stop-color="#3FA8B5" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#1E6E78" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="goldStream" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#7A5B1F" stop-opacity="0"/>
+            <stop offset="35%" stop-color="#C99D3F" stop-opacity="1"/>
+            <stop offset="70%" stop-color="#EFC766" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#EFC766" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="vaultGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#7BC9D4" stop-opacity="0.45"/>
+            <stop offset="60%" stop-color="#0E5B63" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#0E5B63" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="vaultFace" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#142A30"/>
+            <stop offset="100%" stop-color="#0A1A1E"/>
+          </linearGradient>
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <pattern id="bp" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+            <path d="M56 0H0V56" fill="none" stroke="#1B3338" stroke-width="0.6"/>
+          </pattern>
+        </defs>
+
+        <!-- Blueprint grid background -->
+        <rect x="0" y="0" width="1200" height="520" fill="url(#bp)"/>
+
+        <!-- Infinity / field-gravity arcs: Year 1 starts tight at field truth, then compounds upward/outward -->
+        <g opacity="0.58" stroke="#1E5961" stroke-width="0.9" fill="none">
+          <ellipse cx="500" cy="340" rx="170" ry="36"/>
+          <ellipse cx="530" cy="315" rx="250" ry="58"/>
+          <ellipse cx="560" cy="290" rx="330" ry="86"/>
+          <ellipse cx="590" cy="265" rx="420" ry="120"/>
+          <ellipse cx="620" cy="240" rx="525" ry="160"/>
+        </g>
+
+        <!-- Year labels (subtle) -->
+        <g font-family="Inter, sans-serif" font-size="10" letter-spacing="2.5" fill="#6FA8B0" opacity="0.78">
+          <text x="210" y="350">YEAR 1</text>
+          <text x="185" y="310">YEAR 2</text>
+          <text x="155" y="270">YEAR 3</text>
+          <text x="125" y="230">YEAR 4</text>
+          <text x="95" y="188">YEAR 5+</text>
+        </g>
+        <g font-family="Inter, sans-serif" font-size="10" letter-spacing="2.5" fill="#B8965A" opacity="0.85" text-anchor="start">
+          <text x="1088" y="250">PREDICT</text>
+          <text x="1088" y="278">DECIDE</text>
+          <text x="1088" y="306">INSIGHT</text>
+          <text x="1088" y="334">LEARN</text>
+          <text x="1088" y="362">MEMORY</text>
+        </g>
+
+        <!-- Vault glow -->
+        <circle cx="600" cy="270" r="220" fill="url(#vaultGlow)"/>
+
+        <!-- Blue stream (field truth in) -->
+        <path d="M40,400 C 220,400 320,330 600,270" stroke="url(#blueStream)" stroke-width="5" fill="none" filter="url(#softGlow)"/>
+        <path d="M40,400 C 220,400 320,330 600,270" stroke="#A9E6EE" stroke-width="1.6" fill="none" opacity="0.7"/>
+
+        <!-- Gold stream (project intelligence out, then continuing forward) -->
+        <path class="proof-flow proof-flow--gold" d="M600,270 C 760,245 845,210 930,165 C 1015,120 1090,130 1160,140 C 1210,148 1250,132 1285,110" stroke="url(#goldStream)" stroke-width="5" fill="none" filter="url(#softGlow)"/>
+        <path class="proof-thread proof-thread--gold" d="M600,270 C 760,245 845,210 930,165 C 1015,120 1090,130 1160,140 C 1210,148 1250,132 1285,110" stroke="#F2D88A" stroke-width="1.4" fill="none" opacity="0.8"/>
+
+        <!-- Infinity curve weaving through center, with forward continuation -->
+        <path class="infinity-guide" d="M300,330 C 335,170 530,160 600,260 C 670,360 875,350 910,205 C 945,70 720,80 600,260 C 480,440 265,455 300,330 Z"
+              stroke="#3FA8B5" stroke-width="1.35" fill="none" opacity="0.58"/>
+        <path class="infinity-guide infinity-guide--continuation" d="M910,205 C 980,145 1058,132 1160,140 C 1215,144 1260,126 1290,92"
+              stroke="#C99D3F" stroke-width="1.25" fill="none" opacity="0.72" stroke-dasharray="8 10"/>
+
+        <!-- Moving proof pulses: field truth becomes vault-backed intelligence -->
+        <circle r="4.5" fill="#A9E6EE" opacity="0.9" filter="url(#softGlow)">
+          <animateMotion dur="7.5s" repeatCount="indefinite" path="M40,400 C 220,400 320,330 600,270 C 760,245 845,210 930,165 C 1015,120 1090,130 1160,140"/>
+        </circle>
+        <circle r="3.5" fill="#F2D88A" opacity="0.9" filter="url(#softGlow)">
+          <animateMotion dur="7.5s" begin="1.8s" repeatCount="indefinite" path="M40,400 C 220,400 320,330 600,270 C 760,245 845,210 930,165 C 1015,120 1090,130 1160,140"/>
+        </circle>
+
+        <!-- Field Truth orb -->
+        <g transform="translate(170,395)">
+          <circle r="36" fill="#0A1A1E" stroke="#3FA8B5" stroke-width="1.4"/>
+          <circle r="30" fill="none" stroke="#3FA8B5" stroke-width="0.6" opacity="0.5"/>
+          <!-- worker icon -->
+          <path d="M-9,-3 a9,9 0 1,1 18,0" stroke="#A9E6EE" stroke-width="1.6" fill="none"/>
+          <path d="M-13,-3 h26" stroke="#A9E6EE" stroke-width="1.4"/>
+          <circle cx="0" cy="3" r="5" fill="#A9E6EE"/>
+          <path d="M-9,15 c2,-7 16,-7 18,0" stroke="#A9E6EE" stroke-width="1.6" fill="none"/>
+        </g>
+        <g font-family="Inter, sans-serif" fill="#A9E6EE" text-anchor="middle">
+          <text x="170" y="465" font-size="13" font-weight="600" letter-spacing="2">FIELD TRUTH</text>
+        </g>
+
+        <!-- Evidence Vault cube -->
+        <g transform="translate(520,170)">
+          <!-- back/iso panels -->
+          <polygon points="20,30 140,0 140,180 20,210" fill="#0E2A30" stroke="#3FA8B5" stroke-width="1" opacity="0.85"/>
+          <polygon points="140,0 160,30 160,210 140,180" fill="#0A1A1E" stroke="#3FA8B5" stroke-width="1" opacity="0.85"/>
+          <!-- front face -->
+          <rect x="20" y="30" width="140" height="180" fill="url(#vaultFace)" stroke="#C99D3F" stroke-width="1.4"/>
+          <!-- inner grid -->
+          <g stroke="#1E5961" stroke-width="0.5" opacity="0.7">
+            <line x1="20" y1="70" x2="160" y2="70"/>
+            <line x1="20" y1="110" x2="160" y2="110"/>
+            <line x1="20" y1="150" x2="160" y2="150"/>
+            <line x1="60" y1="30" x2="60" y2="210"/>
+            <line x1="100" y1="30" x2="100" y2="210"/>
+            <line x1="140" y1="30" x2="140" y2="210"/>
+          </g>
+          <!-- corner brackets -->
+          <g stroke="#C99D3F" stroke-width="2" fill="none">
+            <path d="M20,40 V30 H30"/>
+            <path d="M150,30 H160 V40"/>
+            <path d="M20,200 V210 H30"/>
+            <path d="M150,210 H160 V200"/>
+          </g>
+          <!-- lock -->
+          <g transform="translate(90,82)">
+            <path d="M-7,-2 a7,7 0 0,1 14,0 v6" stroke="#C99D3F" stroke-width="1.4" fill="none"/>
+            <rect x="-10" y="4" width="20" height="16" fill="#C99D3F" rx="1"/>
+            <circle cx="0" cy="12" r="2" fill="#0A1A1E"/>
+          </g>
+          <text x="90" y="118" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="18" fill="#F4E9CC">EVIDENCE</text>
+          <text x="90" y="140" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="18" fill="#F4E9CC">VAULT</text>
+        </g>
+
+        <!-- Project Intelligence orb -->
+        <g transform="translate(1050,140)">
+          <circle r="46" fill="#0A1A1E" stroke="#C99D3F" stroke-width="1.4"/>
+          <circle r="38" fill="none" stroke="#C99D3F" stroke-width="0.6" opacity="0.5"/>
+          <!-- chart spark -->
+          <path d="M-22,12 L-10,2 L0,8 L12,-8 L22,-14" stroke="#F2D88A" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="-22" cy="12" r="2.4" fill="#F2D88A"/>
+          <circle cx="-10" cy="2" r="2.4" fill="#F2D88A"/>
+          <circle cx="0" cy="8" r="2.4" fill="#F2D88A"/>
+          <circle cx="12" cy="-8" r="2.4" fill="#F2D88A"/>
+          <circle cx="22" cy="-14" r="2.4" fill="#F2D88A"/>
+        </g>
+        <g font-family="Inter, sans-serif" fill="#F2D88A" text-anchor="middle">
+          <text x="1050" y="218" font-size="13" font-weight="600" letter-spacing="2">PROJECT</text>
+          <text x="1050" y="234" font-size="13" font-weight="600" letter-spacing="2">INTELLIGENCE</text>
+        </g>
+
+        <!-- Human Validation node above vault -->
+        <g transform="translate(600,100)">
+          <circle r="26" fill="#0A1A1E" stroke="#C99D3F" stroke-width="1.4"/>
+          <path d="M-7,-3 a7,7 0 1,1 14,0" stroke="#F4E9CC" stroke-width="1.4" fill="none"/>
+          <circle cx="0" cy="2" r="3.8" fill="#F4E9CC"/>
+          <path d="M-7,12 c2,-5 12,-5 14,0" stroke="#F4E9CC" stroke-width="1.4" fill="none"/>
+          <path d="M-10,-12 l4,4 l8,-8" stroke="#C99D3F" stroke-width="1.8" fill="none" transform="translate(8,-12)"/>
+        </g>
+        <g font-family="Inter, sans-serif" fill="#F4E9CC" text-anchor="middle">
+          <text x="600" y="55" font-size="11" font-weight="600" letter-spacing="3">HUMAN VALIDATION</text>
+        </g>
+
+        <!-- gold rule under visual -->
+        <rect x="40" y="490" width="80" height="3" fill="#C99D3F"/>
+      </svg>
+    </div>
+
+    <div class="hero-headline">
+      <h1>
+        <span class="hl-line">Field change in.</span>
+        <span class="hl-line">Vault-backed evidence out.</span>
+      </h1>
+      <p class="hero-sub">Field-first, mobile-first. The field-change evidence system.</p>
+      <div class="hero-meta">
+        <span class="meta-l">Bill Branley</span>
+        <span class="meta-dot">·</span>
+        <span class="meta-r">Founder, K1</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#pilot" class="btn btn-primary">Request a K1 pilot</a>
+        <a href="#explainer" class="btn btn-ghost">Watch the explainer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INFINITY CURVE EXPLAINER (front-page video) ============== -->
+<section class="section section--dark section--explainer" id="explainer">
+  <div class="container">
+    <div class="explainer-grid">
+      <div class="explainer-text">
+        <div class="eyebrow eyebrow--gold">Construction’s mobile command center</div>
+        <h2 class="display display--light">
+          Welcome to the Mobile Command Center.
+        </h2>
+        <p class="field-first-callout">MOBILE-FIRST. FIELD-FIRST.</p>
+        <p class="lede lede--light">The executive’s desk finally reaches the field. K1 starts where the work happens, then turns every validated field event into active control before time is lost, money is spent, and the record can slide backward.</p>
+        <div class="command-actions">
+          <a class="btn btn-primary" href="assets/embed/console.html" target="_blank" rel="noopener">Open full command center</a>
+          <a class="btn btn-ghost" href="#command-tutorials">Watch field tutorials</a>
+        </div>
+        <ul class="explainer-beats">
+          <li><span class="beat-num">01</span><span><b>Field truth</b> — captured at the work face by the people who did the work.</span></li>
+          <li><span class="beat-num">02</span><span><b>Human validation</b> — the gate. Every record either passes or it never enters the vault.</span></li>
+          <li><span class="beat-num">03</span><span><b>Locked travel</b> — once vaulted, the record advances the thread. It cannot reverse, cannot be silently edited, cannot be lost.</span></li>
+          <li><span class="beat-num">04</span><span><b>Compounding intelligence</b> — every turn of the ratchet makes the next job smarter.</span></li>
+        </ul>
+      </div>
+      <div class="explainer-video">
+        <div class="vp vp--featured" data-src="assets/video/k1-infinity-curve-explainer.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-infinity-curve-explainer.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play the K1 Infinity Curve explainer">
+            <span class="play-disc">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+            </span>
+          </button>
+          <span class="vp-label">Explainer · The Infinity Curve</span>
+          <span class="vp-duration">01:42</span>
+        </div>
+        <div class="explainer-caption">Field truth → human validation → evidence vault → next job smarter. The K1 thesis in 102 seconds.</div>
+      </div>
+    </div>
+
+    <div class="command-tutorials" id="command-tutorials">
+      <div class="command-tutorials-head">
+        <div>
+          <div class="eyebrow eyebrow--teal">Command Center Tutorials</div>
+          <h3>Put the whole training deck on the field-capture page.</h3>
+        </div>
+        <p>Fast cuts for the front line of the built world: capture at the work face, validate in the office, lock the evidence vault, and push the next job smarter.</p>
+      </div>
+      <div class="command-tutorial-grid">
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-desk-field-command.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-desk-field-command.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play The Desk Reaches the Field">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">01:35</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>01 · Field-first command</span>
+            <h4>The Desk Finally Reaches the Field</h4>
+            <p>The opening command-center film: the office moves to the field, where the work and the truth begin.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-frontline-built-world.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-frontline-built-world.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play Front Line of the Built World">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">00:59</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>02 · Front line</span>
+            <h4>The Front Line of the Built World</h4>
+            <p>Every tradesman has the internet in his pocket. The command layer finally catches up.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-command-field-proof.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-command-field-proof.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play Every Jobsite Runs on Phones">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">00:48</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>03 · Phones are the rail</span>
+            <h4>Every Jobsite Runs on Phones</h4>
+            <p>Foremen, supers, inspectors, and crews already carry the command layer.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-simple-truth-infinity-curve.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-simple-truth-infinity-curve.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play Simple Truth Infinity Curve">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">01:01</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>04 · Simple truth</span>
+            <h4>Construction Was Never Short on Intelligence</h4>
+            <p>The problem was never field knowledge. The problem was preserving it before it decays.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-system-walkthrough.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-system-walkthrough.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play System Walkthrough">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">00:36</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>05 · Proof gauntlet</span>
+            <h4>Capture → Validate → Vault</h4>
+            <p>The command-center loop: field event, human gate, sealed commercial record.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-vault-tutorial.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-vault-tutorial.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play Evidence Vault Tutorial">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">00:30</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>06 · Evidence vault</span>
+            <h4>Built for Complex Work</h4>
+            <p>How validated field truth becomes a sealed package for owners and executives.</p>
+          </div>
+        </article>
+        <article class="command-tutorial-card">
+          <div class="vp" data-src="assets/video/k1-companion-demo.mp4">
+            <div class="vp-poster" style="background-image:url('assets/posters/k1-companion-demo.jpg');"></div>
+            <div class="vp-overlay"></div>
+            <button class="vp-play" aria-label="Play Office Companion Demo">
+              <span class="play-disc"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+            </button>
+            <span class="vp-duration">01:01</span>
+          </div>
+          <div class="command-tutorial-body">
+            <span>07 · Office companion</span>
+            <h4>Review, Approve, Route</h4>
+            <p>The desk finally reaches the field, then routes proof back to the office.</p>
+          </div>
+        </article>
+      </div>
+      <div class="command-tutorial-more">
+        <a class="btn btn-ghost" href="#walkthrough">Open full tutorial library ↓</a>
+      </div>
+    </div>
+
+    <!-- Ratchet thread visual + supporting copy -->
+    <div class="ratchet-row" aria-labelledby="ratchet-h">
+      <figure class="ratchet-fig">
+        <svg class="ratchet-svg" viewBox="0 0 360 520" role="img" aria-label="A threaded rod with a locking collar climbing upward. Each lit turn marks a validated field event. The lock prevents the collar from sliding back." xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rodGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#0E5B63" stop-opacity="0.0"/>
+              <stop offset="0.45" stop-color="#6BD3DC" stop-opacity="0.55"/>
+              <stop offset="0.55" stop-color="#6BD3DC" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="#0E5B63" stop-opacity="0.0"/>
+            </linearGradient>
+            <linearGradient id="glowUp" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#3FA8B5" stop-opacity="0"/>
+              <stop offset="0.45" stop-color="#3FA8B5" stop-opacity="0.18"/>
+              <stop offset="1" stop-color="#EFC766" stop-opacity="0.45"/>
+            </linearGradient>
+            <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2.2"/>
+            </filter>
+          </defs>
+
+          <!-- blueprint grid backdrop -->
+          <g stroke="#F0EBDD" stroke-opacity="0.04" stroke-width="0.5">
+            <line x1="30" x2="330" y1="60"  y2="60"/>
+            <line x1="30" x2="330" y1="120" y2="120"/>
+            <line x1="30" x2="330" y1="180" y2="180"/>
+            <line x1="30" x2="330" y1="240" y2="240"/>
+            <line x1="30" x2="330" y1="300" y2="300"/>
+            <line x1="30" x2="330" y1="360" y2="360"/>
+            <line x1="30" x2="330" y1="420" y2="420"/>
+            <line x1="30" x2="330" y1="480" y2="480"/>
+            <line x1="90"  x2="90"  y1="30" y2="500"/>
+            <line x1="180" x2="180" y1="30" y2="500"/>
+            <line x1="270" x2="270" y1="30" y2="500"/>
+          </g>
+
+          <!-- upward glow column behind the rod -->
+          <rect x="148" y="40" width="64" height="450" fill="url(#glowUp)" opacity="0.85"/>
+
+          <!-- THREADED ROD: two vertical edges + thread arcs -->
+          <g stroke="#6BD3DC" stroke-opacity="0.55" stroke-width="1.2" fill="none">
+            <line x1="166" x2="166" y1="40" y2="480"/>
+            <line x1="194" x2="194" y1="40" y2="480"/>
+          </g>
+          <!-- Thread turns (slight diagonal ellipses, repeat) -->
+          <g stroke="url(#rodGrad)" stroke-width="1.2" fill="none">
+            <!-- 22 thread arcs spaced 20px -->
+            <path d="M166 60   Q180 56 194 60"/>
+            <path d="M166 60   Q180 64 194 60" stroke-opacity="0.35"/>
+            <path d="M166 80   Q180 76 194 80"/>
+            <path d="M166 80   Q180 84 194 80" stroke-opacity="0.35"/>
+            <path d="M166 100  Q180 96 194 100"/>
+            <path d="M166 100  Q180 104 194 100" stroke-opacity="0.35"/>
+            <path d="M166 120  Q180 116 194 120"/>
+            <path d="M166 120  Q180 124 194 120" stroke-opacity="0.35"/>
+            <path d="M166 140  Q180 136 194 140"/>
+            <path d="M166 140  Q180 144 194 140" stroke-opacity="0.35"/>
+            <path d="M166 160  Q180 156 194 160"/>
+            <path d="M166 160  Q180 164 194 160" stroke-opacity="0.35"/>
+            <path d="M166 180  Q180 176 194 180"/>
+            <path d="M166 180  Q180 184 194 180" stroke-opacity="0.35"/>
+            <path d="M166 200  Q180 196 194 200"/>
+            <path d="M166 200  Q180 204 194 200" stroke-opacity="0.35"/>
+            <path d="M166 220  Q180 216 194 220"/>
+            <path d="M166 220  Q180 224 194 220" stroke-opacity="0.35"/>
+            <path d="M166 240  Q180 236 194 240"/>
+            <path d="M166 240  Q180 244 194 240" stroke-opacity="0.35"/>
+            <path d="M166 260  Q180 256 194 260"/>
+            <path d="M166 260  Q180 264 194 260" stroke-opacity="0.35"/>
+            <path d="M166 280  Q180 276 194 280"/>
+            <path d="M166 280  Q180 284 194 280" stroke-opacity="0.35"/>
+            <path d="M166 300  Q180 296 194 300"/>
+            <path d="M166 300  Q180 304 194 300" stroke-opacity="0.35"/>
+            <path d="M166 320  Q180 316 194 320"/>
+            <path d="M166 320  Q180 324 194 320" stroke-opacity="0.35"/>
+            <path d="M166 340  Q180 336 194 340"/>
+            <path d="M166 340  Q180 344 194 340" stroke-opacity="0.35"/>
+            <path d="M166 360  Q180 356 194 360"/>
+            <path d="M166 360  Q180 364 194 360" stroke-opacity="0.35"/>
+            <path d="M166 380  Q180 376 194 380"/>
+            <path d="M166 380  Q180 384 194 380" stroke-opacity="0.35"/>
+            <path d="M166 400  Q180 396 194 400"/>
+            <path d="M166 400  Q180 404 194 400" stroke-opacity="0.35"/>
+            <path d="M166 420  Q180 416 194 420"/>
+            <path d="M166 420  Q180 424 194 420" stroke-opacity="0.35"/>
+            <path d="M166 440  Q180 436 194 440"/>
+            <path d="M166 440  Q180 444 194 440" stroke-opacity="0.35"/>
+            <path d="M166 460  Q180 456 194 460"/>
+            <path d="M166 460  Q180 464 194 460" stroke-opacity="0.35"/>
+          </g>
+
+          <!-- LIT TURNS (validated events) -->
+          <g stroke="#EFC766" stroke-width="1.6" fill="none" filter="url(#softGlow)">
+            <path d="M166 320  Q180 316 194 320"/>
+            <path d="M166 360  Q180 356 194 360"/>
+            <path d="M166 400  Q180 396 194 400"/>
+            <path d="M166 440  Q180 436 194 440"/>
+          </g>
+          <!-- Validated-turn dots on right edge -->
+          <g fill="#EFC766">
+            <circle cx="198" cy="320" r="2.4"/>
+            <circle cx="198" cy="360" r="2.4"/>
+            <circle cx="198" cy="400" r="2.4"/>
+            <circle cx="198" cy="440" r="2.4"/>
+          </g>
+          <!-- Event labels (bottom = earliest, top = latest before the collar) -->
+          <g font-family="Inter, sans-serif" font-size="9.5" fill="#F0EBDD" fill-opacity="0.65" letter-spacing="1.2">
+            <text x="210" y="324">EVENT 1,127 · VAULTED</text>
+            <text x="210" y="364">EVENT 891 · VAULTED</text>
+            <text x="210" y="404">EVENT 504 · VAULTED</text>
+            <text x="210" y="444">EVENT 217 · VAULTED</text>
+          </g>
+
+          <!-- LOCKING COLLAR (the ratchet nut) -->
+          <g>
+            <!-- collar body -->
+            <rect x="140" y="248" width="80" height="32" rx="2" fill="#0A1416" stroke="#C99D3F" stroke-width="1.6"/>
+            <!-- hex bevels -->
+            <path d="M140 248 L150 240 L210 240 L220 248 Z" fill="#142428" stroke="#C99D3F" stroke-width="1.4"/>
+            <path d="M140 280 L150 288 L210 288 L220 280 Z" fill="#142428" stroke="#C99D3F" stroke-width="1.4"/>
+            <!-- pawl indicator (locking arm) -->
+            <path d="M218 264 L232 258 L232 270 Z" fill="#EFC766"/>
+            <line x1="218" x2="232" y1="264" y2="264" stroke="#C99D3F" stroke-width="1"/>
+            <!-- corner brackets -->
+            <path d="M134 244 L134 254 M134 244 L144 244" stroke="#EFC766" stroke-width="1.4"/>
+            <path d="M226 244 L226 254 M226 244 L216 244" stroke="#EFC766" stroke-width="1.4"/>
+            <path d="M134 284 L134 274 M134 284 L144 284" stroke="#EFC766" stroke-width="1.4"/>
+            <path d="M226 284 L226 274 M226 284 L216 284" stroke="#EFC766" stroke-width="1.4"/>
+            <!-- collar label -->
+            <text x="180" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#EFC766">LOCKED</text>
+            <!-- collar travel label -->
+            <text x="232" y="264" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.2" fill="#EFC766">TODAY · EVENT 1,284</text>
+            <text x="232" y="276" font-family="Inter, sans-serif" font-size="8.5" fill="#F0EBDD" fill-opacity="0.55" letter-spacing="1.4">CANNOT REVERSE</text>
+          </g>
+
+          <!-- upward arrow above collar -->
+          <g stroke="#EFC766" stroke-width="1.6" fill="none">
+            <line x1="180" x2="180" y1="232" y2="60"/>
+            <path d="M174 70 L180 60 L186 70"/>
+          </g>
+          <text x="180" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="2.4" fill="#F0EBDD">PROOF</text>
+
+          <!-- downward arrow with NO-RETURN bar -->
+          <g stroke="#F0EBDD" stroke-opacity="0.35" stroke-width="1" fill="none">
+            <line x1="100" x2="100" y1="304" y2="460"/>
+            <line x1="94"  x2="106" y1="304" y2="304" stroke="#E96A6A" stroke-opacity="0.85" stroke-width="1.6"/>
+            <line x1="96"  x2="104" y1="308" y2="308" stroke="#E96A6A" stroke-opacity="0.85" stroke-width="1"/>
+          </g>
+          <text x="100" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="1.8" fill="#F0EBDD" fill-opacity="0.5">NO RETURN</text>
+
+          <!-- year ring labels -->
+          <g font-family="Inter, sans-serif" font-size="9" fill="#F0EBDD" fill-opacity="0.35" letter-spacing="1.4">
+            <text x="30" y="464">Y1</text>
+            <text x="30" y="404">Y2</text>
+            <text x="30" y="344">Y3</text>
+            <text x="30" y="284">Y4</text>
+            <text x="30" y="224">Y5</text>
+            <text x="30" y="164">Y6</text>
+            <text x="30" y="104">Y7+</text>
+          </g>
+        </svg>
+      </figure>
+      <div class="ratchet-text">
+        <div class="eyebrow eyebrow--gold">Validated distance cannot slide backward</div>
+        <h3 id="ratchet-h" class="display display--md display--light">The infinity loop has a thread — and a lock.</h3>
+        <p>Read the curve vertically. Field truth enters at the bottom. Every validated event is a turn of the thread that lifts proof one click upward. A locking collar — the K1 ratchet — closes behind it. The record can advance. It cannot retreat.</p>
+        <ul class="ratchet-bullets">
+          <li><b>One-way travel.</b> Vaulted records do not silently change, disappear, or revert.</li>
+          <li><b>Locked turns.</b> Each validated event is the unit of compounding — a click on the ratchet.</li>
+          <li><b>Distance is the asset.</b> Years from now, the height on the rod is the proof your project owns.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== THESIS ============== -->
+<section class="section section--cream" id="thesis">
+  <div class="container">
+    <div class="eyebrow eyebrow--teal">The strategic thesis</div>
+    <h2 class="display">
+      The field already has the internet in its pocket.<br/>
+      <span class="ink-muted">The status quo has to catch up.</span>
+    </h2>
+    <div class="thesis-grid">
+      <div class="thesis-col">
+        <p class="lede"><strong>Field-first. Mobile-first.</strong> K1 goes the opposite direction: from the work face up into the office, the owner, and the commercial record.</p>
+        <p>Every tradesman on site carries more computing power than the old trailer ever had. The military, police, and first responders already moved command closer to the front line. K1 brings that same operating logic to the built world.</p>
+      </div>
+      <div class="thesis-col">
+        <div class="quote-block">
+          <p class="quote">The field is no longer an extension of the office.<br/><strong>The office is finally connected to the field.</strong></p>
+        </div>
+        <ul class="thesis-list">
+          <li><span class="ti">·</span> Field-first, mobile-first capture at the point of work</li>
+          <li><span class="ti">·</span> Human Validation Gate before any commercial routing</li>
+          <li><span class="ti">·</span> Evidence Vault creates active control before cost becomes loss</li>
+          <li><span class="ti">·</span> Complementary to existing platforms — not a rip-and-replace</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROBLEM ============== -->
+<section class="section section--dark" id="problem">
+  <div class="container">
+    <div class="eyebrow eyebrow--gold">The problem</div>
+    <h2 class="display display--light">
+      Skilled labor was hired to build.<br/>
+      Not to become note-takers.
+    </h2>
+    <p class="lede lede--light">
+      Construction burns too much time turning field reality into paperwork. The problem is not that contractors lack forms — it is that skilled workers get pulled into secretarial work while decisions, time, and money are already moving.
+    </p>
+    <p class="proof-note">
+      Autodesk/FMI’s <a href="https://www.autodesk.com/blogs/construction/construction-disconnected-fmi-report/" target="_blank" rel="noopener">Construction Disconnected</a> report found construction professionals spend 35% of their time — over 14 hours per week — on non-productive activities like searching for information, conflict resolution, mistakes, and rework.
+    </p>
+
+    <div class="problem-grid">
+      <article class="p-card">
+        <div class="p-num">01</div>
+        <h3>Changed conditions</h3>
+        <p>Foreman sees the soil, the utility, the obstruction. The note ends up in a phone, a text, or a memory.</p>
+      </article>
+      <article class="p-card">
+        <div class="p-num">02</div>
+        <h3>Quantity &amp; sequence</h3>
+        <p>Installed quantities and out-of-sequence work shift in real time. The pay app reconstructs them weeks later.</p>
+      </article>
+      <article class="p-card">
+        <div class="p-num">03</div>
+        <h3>Delay &amp; impact</h3>
+        <p>The crew waits, re-mobilizes, re-routes. The schedule impact is felt long before it is written down.</p>
+      </article>
+      <article class="p-card">
+        <div class="p-num">04</div>
+        <h3>Secretarial work steals leverage</h3>
+        <p>Photos, RFIs, notes, and time sheets are stitched together after the fact. By then the spend has moved, the crew has moved, and the leverage is already gone.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AFTER vs REAL-TIME ============== -->
+<section class="section section--cream" id="contrast">
+  <div class="container">
+    <div class="eyebrow eyebrow--teal">Why current tools fall short</div>
+    <h2 class="display">
+      Documentation is after the fact.<br/>
+      K1 is active control before commitment.
+    </h2>
+
+    <div class="vs-grid">
+      <article class="vs-card vs-card--muted">
+        <div class="eyebrow eyebrow--muted">After the fact</div>
+        <h3 class="vs-head">Most tools manage the change-order process after the entry is already made, after the cost is already in motion.</h3>
+        <ul class="vs-list">
+          <li>Field event is captured in the trailer, not at the work</li>
+          <li>Skilled workers become note-takers instead of staying on skilled work</li>
+          <li>Photos, voice notes, and paperwork are uploaded hours or days later</li>
+          <li>Time, location, and reviewer trail are reconstructed</li>
+          <li>Cost, schedule, and contract references are added by memory</li>
+          <li>Change-order package is assembled after the leverage is gone</li>
+        </ul>
+      </article>
+
+      <article class="vs-card vs-card--dark">
+        <div class="eyebrow eyebrow--gold">Real-time validated</div>
+        <h3 class="vs-head vs-head--light">K1 gives the field an active voice while the work is still controllable.</h3>
+        <ul class="vs-list vs-list--light">
+          <li>Capture at the work — photo, video, voice, location, time</li>
+          <li>Responsible person and reviewer trail attached at the source</li>
+          <li>Human Validation Gate before anything is treated as record</li>
+          <li>Cost, schedule, spec, and contract references linked in</li>
+          <li>Owner-grade control package before the die is cast</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SYSTEM / GAUNTLET ============== -->
+<section class="section section--dark" id="system">
+  <div class="container">
+    <div class="eyebrow eyebrow--gold">The K1 gauntlet</div>
+    <h2 class="display display--light">
+      The Gauntlet is the product.<br/>
+      <span class="ink-muted-d">It turns field noise into commercial proof.</span>
+    </h2>
+
+    <div class="gauntlet">
+      <ol class="g-rail">
+        <li class="g-step">
+          <div class="g-num">01</div>
+          <div class="g-rule"></div>
+          <h3>Capture</h3>
+          <p>The field-change event is captured at the work — photo, video, voice, location, time, responsible person.</p>
+        </li>
+        <li class="g-step">
+          <div class="g-num">02</div>
+          <div class="g-rule"></div>
+          <h3>Organize</h3>
+          <p>AI structures the event into a candidate evidence package — changed condition, spec reference, cost-code candidate, schedule note.</p>
+        </li>
+        <li class="g-step">
+          <div class="g-num">03</div>
+          <div class="g-rule"></div>
+          <h3>Validate</h3>
+          <p>A qualified human approves at the Human Validation Gate before anything becomes commercial record.</p>
+        </li>
+        <li class="g-step">
+          <div class="g-num">04</div>
+          <div class="g-rule"></div>
+          <h3>Vault</h3>
+          <p>Validated evidence is sealed into the Evidence Vault — time-stamped, chain-of-custody, commercially active.</p>
+        </li>
+        <li class="g-step">
+          <div class="g-num">05</div>
+          <div class="g-rule"></div>
+          <h3>Route</h3>
+          <p>The Vault assembles control packages for change events, RFIs, cost-code support, pay-app material, and owner review.</p>
+        </li>
+        <li class="g-step">
+          <div class="g-num">06</div>
+          <div class="g-rule"></div>
+          <h3>Learn</h3>
+          <p>Every validated cycle strengthens the next — patterns, repeat issues, owner behavior, and field conditions.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="gauntlet-foot">
+      <div class="gf-cell">
+        <div class="eyebrow eyebrow--teal">Truth decay</div>
+        <p>Construction truth decays when field change is captured late, validated weakly, and routed manually.</p>
+      </div>
+      <div class="gf-cell">
+        <div class="eyebrow eyebrow--gold">Human validation</div>
+        <p><strong>AI organizes. Humans authorize. K1 preserves the record.</strong><br/><span class="ink-muted-d">AI still needs a foreman.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== VAULT / INFINITY ============== -->
+<section class="section section--cream" id="vault">
+  <div class="container">
+    <div class="eyebrow eyebrow--teal">The Evidence Vault &nbsp;·&nbsp; The Infinity Curve</div>
+    <h2 class="display">
+      Not a file cabinet.<br/>
+      <span class="ink-muted">The field layer that compounds proof.</span>
+    </h2>
+    <p class="lede">A normal log says something happened. K1 preserves <em>why it matters, who validated it, where it went, and how it should improve the next decision.</em></p>
+
+    <div class="vault-grid">
+      <!-- Vault diagram -->
+      <div class="vault-diagram">
+        <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid meet" aria-label="Evidence Vault attribute diagram">
+          <defs>
+            <linearGradient id="vfBig" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0F2A30"/>
+              <stop offset="100%" stop-color="#091B20"/>
+            </linearGradient>
+          </defs>
+          <!-- center cube -->
+          <g transform="translate(220,180)">
+            <rect width="160" height="200" fill="url(#vfBig)" stroke="#C99D3F" stroke-width="1.6"/>
+            <!-- brackets -->
+            <g stroke="#C99D3F" stroke-width="2.4" fill="none">
+              <path d="M0,16 V0 H16"/>
+              <path d="M144,0 H160 V16"/>
+              <path d="M0,184 V200 H16"/>
+              <path d="M144,200 H160 V184"/>
+            </g>
+            <text x="80" y="95" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#F4E9CC">EVIDENCE</text>
+            <text x="80" y="122" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#F4E9CC">VAULT</text>
+            <text x="80" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="2" fill="#7BC3CA">TIME-STAMPED</text>
+            <text x="80" y="163" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="2" fill="#7BC3CA">HUMAN-VALIDATED</text>
+            <text x="80" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="2" fill="#7BC3CA">ACTIVE CONTROL</text>
+          </g>
+          <!-- connector lines & labels -->
+          <g font-family="Inter, sans-serif" font-size="11" letter-spacing="2" fill="#0E5B63">
+            <!-- left labels -->
+            <line x1="50" y1="200" x2="220" y2="200" stroke="#0E5B63" stroke-width="0.8"/>
+            <line x1="50" y1="250" x2="220" y2="250" stroke="#0E5B63" stroke-width="0.8"/>
+            <line x1="50" y1="300" x2="220" y2="300" stroke="#0E5B63" stroke-width="0.8"/>
+            <line x1="50" y1="350" x2="220" y2="350" stroke="#0E5B63" stroke-width="0.8"/>
+            <text x="50" y="195" font-weight="600">PHOTO + VIDEO</text>
+            <text x="50" y="245" font-weight="600">VOICE NOTES</text>
+            <text x="50" y="295" font-weight="600">LOCATION + TIME</text>
+            <text x="50" y="345" font-weight="600">RESPONSIBLE PERSON</text>
+            <!-- right labels -->
+            <line x1="380" y1="200" x2="550" y2="200" stroke="#B07F26" stroke-width="0.8"/>
+            <line x1="380" y1="250" x2="550" y2="250" stroke="#B07F26" stroke-width="0.8"/>
+            <line x1="380" y1="300" x2="550" y2="300" stroke="#B07F26" stroke-width="0.8"/>
+            <line x1="380" y1="350" x2="550" y2="350" stroke="#B07F26" stroke-width="0.8"/>
+            <g fill="#8A6418" text-anchor="end">
+              <text x="550" y="195" font-weight="600">REVIEWER TRAIL</text>
+              <text x="550" y="245" font-weight="600">COST + SCHEDULE</text>
+              <text x="550" y="295" font-weight="600">CONTRACT + SPEC</text>
+              <text x="550" y="345" font-weight="600">COMPLETENESS</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Compounding intelligence + formula -->
+      <div class="vault-text">
+        <div class="vault-list">
+          <h3>The Vault preserves</h3>
+          <ul>
+            <li>Time-stamped capture with location and authority</li>
+            <li>AI classification preserved alongside human validation history</li>
+            <li>Drawing, contract, quantity, crew, and schedule context</li>
+            <li>Routing trail across RFI, change order, payment, audit, closeout</li>
+          </ul>
+        </div>
+
+        <div class="compounding">
+          <div class="eyebrow eyebrow--gold">Compounding intelligence · ratcheting proof</div>
+          <p class="big">The first validated event creates proof.<br/>The tenth reveals patterns.<br/>The hundredth changes how the job is managed.</p>
+          <p class="ratchet-coda">Every turn locks. Validated distance cannot slide backward.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="eyebrow eyebrow--gold formula-eyebrow">The K1 value formula</div>
+      <div class="formula-line"><span class="f-var">K1V</span> &nbsp;=&nbsp; <span class="f-d">ΔS</span> &nbsp;+&nbsp; <span class="f-d">ΔR</span> &nbsp;+&nbsp; <span class="f-d">ΔP</span> &nbsp;+&nbsp; <span class="f-d">ΔD</span> &nbsp;+&nbsp; <span class="f-d">ΔI</span></div>
+      <div class="formula-legend">
+        <div><span class="f-k">ΔS</span><span>Schedule saved</span></div>
+        <div><span class="f-k">ΔR</span><span>Reconstruction reduced</span></div>
+        <div><span class="f-k">ΔP</span><span>Payment support</span></div>
+        <div><span class="f-k">ΔD</span><span>Dispute / audit risk</span></div>
+        <div><span class="f-k">ΔI</span><span>Compounding intelligence</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COMPATIBILITY ============== -->
+<section class="section section--cream section--tight" id="compat">
+  <div class="container">
+    <div class="eyebrow eyebrow--teal">Legacy systems stay in place</div>
+    <div class="compat-grid">
+      <div class="compat-text">
+        <h2 class="display display--md">
+          K1 does not replace Procore, P6, Autodesk, BuildPass, SiteDocs, owner portals, or internal workflows during the pilot.
+        </h2>
+        <p>Those systems remain the system of record. K1 becomes the system of proof. The pilot produces office-ready packages that can be uploaded, attached, copied, or routed into existing workflows.</p>
+      </div>
+      <ul class="compat-list">
+        <li>Procore</li>
+        <li>Primavera P6</li>
+        <li>Autodesk</li>
+        <li>BuildPass</li>
+        <li>SiteDocs</li>
+        <li>Owner portals</li>
+        <li>Internal workflows</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WALKTHROUGH / TUTORIAL LIBRARY ============== -->
+<section class="section section--walk" id="walkthrough">
+  <div class="container">
+    <div class="walk-header">
+      <div>
+        <div class="eyebrow eyebrow--gold">Watch K1 in Action</div>
+        <h2 class="display display--light">
+          A four-step walkthrough of K1 — from field truth to office record.
+        </h2>
+      </div>
+      <p>The K1 Tutorial Library shows the system end to end: the anthem film, the operating console, the proof gauntlet, and how the rugged field unit becomes the project's evidence vault. Every clip is a real frame from the K1 system; nothing is mocked.</p>
+    </div>
+
+    <!-- STEP 01 — Anthem feature -->
+    <div class="walk-feature">
+      <div class="vp portrait" data-src="assets/video/k1-field-anthem.mp4">
+        <div class="vp-poster" style="background-image:url('assets/posters/k1-field-anthem.jpg');"></div>
+        <div class="vp-overlay"></div>
+        <button class="vp-play" aria-label="Play the K1 field anthem">
+          <span class="play-disc">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          </span>
+        </button>
+        <span class="vp-label">Anthem · 0:61</span>
+        <span class="vp-duration">01:01</span>
+      </div>
+      <div class="walk-feature-text">
+        <div class="step">Step 01 · Watch the field AI film</div>
+        <h3>Not office-down. Field-up.</h3>
+        <p>A 61-second brand anthem that frames the K1 stance: project intelligence must originate at the work face, validated by the human who did the work, and only then become office record.</p>
+        <div class="walk-meta">
+          <span><b>Format</b> · Vertical cinematic</span>
+          <span><b>Audience</b> · Owners, GCs, PE/IB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 02 — Console preview -->
+    <div class="walk-feature">
+      <div class="walk-feature-text">
+        <div class="step">Step 02 · Tour the operating console</div>
+        <h3>The K1 operating console — one screen, the whole project.</h3>
+        <p>Interactive preview of the same console a foreman or PM uses to capture, validate, and route field-change evidence. Field truth on the left, validation in the center, office-ready record on the right.</p>
+        <div class="walk-meta">
+          <span><b>Format</b> · Interactive prototype</span>
+          <span><b>Click</b> · Open the full console</span>
+        </div>
+      </div>
+      <div class="console-frame">
+        <iframe src="assets/embed/console.html" title="K1 operating console preview" loading="lazy" tabindex="-1"></iframe>
+        <p class="mobile-console-note">This is the full-screen command center. On mobile, open it in its own tab for the clean working view.</p>
+        <a class="cf-cta" href="assets/embed/console.html" target="_blank" rel="noopener">Open console →</a>
+      </div>
+    </div>
+
+    <!-- STEP 03 — System walkthrough -->
+    <div class="walk-feature">
+      <div class="vp" data-src="assets/video/k1-system-walkthrough.mp4">
+        <div class="vp-poster" style="background-image:url('assets/posters/k1-system-walkthrough.jpg');"></div>
+        <div class="vp-overlay"></div>
+        <button class="vp-play" aria-label="Play the K1 system walkthrough">
+          <span class="play-disc">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          </span>
+        </button>
+        <span class="vp-label">System walkthrough · 0:36</span>
+        <span class="vp-duration">00:36</span>
+      </div>
+      <div class="walk-feature-text">
+        <div class="step">Step 03 · Follow the proof gauntlet</div>
+        <h3>Field capture → human validation → evidence vault.</h3>
+        <p>A 36-second tour of the physical vault: how K1 turns scattered field signals into a sealed, court-grade record. The gauntlet is the rule; no record reaches the vault without crossing it.</p>
+        <div class="walk-meta">
+          <span><b>Format</b> · 16:9 walkthrough</span>
+          <span><b>Theme</b> · Evidence vault</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUTORIAL LIBRARY GRID -->
+    <div class="walk-header" style="margin-top:64px;">
+      <div>
+        <div class="eyebrow eyebrow--teal">K1 Tutorial Library</div>
+        <h2 class="display display--light">Every tutorial, demo, and field clip we have made.</h2>
+      </div>
+      <p>Short, real cuts from the K1 system — capture at the work face, validation in the office, the rugged field unit, the lifecycle loop, and the project-intelligence formula. Use them as a deck, a sales aid, or an internal training reel.</p>
+    </div>
+
+    <div class="walk-grid">
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-cvu-intelligence.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-cvu-intelligence.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Capture · Validate · Unlock Intelligence">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">01:42</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Tutorial · Core loop</div>
+          <h3>Capture · Validate · Unlock Intelligence</h3>
+          <p>The K1 thesis in motion: every field signal must pass the human-validation gate before it counts as project intelligence.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-lifecycle-loop.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-lifecycle-loop.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play One-Screen Lifecycle Loop">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">02:10</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Tutorial · Lifecycle</div>
+          <h3>One-Screen Lifecycle Loop</h3>
+          <p>Cradle-to-grave on a single screen — pre-construction through closeout, all anchored to the same field record.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-brand-cinematic.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-brand-cinematic.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play K1 Brand Cinematic">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">01:00</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Film · Brand cinematic</div>
+          <h3>K1 Brand Cinematic — Field Truth Becomes Proof</h3>
+          <p>The clean 60-second brand film: field-first, human-validated, vault-backed. A tighter expression of the K1 story for the homepage and investor audience.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-frontline-built-world.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-frontline-built-world.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Front Line of the Built World">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">00:59</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Film · Front line</div>
+          <h3>The Front Line of the Built World</h3>
+          <p>The mobile-first construction command layer: the field already has the internet in its pocket, and K1 turns that into control.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-command-field-proof.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-command-field-proof.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Every Jobsite Runs on Phones">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">00:48</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Film · Mobile reality</div>
+          <h3>Every Jobsite Runs on Phones</h3>
+          <p>Foremen, supers, inspectors, and crews already carry the internet. K1 turns that reality into active project control.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-simple-truth-infinity-curve.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-simple-truth-infinity-curve.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Simple Truth Infinity Curve">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">01:01</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Film · Simple truth</div>
+          <h3>Construction Was Never Short on Intelligence</h3>
+          <p>The simple truth behind the infinity curve: field intelligence already exists. K1 preserves it, validates it, and compounds it.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-mounted.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-mounted.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Mounted Where Work Happens">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">00:21</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Demo · Deployment</div>
+          <h3>Mounted Where Work Happens</h3>
+          <p>The K1 field unit installed at the work face — not in a trailer, not behind a desk. Where the change actually happens.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-vault-tutorial.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-vault-tutorial.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Vault Tutorial">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">00:30</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Tutorial · Vault</div>
+          <h3>Built for NYC's Most Complex</h3>
+          <p>How the K1 evidence vault organizes a project's lifecycle by sealed package — from preconstruction memos through closeout.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-companion-demo.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-companion-demo.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Companion Demo">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">01:01</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Demo · Companion</div>
+          <h3>K1 Companion — Office View</h3>
+          <p>The office-side companion to the field unit: review captured changes, validate against scope, and route to existing systems.</p>
+        </div>
+      </article>
+
+      <article class="walk-card">
+        <div class="vp" data-src="assets/video/k1-field-truth-vertical.mp4">
+          <div class="vp-poster" style="background-image:url('assets/posters/k1-field-truth-vertical.jpg');"></div>
+          <div class="vp-overlay"></div>
+          <button class="vp-play" aria-label="Play Field Truth Capture">
+            <span class="play-disc"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          </button>
+          <span class="vp-duration">00:10</span>
+        </div>
+        <div class="walk-card-body">
+          <div class="step">Bumper · Social</div>
+          <h3>Field Truth Capture · Human in Control</h3>
+          <p>A 10-second vertical bumper for social and pilot decks — the K1 stance, distilled to one frame.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- STEP 04 — Request pilot access CTA -->
+    <div class="walk-feature" style="margin-top:36px;">
+      <div class="walk-feature-text">
+        <div class="step">Step 04 · Request pilot access</div>
+        <h3>Seen enough? Run K1 on one project, one workflow, one subcontractor.</h3>
+        <p>The pilot is intentionally narrow: 30–45 days, one field-change workflow, no replacement of existing systems. <em>We are not limiting the product. We are limiting the pilot.</em></p>
+        <div class="walk-meta">
+          <span><a class="btn btn-primary" href="#pilot">Read the pilot proposal</a></span>
+          <span><a class="btn btn-ghost" href="#contact">Contact K1</a></span>
+        </div>
+      </div>
+      <div class="walk-feature-text">
+        <div class="step">What you'll get</div>
+        <h3 style="font-size:clamp(22px,2.4vw,28px); max-width:24ch;">An office-ready evidence package — and a calibrated baseline for your own metrics.</h3>
+        <p>K1 produces the proof. Your team validates the lift. The pilot validates K1; it does not assume the metrics.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============== PILOT ============== -->
+<section class="section section--dark" id="pilot">
+  <div class="container">
+    <div class="eyebrow eyebrow--gold">Pilot proposal</div>
+    <h2 class="display display--light">
+      One project. One workflow. One subcontractor. 30–45 days.
+    </h2>
+    <p class="lede lede--light">A controlled field-change evidence pilot. The pilot validates K1; it does not assume the metrics.</p>
+
+    <div class="pilot-grid">
+      <div class="pilot-block">
+        <div class="eyebrow eyebrow--teal">Scope</div>
+        <dl class="pilot-defs">
+          <dt>One project</dt><dd>A live job with a real change-order surface.</dd>
+          <dt>One workflow</dt><dd>Field-change evidence for change-order support.</dd>
+          <dt>One subcontractor</dt><dd>A scope where field change is frequent and material.</dd>
+          <dt>30–45 days</dt><dd>Long enough to see capture, validation, and CO-support cycles.</dd>
+          <dt>K1 mobile units</dt><dd>Ruggedized field units issued to crew leads on the chosen scope.</dd>
+        </dl>
+      </div>
+      <div class="pilot-block">
+        <div class="eyebrow eyebrow--gold">Measurement categories</div>
+        <div class="pilot-measure">
+          <div class="m-cell"><strong>Event-to-validated-record</strong><span>Time from field capture to gate approval.</span></div>
+          <div class="m-cell"><strong>Event-to-CO-support pack</strong><span>Time from event to Vault-backed package.</span></div>
+          <div class="m-cell"><strong>Evidence completeness</strong><span>% of events with full attribute coverage.</span></div>
+          <div class="m-cell"><strong>Lost / late field changes</strong><span>Events that would have gone uncaptured.</span></div>
+          <div class="m-cell"><strong>Payment control quality</strong><span>Reviewer trail + cost-code linkage.</span></div>
+          <div class="m-cell"><strong>Crew friction</strong><span>Time on device vs. time on work.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pilot-line">
+      <p>The pilot starts with field change evidence because it is the clearest, highest-value proof point. If K1 can capture, validate, vault, and assemble active control packages before cost hardens into loss, the same loop expands across the rest of the job.</p>
+      <p class="pilot-pull">We are not limiting the product.<br/><span class="ink-gold">We are limiting the pilot.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT ============== -->
+<section class="section section--cream" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="eyebrow eyebrow--teal">Request a K1 pilot</div>
+        <h2 class="display display--md">
+          Field change in.<br/>
+          Vault-backed evidence out.
+        </h2>
+        <p>Built by an operator who lived change-order pain. K1 is the field-first, mobile-first evidence system for live construction work.</p>
+        <ul class="contact-meta">
+          <li><span class="cm-k">Founder</span><span>Bill Branley</span></li>
+          <li><span class="cm-k">Email</span><a href="mailto:bill@k1.construction">bill@k1.construction</a></li>
+          <li><span class="cm-k">Domain</span><a href="https://k1.construction">k1.construction</a></li>
+          <li><span class="cm-k">Web</span><a href="https://k1.construction">k1.construction</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.cf-status').hidden=false; this.reset();" novalidate>
+        <div class="cf-row">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Company<input type="text" name="company"></label>
+        </div>
+        <div class="cf-row">
+          <label>Email<input type="email" name="email" required></label>
+          <label>Role<input type="text" name="role" placeholder="GC, owner, PM, sub…"></label>
+        </div>
+        <label>Project context<textarea name="notes" rows="4" placeholder="Project type, scope, change-order surface, timing…"></textarea></label>
+        <button type="submit" class="btn btn-primary">Send pilot request</button>
+        <p class="cf-status" hidden>Thanks — we'll be in touch. (Preview form — not wired to a server.)</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M9 8 V32 M9 21 L19 8 M9 21 L20 32" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="square"/>
+        <path d="M27 32 V12.5 L24 14.5" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      <span>K1 &nbsp;·&nbsp; k1.construction</span>
+    </div>
+    <div class="foot-tag">The field-change evidence system. Field truth into commercial proof.</div>
+    <div class="foot-cols">
+      <a href="#explainer">Explainer</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#problem">Problem</a>
+      <a href="#system">System</a>
+      <a href="#vault">Vault</a>
+      <a href="#walkthrough">Watch</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="foot-fine">© <span id="yr"></span> K1. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
