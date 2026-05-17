@@ -592,6 +592,104 @@
           </figcaption>
         </figure>
 
+          <!-- SCREW DIAGRAM STRIP — sits directly beneath the Infinity Curve
+               explanation as the visual "next step" in the read order: the
+               infinity loop produces a ratchet, and the ratchet climbs the
+               screw. This strip mirrors the central in-SVG screw mechanism
+               in a dedicated horizontal panel so the screw concept reads on
+               its own without depending on the viewer parsing the busy main
+               board. The hub steps along the rod in six clicks on the same
+               7s cadence as the central vault — forward only; reset hidden
+               behind opacity 0 in the seam. -->
+          <figure class="screw-strip" aria-labelledby="screw-strip-title" role="img">
+            <svg class="screw-strip-svg" viewBox="0 0 720 92" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="screw-strip-rod" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="#11242A"/>
+                  <stop offset="100%" stop-color="#081317"/>
+                </linearGradient>
+                <linearGradient id="screw-strip-hub" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="#1A3338"/>
+                  <stop offset="100%" stop-color="#0A1416"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Left cap (locked terminus on the field side) -->
+              <rect x="36" y="40" width="4" height="12" rx="1" fill="#EFC766" opacity="0.75"/>
+
+              <!-- Threaded rod laid horizontally. The rod is static; the hub
+                   travels rightward along it in discrete clicks. -->
+              <rect x="40" y="42" width="640" height="8" rx="1.4"
+                    fill="url(#screw-strip-rod)" stroke="#1E3338" stroke-width="0.6"/>
+              <!-- Thread lines: short diagonal hatches at fixed intervals. -->
+              <g stroke="#C99D3F" stroke-width="0.7" opacity="0.55">
+                <line x1="48"  y1="42" x2="52"  y2="50"/><line x1="60"  y1="42" x2="64"  y2="50"/>
+                <line x1="72"  y1="42" x2="76"  y2="50"/><line x1="84"  y1="42" x2="88"  y2="50"/>
+                <line x1="96"  y1="42" x2="100" y2="50"/><line x1="108" y1="42" x2="112" y2="50"/>
+                <line x1="120" y1="42" x2="124" y2="50"/><line x1="132" y1="42" x2="136" y2="50"/>
+                <line x1="144" y1="42" x2="148" y2="50"/><line x1="156" y1="42" x2="160" y2="50"/>
+                <line x1="168" y1="42" x2="172" y2="50"/><line x1="180" y1="42" x2="184" y2="50"/>
+                <line x1="192" y1="42" x2="196" y2="50"/><line x1="204" y1="42" x2="208" y2="50"/>
+                <line x1="216" y1="42" x2="220" y2="50"/><line x1="228" y1="42" x2="232" y2="50"/>
+                <line x1="240" y1="42" x2="244" y2="50"/><line x1="252" y1="42" x2="256" y2="50"/>
+                <line x1="264" y1="42" x2="268" y2="50"/><line x1="276" y1="42" x2="280" y2="50"/>
+                <line x1="288" y1="42" x2="292" y2="50"/><line x1="300" y1="42" x2="304" y2="50"/>
+                <line x1="312" y1="42" x2="316" y2="50"/><line x1="324" y1="42" x2="328" y2="50"/>
+                <line x1="336" y1="42" x2="340" y2="50"/><line x1="348" y1="42" x2="352" y2="50"/>
+                <line x1="360" y1="42" x2="364" y2="50"/><line x1="372" y1="42" x2="376" y2="50"/>
+                <line x1="384" y1="42" x2="388" y2="50"/><line x1="396" y1="42" x2="400" y2="50"/>
+                <line x1="408" y1="42" x2="412" y2="50"/><line x1="420" y1="42" x2="424" y2="50"/>
+                <line x1="432" y1="42" x2="436" y2="50"/><line x1="444" y1="42" x2="448" y2="50"/>
+                <line x1="456" y1="42" x2="460" y2="50"/><line x1="468" y1="42" x2="472" y2="50"/>
+                <line x1="480" y1="42" x2="484" y2="50"/><line x1="492" y1="42" x2="496" y2="50"/>
+                <line x1="504" y1="42" x2="508" y2="50"/><line x1="516" y1="42" x2="520" y2="50"/>
+                <line x1="528" y1="42" x2="532" y2="50"/><line x1="540" y1="42" x2="544" y2="50"/>
+                <line x1="552" y1="42" x2="556" y2="50"/><line x1="564" y1="42" x2="568" y2="50"/>
+                <line x1="576" y1="42" x2="580" y2="50"/><line x1="588" y1="42" x2="592" y2="50"/>
+                <line x1="600" y1="42" x2="604" y2="50"/><line x1="612" y1="42" x2="616" y2="50"/>
+                <line x1="624" y1="42" x2="628" y2="50"/><line x1="636" y1="42" x2="640" y2="50"/>
+                <line x1="648" y1="42" x2="652" y2="50"/><line x1="660" y1="42" x2="664" y2="50"/>
+              </g>
+              <!-- Right cap (locked terminus on the vault side) -->
+              <rect x="680" y="40" width="4" height="12" rx="1" fill="#EFC766" opacity="0.85"/>
+
+              <!-- Six tick marks below the rod, lighting bottom→top equivalent
+                   (here left→right) as the hub clicks past each one. Same
+                   sequencing keyframes as the central rail. -->
+              <g class="screw-strip-teeth" fill="#EFC766" stroke="#0A1416" stroke-width="0.4">
+                <rect class="ic-cinch-tooth" x="118" y="58" width="9" height="3" rx="1"/>
+                <rect class="ic-cinch-tooth" x="208" y="58" width="9" height="3" rx="1"/>
+                <rect class="ic-cinch-tooth" x="298" y="58" width="9" height="3" rx="1"/>
+                <rect class="ic-cinch-tooth" x="388" y="58" width="9" height="3" rx="1"/>
+                <rect class="ic-cinch-tooth" x="478" y="58" width="9" height="3" rx="1"/>
+                <rect class="ic-cinch-tooth" x="568" y="58" width="9" height="3" rx="1"/>
+              </g>
+
+              <!-- The traveling hub — a miniature of the central vault. Anchored
+                   at the left start of the rod; CSS steps it rightward in six
+                   discrete clicks. transform-origin via transform-box: view-box
+                   keeps the hub centered on its translation reference. -->
+              <g class="screw-strip-hub-wrap">
+                <g transform="translate(80 46)">
+                  <circle r="14" fill="url(#screw-strip-hub)" stroke="#C99D3F" stroke-width="0.8"/>
+                  <circle r="10" fill="none" stroke="#EFC766" stroke-width="0.5" opacity="0.55" stroke-dasharray="2 4"/>
+                  <text x="0" y="3.5" font-family="'Fraunces', Georgia, serif" font-size="10" font-weight="700"
+                        text-anchor="middle" fill="#EFC766" letter-spacing="-0.4">K1</text>
+                </g>
+              </g>
+
+              <!-- End markers / labels -->
+              <g font-family="Inter, sans-serif" font-size="8.5" letter-spacing="2" fill="#9FB1B5">
+                <text x="40"  y="82">START</text>
+                <text x="680" y="82" text-anchor="end" fill="#EFC766" font-weight="700">LOCKED</text>
+              </g>
+            </svg>
+            <figcaption class="screw-strip-cap">
+              <span id="screw-strip-title" class="screw-strip-title">Up the screw, click by click.</span>
+              <span class="screw-strip-sub">Each pass through the Infinity Curve cinches the record one notch tighter — six clicks per turn, forward only.</span>
+            </figcaption>
+          </figure>
+
         <div class="vp vp--featured" data-src="https://k1.construction/assets/video/k1-infinity-curve-explainer.mp4">
           <div class="vp-poster" style="background-image:url('https://k1.construction/assets/posters/k1-infinity-curve-explainer.jpg');"></div>
           <div class="vp-overlay"></div>

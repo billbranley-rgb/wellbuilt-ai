@@ -151,6 +151,64 @@ function extractKeyframesBody(src, name) {
   }
 }
 
+// 8) Screw-strip hub steps rightward only (no negative translateX) and is
+//    stepped + seam-masked just like the vault.
+{
+  const body = extractKeyframesBody(css, "screw-strip-step");
+  if (body === null) fail("missing @keyframes screw-strip-step — screw diagram hub will not climb");
+  else {
+    const xs = [...body.matchAll(/translateX\(\s*(-?\d+(?:\.\d+)?)\s*px?\s*\)/g)].map(m => parseFloat(m[1]));
+    if (xs.length === 0) fail("screw-strip-step has no translateX values");
+    let sawForward = false;
+    for (const x of xs) {
+      if (x < 0) fail(`screw-strip-step has BACKWARD translateX(${x}px) — hub must move forward only`);
+      if (x > 0) sawForward = true;
+    }
+    if (sawForward) ok(`screw-strip-step travels rightward only (max +${Math.max(...xs)}px)`);
+
+    const stripRule = css.match(/\.screw-strip-hub-wrap\s*\{([\s\S]*?)\}/);
+    if (!stripRule) fail("missing .screw-strip-hub-wrap rule");
+    else {
+      const stepsMatch = stripRule[1].match(/steps\(\s*(\d+)/);
+      if (!stepsMatch) fail(".screw-strip-hub-wrap is not stepped — hub should click, not glide");
+      else ok(`.screw-strip-hub-wrap uses steps(${stepsMatch[1]}, end) — visible clicks`);
+    }
+  }
+}
+{
+  const body = extractKeyframesBody(css, "screw-strip-seam");
+  if (body === null) fail("missing @keyframes screw-strip-seam");
+  else {
+    const startsAtZero = /(?:^|[^\d])0%\s*\{\s*opacity:\s*0\s*[;}]/.test(body);
+    const endsAtZero   = /100%\s*\{\s*opacity:\s*0\s*[;}]/.test(body);
+    if (!startsAtZero) fail("screw-strip-seam does not start at opacity 0 — hub reset will be visible");
+    if (!endsAtZero)   fail("screw-strip-seam does not end at opacity 0 — hub reset will be visible");
+    if (startsAtZero && endsAtZero) ok("screw-strip-seam hides the hub reset (opacity 0 at both 0% and 100%)");
+  }
+}
+
+// 9) Screw strip lives directly after the Infinity Curve figure in the
+//    reading order (no major block between them). Confirm by checking that
+//    .screw-strip appears after .infinity-ratchet's </figure> and before
+//    the explainer-video closing div / .vp--featured.
+{
+  const ratchetClose = html.indexOf("</figure>", html.indexOf('class="infinity-ratchet"'));
+  const screwOpen    = html.indexOf('class="screw-strip"');
+  const featuredVid  = html.indexOf('class="vp vp--featured"');
+  if (ratchetClose === -1 || screwOpen === -1) fail("could not locate ratchet figure close + screw-strip open");
+  else if (screwOpen < ratchetClose) fail("screw-strip appears BEFORE Infinity Curve figure closes — order is wrong");
+  else if (featuredVid !== -1 && screwOpen > featuredVid) fail("screw-strip appears AFTER the explainer video — should sit directly under the Infinity Curve");
+  else {
+    // Slice from after </figure> up to the START of the <figure class="screw-strip">
+    // opening tag. Only whitespace and HTML comments are allowed between them.
+    const figureOpenIdx = html.lastIndexOf("<figure", screwOpen);
+    const between = html.slice(ratchetClose + "</figure>".length, figureOpenIdx);
+    const stripped = between.replace(/<!--[\s\S]*?-->/g, "").trim();
+    if (stripped.length > 0) fail(`unexpected markup between Infinity Curve and screw-strip: ${stripped.slice(0, 80)}`);
+    else ok("screw-strip is the next sibling after the Infinity Curve figure (comments/whitespace only between)");
+  }
+}
+
 // 7) Isotope seam hides the reset behind opacity 0 at both ends.
 {
   const body = extractKeyframesBody(css, "ic-isotope-seam");
