@@ -222,6 +222,42 @@ function extractKeyframesBody(src, name) {
   }
 }
 
+// 10) Linear path strip sits ABOVE the Infinity Curve figure in the source
+//     order — the legacy 2D path reads as the "before," the Infinity Curve
+//     reads as the K1 "after." Confirm position + presence of the five
+//     traditional construction stages.
+{
+  const linearOpen   = html.indexOf('class="linear-path"');
+  const ratchetOpen  = html.indexOf('class="infinity-ratchet"');
+  if (linearOpen === -1) fail("missing .linear-path figure — straight-line 'before' comparison is not in the DOM");
+  else if (ratchetOpen === -1) fail("missing .infinity-ratchet figure — Infinity Curve diagram is not in the DOM");
+  else if (linearOpen > ratchetOpen) fail(".linear-path appears AFTER the Infinity Curve — should sit above it");
+  else ok(".linear-path is above the Infinity Curve figure in source order");
+
+  // The five traditional stages must all be labeled — these are the labels
+  // the user asked for, "RFI to closeout."
+  const stages = ["RFI", "SUBMITTAL", "CHANGE ORDER", "PUNCH", "CLOSEOUT"];
+  const linearBlockEnd = html.indexOf("</figure>", linearOpen);
+  if (linearOpen !== -1 && linearBlockEnd !== -1) {
+    const block = html.slice(linearOpen, linearBlockEnd);
+    const missing = stages.filter(s => !block.includes(s));
+    if (missing.length) fail(`linear path missing stage label(s): ${missing.join(", ")}`);
+    else ok(`linear path labels all five traditional stages (${stages.join(" → ")})`);
+  }
+
+  // The Infinity Curve must remain the larger, focal element — confirm its
+  // SVG viewBox height (460) is materially larger than the linear strip's
+  // (116). This is a proxy for "Infinity Curve is the focal point."
+  const linearVB = html.match(/class="linear-path-svg"[^>]*viewBox="0 0 \d+ (\d+)"/);
+  const ratchetVB = html.match(/class="infinity-ratchet-svg"[^>]*viewBox="0 0 \d+ (\d+)"/);
+  if (linearVB && ratchetVB) {
+    const lh = parseInt(linearVB[1], 10);
+    const rh = parseInt(ratchetVB[1], 10);
+    if (rh < lh * 2) fail(`Infinity Curve (viewBox h=${rh}) is not materially taller than linear strip (h=${lh}) — may not read as focal`);
+    else ok(`Infinity Curve remains focal (viewBox height ${rh}px vs linear strip ${lh}px, ratio ${(rh/lh).toFixed(1)}×)`);
+  }
+}
+
 if (errors.length) {
   console.error("\nratchet-check: FAILED");
   for (const e of errors) console.error("  - " + e);

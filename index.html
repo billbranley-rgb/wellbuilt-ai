@@ -256,6 +256,92 @@
   <div class="container">
     <div class="explainer-grid">
       <div class="explainer-video">
+        <!-- TRADITIONAL LINEAR PATH — placed directly above the Infinity Curve
+             so the viewer reads the transformation top-to-bottom: the legacy
+             2D straight-line lifecycle (RFI → Closeout) sits as the "before,"
+             and the Infinity Curve sits as the K1 "after" / focal element.
+             This strip is intentionally slim, desaturated, and non-glowing so
+             the Infinity Curve below remains the focal point of the page. -->
+        <figure class="linear-path" aria-labelledby="linear-path-title" role="img">
+          <svg class="linear-path-svg" viewBox="0 0 720 116" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Faint grid for control-board consistency, mask-fades at edges -->
+            <defs>
+              <linearGradient id="linear-path-line" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"  stop-color="#5C7378" stop-opacity="0"/>
+                <stop offset="10%" stop-color="#5C7378" stop-opacity="0.9"/>
+                <stop offset="90%" stop-color="#5C7378" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#5C7378" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Single straight axis: the 2D linear workflow. No curves, no
+                 loop-back, no compounding — just a one-way line from RFI to
+                 closeout. Drawn in a desaturated steel tone so it reads as
+                 the deprecated path against the live Infinity Curve below. -->
+            <line x1="40" y1="56" x2="680" y2="56" stroke="url(#linear-path-line)" stroke-width="1.6"/>
+            <!-- Dashed under-rule reinforcing "fixed, brittle, one-shot" -->
+            <line x1="56" y1="64" x2="664" y2="64" stroke="#3A4F54" stroke-width="0.8" stroke-dasharray="2 4" opacity="0.7"/>
+
+            <!-- Five stations. Each is a small open square — empty record
+                 boxes, no glow — at evenly spaced positions along the line.
+                 Station 1 at x=80; station 5 at x=640; 140px between. -->
+            <g fill="#0A1416" stroke="#5C7378" stroke-width="1.2">
+              <rect x="74"  y="50" width="12" height="12" rx="1.5"/>
+              <rect x="214" y="50" width="12" height="12" rx="1.5"/>
+              <rect x="354" y="50" width="12" height="12" rx="1.5"/>
+              <rect x="494" y="50" width="12" height="12" rx="1.5"/>
+              <rect x="634" y="50" width="12" height="12" rx="1.5"/>
+            </g>
+            <!-- Tiny inner marks so the boxes don't read as totally empty -->
+            <g fill="#5C7378">
+              <rect x="78"  y="54" width="4" height="4" rx="0.6"/>
+              <rect x="218" y="54" width="4" height="4" rx="0.6"/>
+              <rect x="358" y="54" width="4" height="4" rx="0.6"/>
+              <rect x="498" y="54" width="4" height="4" rx="0.6"/>
+              <rect x="638" y="54" width="4" height="4" rx="0.6"/>
+            </g>
+
+            <!-- Stage labels above each station -->
+            <g font-family="Inter, sans-serif" font-size="9.5" letter-spacing="2" fill="#8FA3A8" text-anchor="middle">
+              <text x="80"  y="34">RFI</text>
+              <text x="220" y="34">SUBMITTAL</text>
+              <text x="360" y="34">CHANGE ORDER</text>
+              <text x="500" y="34">PUNCH</text>
+              <text x="640" y="34">CLOSEOUT</text>
+            </g>
+            <!-- Subtle one-way arrowheads between stations — emphasize that
+                 the linear path moves in one direction only and never loops -->
+            <g fill="none" stroke="#5C7378" stroke-width="0.9" opacity="0.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 144,56 l -4,-3 M 144,56 l -4,3"/>
+              <path d="M 284,56 l -4,-3 M 284,56 l -4,3"/>
+              <path d="M 424,56 l -4,-3 M 424,56 l -4,3"/>
+              <path d="M 564,56 l -4,-3 M 564,56 l -4,3"/>
+            </g>
+
+            <!-- Bottom-of-strip label: the "before" identifier -->
+            <g font-family="Inter, sans-serif" font-size="9" letter-spacing="2.4" fill="#6FA8B0" opacity="0.75">
+              <text x="40"  y="92">BEFORE · LINEAR · 2D</text>
+              <text x="680" y="92" text-anchor="end">DEAD-ENDS AT CLOSEOUT</text>
+            </g>
+            <!-- Hairline rule -->
+            <line x1="40" y1="78" x2="680" y2="78" stroke="#1E3338" stroke-width="0.8" opacity="0.7"/>
+          </svg>
+          <figcaption class="linear-path-cap">
+            <span id="linear-path-title" class="linear-path-title">Traditional construction: a one-way line.</span>
+            <span class="linear-path-sub">RFI to closeout, then done. Every record is filed and forgotten — nothing compounds, nothing lifts the next job.</span>
+          </figcaption>
+        </figure>
+
+        <!-- TRANSFORM CONNECTOR — a slim chevron + caption that bridges the
+             linear strip and the Infinity Curve, signaling "K1 bends this
+             line into a loop." Static, intentionally quiet. -->
+        <div class="path-transform" aria-hidden="true">
+          <svg class="path-transform-arrow" viewBox="0 0 36 22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 4 4 L 18 18 L 32 4" fill="none" stroke="#C99D3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+          </svg>
+          <span class="path-transform-label">K1 bends the line into a loop</span>
+        </div>
+
         <figure class="infinity-ratchet" aria-labelledby="ic-title" role="img">
           <svg class="infinity-ratchet-svg" viewBox="0 0 720 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
