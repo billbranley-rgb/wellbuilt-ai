@@ -1141,6 +1141,13 @@ html, body { overflow-x: hidden; }
   gap: 48px;
   align-items: center;
 }
+/* DOM order is video-first (so on mobile the Infinity Curve leads and the
+   Command Center follows). On desktop, preserve the original visual layout
+   with text on the left and video on the right. */
+@media (min-width: 981px) {
+  .explainer-grid .explainer-text  { order: 1; }
+  .explainer-grid .explainer-video { order: 2; }
+}
 .explainer-text h2 { max-width: 18ch; margin-bottom: 14px; }
 .explainer-text .lede { max-width: 50ch; margin-bottom: 22px; }
 .command-actions {
