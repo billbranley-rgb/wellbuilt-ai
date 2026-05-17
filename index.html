@@ -400,28 +400,40 @@
                 path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
             </circle>
 
-            <!-- THE RATCHET — at the crossing point of the infinity curve (the gate) -->
-            <g class="ic-ratchet" transform="translate(360 230)">
-              <!-- Backplate halo so the wheel feels mounted on the board -->
-              <circle r="86" fill="#0A1416" opacity="0.85"/>
-              <circle r="86" fill="none" stroke="#1E3338" stroke-width="1"/>
-              <circle r="78" fill="none" stroke="#C99D3F" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 6"/>
+            <!-- THE RATCHET — at the crossing point of the infinity curve (the gate).
+                 Outer <g> places the ratchet at the gate; inner .ic-ratchet-advance
+                 animates a stepped translate (forward + upward) per pass through the curve. -->
+            <g transform="translate(360 230)">
+              <g class="ic-ratchet-advance">
+                <!-- Faint "ghost" trail of prior positions — reads as compounded distance.
+                     These steps stay static; the live ratchet visibly leaves them behind. -->
+                <g class="ic-ratchet-trail" aria-hidden="true">
+                  <circle cx="-6"  cy="6"  r="2"   fill="#C99D3F" opacity="0.18"/>
+                  <circle cx="-12" cy="12" r="1.6" fill="#C99D3F" opacity="0.12"/>
+                  <circle cx="-18" cy="18" r="1.2" fill="#C99D3F" opacity="0.07"/>
+                </g>
 
-              <!-- Slow forward-only rotation -->
-              <g class="ic-ratchet-spin">
-                <use href="#ic-ratchet-wheel"/>
-              </g>
+                <!-- Backplate halo so the wheel feels mounted on the board -->
+                <circle r="86" fill="#0A1416" opacity="0.85"/>
+                <circle r="86" fill="none" stroke="#1E3338" stroke-width="1"/>
+                <circle r="78" fill="none" stroke="#C99D3F" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 6"/>
 
-              <!-- Pawl — drops into a tooth, locks the forward direction -->
-              <g class="ic-pawl">
-                <path d="M 0,-86 L 8,-72 L -2,-64 L -8,-78 Z"
-                      fill="#EFC766" stroke="#0A1416" stroke-width="0.8"/>
-                <circle cx="0" cy="-86" r="3" fill="#0A1416" stroke="#EFC766" stroke-width="1.1"/>
-              </g>
+                <!-- Slow forward-only rotation -->
+                <g class="ic-ratchet-spin">
+                  <use href="#ic-ratchet-wheel"/>
+                </g>
 
-              <!-- Center K1 mark, lit gold to read like a control hub -->
-              <g font-family="'Fraunces', Georgia, serif" font-weight="700" text-anchor="middle">
-                <text y="6" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
+                <!-- Pawl — drops into a tooth, locks the forward direction -->
+                <g class="ic-pawl">
+                  <path d="M 0,-86 L 8,-72 L -2,-64 L -8,-78 Z"
+                        fill="#EFC766" stroke="#0A1416" stroke-width="0.8"/>
+                  <circle cx="0" cy="-86" r="3" fill="#0A1416" stroke="#EFC766" stroke-width="1.1"/>
+                </g>
+
+                <!-- Center K1 mark, lit gold to read like a control hub -->
+                <g font-family="'Fraunces', Georgia, serif" font-weight="700" text-anchor="middle">
+                  <text y="6" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
+                </g>
               </g>
             </g>
 
