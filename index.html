@@ -49,7 +49,7 @@
 
   <div class="hero-inner">
     <div class="hero-eyebrow">
-      <span class="eyebrow eyebrow--gold">K1 &nbsp;·&nbsp; The field-change evidence system</span>
+      <span class="eyebrow eyebrow--gold">Construction’s Mobile Command Center</span>
     </div>
 
     <!-- Field gravity / Evidence Vault / Infinity visual -->
@@ -222,17 +222,17 @@
 
     <div class="hero-headline">
       <h1>
-        <span class="hl-line">Field change in.</span>
-        <span class="hl-line">Vault-backed evidence out.</span>
+        <span class="hl-line">Welcome to the Mobile Command Center.</span>
       </h1>
-      <p class="hero-sub">Field-first, mobile-first. The field-change evidence system.</p>
+      <p class="field-first-callout">MOBILE-FIRST. FIELD-FIRST.</p>
+      <p class="hero-sub">The executive’s desk finally reaches the field. K1 starts where the work happens, then turns every validated field event into active control before time is lost, money is spent, and the record can slide backward.</p>
       <div class="hero-meta">
         <span class="meta-l">Bill Branley</span>
         <span class="meta-dot">·</span>
         <span class="meta-r">Founder, K1</span>
       </div>
       <div class="hero-cta">
-        <a href="#pilot" class="btn btn-primary">Request a K1 pilot</a>
+        <a class="btn btn-primary" href="https://k1.construction/assets/embed/console.html" target="_blank" rel="noopener">Open full command center</a>
         <a href="#explainer" class="btn btn-ghost">Watch the explainer</a>
       </div>
 
@@ -402,49 +402,96 @@
                      C 620,200 620,130 560,130"
                   fill="none" stroke="#C99D3F" stroke-width="1.6" opacity="0.65" stroke-dasharray="3 5"/>
 
-            <!-- Traveling proof pulses along the curve (teal in, gold out) -->
-            <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0.95">
-              <animateMotion dur="7s" repeatCount="indefinite"
-                path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
-            </circle>
-            <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0.95">
-              <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s"
-                path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
-            </circle>
+            <!-- Traveling proof pulses along the curve (teal in, gold out).
+                 Each pulse traverses its arc forward, then fades out before the
+                 motion resets so the snap back to the path start is invisible.
+                 Multiple staggered pulses keep at least one bead visible at all
+                 times — the eye reads continuous forward flow, never a rewind. -->
+            <g class="ic-proof-pulses">
+              <!-- Teal stream — FIELD TRUTH IN → gate. Two pulses, 3.5s apart. -->
+              <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+              <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
 
-            <!-- THE RATCHET — at the crossing point of the infinity curve (the gate).
-                 Outer <g> places the ratchet at the gate; inner .ic-ratchet-advance
-                 animates a stepped translate (forward + upward) per pass through the curve. -->
-            <g transform="translate(360 230)">
-              <g class="ic-ratchet-advance">
-                <!-- Faint "ghost" trail of prior positions — reads as compounded distance.
-                     These steps stay static; the live ratchet visibly leaves them behind. -->
-                <g class="ic-ratchet-trail" aria-hidden="true">
-                  <circle cx="-6"  cy="6"  r="2"   fill="#C99D3F" opacity="0.18"/>
-                  <circle cx="-12" cy="12" r="1.6" fill="#C99D3F" opacity="0.12"/>
-                  <circle cx="-18" cy="18" r="1.2" fill="#C99D3F" opacity="0.07"/>
-                </g>
+              <!-- Gold stream — gate → PROOF OUT. Offset by 3.5s from teal start
+                   so the bead hands off through the gate as forward motion. -->
+              <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+              <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
+                <animateMotion dur="7s" repeatCount="indefinite" begin="7s" rotate="auto"
+                  keyPoints="0;1" keyTimes="0;1" calcMode="linear"
+                  path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
+                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="7s"
+                  values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
+              </circle>
+            </g>
 
-                <!-- Backplate halo so the wheel feels mounted on the board -->
-                <circle r="86" fill="#0A1416" opacity="0.85"/>
-                <circle r="86" fill="none" stroke="#1E3338" stroke-width="1"/>
-                <circle r="78" fill="none" stroke="#C99D3F" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 6"/>
+            <!-- ZIP-TIE CINCH RAIL — five gold notches stacked above the gate.
+                 They light up bottom→top in sequence as the orbiting ratchet
+                 makes its passes, then ALL fade out together at the seam so the
+                 reset is never visible as "unlocking" or backward motion.
+                 The rail itself is a static vertical guide. -->
+            <g class="ic-cinch" aria-hidden="true">
+              <!-- Static rail: a faint vertical guide running upward from the gate -->
+              <line x1="360" y1="246" x2="360" y2="178"
+                    stroke="#C99D3F" stroke-width="0.6" opacity="0.32" stroke-dasharray="2 3"/>
+              <!-- Tip cap at the top of the rail: the "locked tight" terminus -->
+              <circle cx="360" cy="178" r="2.4" fill="#EFC766" opacity="0.55"/>
 
-                <!-- Slow forward-only rotation -->
+              <!-- Five zip-tie teeth, bottom to top. Each is a tiny gold rect
+                   that lights forward in sequence. -->
+              <g class="ic-cinch-teeth" fill="#EFC766" stroke="#0A1416" stroke-width="0.4">
+                <rect class="ic-cinch-tooth" x="354" y="240" width="12" height="4" rx="1"/>
+                <rect class="ic-cinch-tooth" x="354" y="226" width="12" height="4" rx="1"/>
+                <rect class="ic-cinch-tooth" x="354" y="212" width="12" height="4" rx="1"/>
+                <rect class="ic-cinch-tooth" x="354" y="198" width="12" height="4" rx="1"/>
+                <rect class="ic-cinch-tooth" x="354" y="184" width="12" height="4" rx="1"/>
+              </g>
+            </g>
+
+            <!-- THE RATCHET / VAULT — anchored at the gate (360,230). It does
+                 NOT travel the lemniscate; the information (proof pulses) does.
+                 The vault stays centered horizontally and only moves upward
+                 (and fades at the seam) via the .ic-ratchet-cinch wrapper —
+                 the visual metaphor is the central record cinching tighter
+                 each cycle while the field-event flow advances around it.
+                 The outer .ic-ratchet-anchor has no animation and no class-
+                 based positioning; the translate() is the single source of
+                 truth for "stays at the gate." Do not add an orbit wrapper. -->
+            <g class="ic-ratchet-anchor" transform="translate(360 230)">
+              <g class="ic-ratchet-cinch">
+                <!-- Static halo mounts the vault on the board. Sized to read
+                     as the central hub of the diagram, not a roaming marker. -->
+                <circle cx="0" cy="0" r="64" fill="#0A1416" opacity="0.85"/>
+                <circle cx="0" cy="0" r="64" fill="none" stroke="#1E3338" stroke-width="1"/>
+                <circle cx="0" cy="0" r="58" fill="none" stroke="#C99D3F" stroke-width="0.5" opacity="0.5" stroke-dasharray="2 6"/>
+
+                <!-- The ratchet wheel — full hub size, rotated forward-only. -->
                 <g class="ic-ratchet-spin">
-                  <use href="#ic-ratchet-wheel"/>
+                  <g transform="scale(0.85)">
+                    <use href="#ic-ratchet-wheel"/>
+                  </g>
                 </g>
 
-                <!-- Pawl — drops into a tooth, locks the forward direction -->
-                <g class="ic-pawl">
-                  <path d="M 0,-86 L 8,-72 L -2,-64 L -8,-78 Z"
-                        fill="#EFC766" stroke="#0A1416" stroke-width="0.8"/>
-                  <circle cx="0" cy="-86" r="3" fill="#0A1416" stroke="#EFC766" stroke-width="1.1"/>
-                </g>
-
-                <!-- Center K1 mark, lit gold to read like a control hub -->
+                <!-- Center K1 mark, lit gold like the control hub. -->
                 <g font-family="'Fraunces', Georgia, serif" font-weight="700" text-anchor="middle">
-                  <text y="6" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
+                  <text x="0" y="7" font-size="22" fill="#EFC766" letter-spacing="-0.5">K1</text>
                 </g>
               </g>
             </g>
@@ -474,6 +521,7 @@
           <figcaption class="infinity-ratchet-cap">
             <span id="ic-title" class="infinity-ratchet-title">The Infinity Curve &amp; the Ratchet</span>
             <span class="infinity-ratchet-sub">Field truth in. Validated through the gate. Locked by the ratchet. Compounded back into the next job.</span>
+            <span class="infinity-ratchet-lock">Once a field event is validated, it locks into the record and only moves forward — up the ratchet, never back.</span>
           </figcaption>
         </figure>
 

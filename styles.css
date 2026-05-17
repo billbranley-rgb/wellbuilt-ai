@@ -1182,13 +1182,22 @@ html, body { overflow-x: hidden; }
   gap: 48px;
   align-items: center;
 }
-/* DOM order is video-first (so on mobile the Infinity Curve leads and the
-   Command Center follows). On desktop, preserve the original visual layout
-   with text on the left and video on the right. */
-@media (min-width: 981px) {
-  .explainer-grid .explainer-text  { order: 1; }
-  .explainer-grid .explainer-video { order: 2; }
-}
+/* Section order — load-bearing for the mobile opening view:
+   - DOM order is .explainer-video first, .explainer-text second.
+   - The hero <section class="hero"> at the top of the page is
+     `display: none` (a design decision in the original commit), so
+     this explainer section is what users actually see first under
+     the header on every viewport.
+   - Mobile (single-column grid, ≤980px): without these `order` rules
+     the Infinity Curve graphic would render before the Mobile
+     Command Center copy. With them, text renders first.
+   - Desktop (two-column grid, ≥981px): CSS Grid honors `order` for
+     auto-placement, so text occupies the left column and the video
+     the right column. The desktop visual layout is unchanged.
+   These `order` values are intentionally applied at all viewports —
+   one rule, no special-casing. */
+.explainer-grid .explainer-text  { order: 1; }
+.explainer-grid .explainer-video { order: 2; }
 .explainer-text h2 { max-width: 18ch; margin-bottom: 14px; }
 .explainer-text .lede { max-width: 50ch; margin-bottom: 22px; }
 .command-actions {
@@ -1295,81 +1304,142 @@ html, body { overflow-x: hidden; }
   letter-spacing: 0.02em;
   color: var(--text-on-dark-mu);
 }
+.infinity-ratchet-lock {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(201, 157, 63, 0.18);
+  font-family: var(--f-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--text-on-dark);
+}
+.infinity-ratchet-lock::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 1px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 6px rgba(239, 199, 102, 0.55);
+  transform: translateY(-1px);
+}
 
-/* Slow, forward-only ratchet rotation. The pawl stays put. */
+/* Forward-only ratchet wheel rotation. 0deg → 360deg, no recoil, no reset.
+   The wheel rotates continuously as it orbits the infinity curve. */
 .ic-ratchet-spin {
   transform-box: fill-box;
   transform-origin: center;
-  animation: ic-ratchet-step 9s steps(16, end) infinite;
+  animation: ic-ratchet-spin 9s linear infinite;
 }
-@keyframes ic-ratchet-step {
-  to { transform: rotate(360deg); }
-}
-/* Subtle pawl tick — clicks down once per ratchet step */
-.ic-pawl {
-  transform-box: fill-box;
-  transform-origin: center top;
-  animation: ic-pawl-tick 0.5625s ease-out infinite;
-}
-@keyframes ic-pawl-tick {
-  0%, 70%, 100% { transform: rotate(0deg); }
-  78%           { transform: rotate(-8deg); }
-  88%           { transform: rotate(2deg); }
+@keyframes ic-ratchet-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* Per-pass ratchet advance: the wheel steps forward + upward each time a
-   proof pulse completes a lobe (every 3.5s). Four steps accumulate (~14s),
-   then ease back so the gate stays anchored. The discrete jump on each step
-   reads as a mechanical "click"; the recoil is what gives the ratcheted feel. */
-.ic-ratchet-advance {
+/* CINCH — forward-only upward drift on the central ratchet/vault. The
+   vault is anchored at the gate (its parent .ic-ratchet-anchor applies
+   transform="translate(360 230)" inline); this rule layers a vertical
+   lift + opacity fade on top. The wrapper rises ~8px over each 18s cycle,
+   reads as "tightening" like a zip tie. The reset back to translateY(0)
+   happens while opacity is 0, so the eye never sees a downward snap. The
+   vault stays centered horizontally; the field-event flow advances around
+   it via the proof pulses.
+
+   IMPORTANT: there is intentionally NO motion-path or horizontal travel
+   animation on the vault. An earlier iteration sent the vault traveling
+   around the lemniscate via a CSS motion path; that was removed because
+   the central record must stay put. If you find yourself adding a motion
+   path, an animateMotion element, or a translateX animation to anything
+   inside `.ic-ratchet-anchor`, you are reverting that decision — talk
+   to product first. */
+.ic-ratchet-cinch {
   transform-box: fill-box;
   transform-origin: center;
-  animation: ic-ratchet-advance 14s cubic-bezier(.22,1,.36,1) infinite;
-  will-change: transform;
+  animation: ic-ratchet-cinch 18s linear infinite;
+  will-change: transform, opacity;
 }
-@keyframes ic-ratchet-advance {
-  /* idle */
-  0%    { transform: translate(0, 0); }
-  /* pass 1 — teal pulse arrives at the gate */
-  23%   { transform: translate(0, 0); }
-  25%   { transform: translate(2.2px, -3.2px); }      /* click forward + up */
-  27%   { transform: translate(1.6px, -2.4px); }      /* tiny recoil into the pawl */
-  /* pass 2 — gold pulse leaves the gate */
-  48%   { transform: translate(1.6px, -2.4px); }
-  50%   { transform: translate(4.4px, -6.4px); }
-  52%   { transform: translate(3.8px, -5.6px); }
-  /* pass 3 */
-  73%   { transform: translate(3.8px, -5.6px); }
-  75%   { transform: translate(6.6px, -9.6px); }
-  77%   { transform: translate(6.0px, -8.8px); }
-  /* pass 4 */
-  90%   { transform: translate(6.0px, -8.8px); }
-  92%   { transform: translate(8.8px, -12.8px); }
-  94%   { transform: translate(8.2px, -12.0px); }
-  /* soft return: the record advances; the gate settles back to mount the next pass */
-  100%  { transform: translate(0, 0); }
+@keyframes ic-ratchet-cinch {
+  /* Fade in low, rise upward, hold lifted, fade out high. The wrapper is
+     invisible at both the seam end (100%) and the seam start (0%), so the
+     position reset from -8px back to 0px is never visible. */
+  0%   { transform: translateY(0);    opacity: 0; }
+  8%   { transform: translateY(0);    opacity: 1; }
+  92%  { transform: translateY(-8px); opacity: 1; }
+  100% { transform: translateY(-8px); opacity: 0; }
 }
-/* Trail dots fade in over the cycle so the advance reads as compounded distance. */
-.ic-ratchet-trail circle {
-  animation: ic-ratchet-trail-fade 14s linear infinite;
+
+/* ZIP-TIE CINCH RAIL — five gold teeth at the gate, lighting in sequence.
+   Each tooth fades on at its own moment within a shared 18s cycle, stays
+   lit, and at the end of the cycle ALL teeth fade out simultaneously.
+   There is no per-tooth "unlocking" step — the cinch only ever tightens;
+   the rail reset is a synchronous opacity drop, not a backward animation.
+   Each tooth uses its own keyframes so all teeth share the same loop seam. */
+.ic-cinch-tooth {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-.ic-ratchet-trail circle:nth-child(1) { animation-delay: 0s; }
-.ic-ratchet-trail circle:nth-child(2) { animation-delay: 0s; }
-.ic-ratchet-trail circle:nth-child(3) { animation-delay: 0s; }
-@keyframes ic-ratchet-trail-fade {
-  0%, 22%   { opacity: 0; }
-  28%, 47%  { opacity: var(--trail-1, 0.10); }
-  53%, 72%  { opacity: var(--trail-2, 0.16); }
-  78%, 94%  { opacity: var(--trail-3, 0.20); }
-  100%      { opacity: 0; }
+.ic-cinch-tooth:nth-child(1) { animation-name: ic-cinch-tooth-1; }
+.ic-cinch-tooth:nth-child(2) { animation-name: ic-cinch-tooth-2; }
+.ic-cinch-tooth:nth-child(3) { animation-name: ic-cinch-tooth-3; }
+.ic-cinch-tooth:nth-child(4) { animation-name: ic-cinch-tooth-4; }
+.ic-cinch-tooth:nth-child(5) { animation-name: ic-cinch-tooth-5; }
+
+/* Tooth 1 (bottom): lights early. Tooth 5 (top): lights late.
+   All five hold through 88%, then fade out together by 92%. The window
+   from 92% → 100% (about 1.4s) is the synchronous dark seam: every tooth
+   is at opacity 0, so when t wraps from 100% back to 0% there is no
+   visible change in any tooth — no backward "unlock" anywhere. */
+@keyframes ic-cinch-tooth-1 {
+  0%   { opacity: 0; filter: none; }
+  6%   { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  88%  { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%  { opacity: 0; filter: none; }
+  100% { opacity: 0; filter: none; }
 }
+@keyframes ic-cinch-tooth-2 {
+  0%, 20%   { opacity: 0; filter: none; }
+  26%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%, 100% { opacity: 0; filter: none; }
+}
+@keyframes ic-cinch-tooth-3 {
+  0%, 40%   { opacity: 0; filter: none; }
+  46%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%, 100% { opacity: 0; filter: none; }
+}
+@keyframes ic-cinch-tooth-4 {
+  0%, 60%   { opacity: 0; filter: none; }
+  66%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%, 100% { opacity: 0; filter: none; }
+}
+@keyframes ic-cinch-tooth-5 {
+  0%, 78%   { opacity: 0; filter: none; }
+  84%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.7)); }
+  90%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.55)); }
+  92%, 100% { opacity: 0; filter: none; }
+}
+/* Static rail dashes stay constant; only the teeth animate. */
 
 @media (prefers-reduced-motion: reduce) {
   .ic-ratchet-spin,
-  .ic-pawl,
-  .ic-ratchet-advance,
-  .ic-ratchet-trail circle { animation: none; }
-  .ic-ratchet-trail { display: none; }
+  .ic-ratchet-cinch,
+  .ic-cinch-tooth { animation: none; }
+  /* With animations off, the cinch wrapper rests at translateY(0) and the
+     vault sits at the gate (its parent <g transform="translate(360 230)">).
+     Teeth fall back to a calm half-lit opacity so the rail stays legible
+     without flicker. The proof pulses are hidden entirely since SMIL
+     animateMotion isn't governed by CSS animation: none. */
+  .ic-cinch-tooth { opacity: 0.55; }
+  .ic-proof-pulses { display: none; }
 }
 .vp--featured {
   aspect-ratio: 16 / 9;
@@ -1492,6 +1562,26 @@ html, body { overflow-x: hidden; }
   .vp--featured .vp-play .play-disc {
     width: 70px;
     height: 70px;
+  }
+  /* Mobile video overlay: give the label and duration more breathing room
+     and a slightly deeper bottom gradient so they don't crowd the play
+     button or each other on narrow screens. */
+  .vp--featured .vp-overlay {
+    background: linear-gradient(180deg, rgba(10,20,22,0) 30%, rgba(10,20,22,0.78) 80%, rgba(10,20,22,0.92));
+  }
+  .vp--featured .vp-label {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+  }
+  .vp--featured .vp-duration {
+    right: 12px;
+    top: 12px;
+    font-size: 10.5px;
+    padding: 3px 8px;
   }
   .command-tutorials {
     margin-top: 32px;
