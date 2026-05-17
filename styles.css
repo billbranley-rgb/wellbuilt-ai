@@ -1328,7 +1328,7 @@ html, body { overflow-x: hidden; }
 }
 
 /* Forward-only ratchet wheel rotation. 0deg → 360deg, no recoil, no reset.
-   The wheel rotates continuously as it orbits the infinity curve. */
+   The wheel spins in place at the gate — it does NOT orbit the curve. */
 .ic-ratchet-spin {
   transform-box: fill-box;
   transform-origin: center;
@@ -1339,14 +1339,23 @@ html, body { overflow-x: hidden; }
   to   { transform: rotate(360deg); }
 }
 
-/* CINCH — forward-only upward drift on the central ratchet/vault. The
-   vault is anchored at the gate (its parent .ic-ratchet-anchor applies
-   transform="translate(360 230)" inline); this rule layers a vertical
-   lift + opacity fade on top. The wrapper rises ~22px over each 6s cycle,
-   reads as "tightening" like a zip tie that you can actually see moving.
-   The reset back to translateY(0) happens while opacity is 0, so the eye
-   never sees a downward snap. The vault stays centered horizontally; the
-   field-event flow advances around it via the proof pulses.
+/* CINCH — forward-only STEPPED upward climb on the central ratchet/vault.
+   The vault is anchored at the gate (its parent .ic-ratchet-anchor applies
+   transform="translate(360 230)" inline); this rule layers a discrete
+   stepped vertical lift on top. Each cycle (7s) the vault clicks UP the
+   threaded rod in six visible 6px steps (36px total travel), then quickly
+   fades out at the top, snaps back down while invisible, and fades in at
+   the bottom to begin the next climb. The downward reset is wholly behind
+   opacity 0 — the eye never sees a backward motion.
+
+   The stepping is implemented as two stacked animations:
+   - ic-ratchet-step:  steps(6, end) over 6s — the visible discrete clicks
+   - ic-ratchet-seam:  opacity fade-in/hold/fade-out timed so the reset
+                       lives entirely in the dark seam at the end of the cycle
+   Decoupling them keeps the step cadence sharp and the seam clean.
+
+   The vault stays centered horizontally; the field-event flow advances
+   around it via the proof pulses.
 
    IMPORTANT: there is intentionally NO motion-path or horizontal travel
    animation on the vault. An earlier iteration sent the vault traveling
@@ -1358,32 +1367,75 @@ html, body { overflow-x: hidden; }
 .ic-ratchet-cinch {
   transform-box: fill-box;
   transform-origin: center;
-  animation: ic-ratchet-cinch 6s linear infinite;
+  animation:
+    ic-ratchet-step 7s steps(6, end) infinite,
+    ic-ratchet-seam 7s linear infinite;
   will-change: transform, opacity;
 }
-@keyframes ic-ratchet-cinch {
-  /* Fade in low, rise upward, hold lifted, fade out high. The wrapper is
-     invisible at both the seam end (100%) and the seam start (0%), so the
-     position reset from -22px back to 0px is never visible. The travel is
-     deliberately larger (22px vs the prior 8px) and the cycle shorter
-     (6s vs 18s) so the upward movement reads clearly on first glance. */
-  0%   { transform: translateY(0);     opacity: 0; }
-  8%   { transform: translateY(0);     opacity: 1; }
-  92%  { transform: translateY(-22px); opacity: 1; }
-  100% { transform: translateY(-22px); opacity: 0; }
+/* Six discrete upward clicks. steps(6, end) turns this 0 → -36px ramp into
+   six visible jumps of 6px each. No backward keyframe — the animation only
+   runs forward; the reset to 0 happens during the seam fade-out portion of
+   ic-ratchet-seam, when opacity is 0 and the snap is invisible. */
+@keyframes ic-ratchet-step {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-36px); }
+}
+/* Seam: fade in fast at the bottom, hold lit through all six clicks, fade
+   out at the top before the step animation wraps back to translateY(0).
+   The 86% → 100% window (0.98s of the 7s cycle) is the dark seam in which
+   the position resets — no visible backward motion. */
+@keyframes ic-ratchet-seam {
+  0%   { opacity: 0; }
+  6%   { opacity: 1; }
+  86%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-/* ZIP-TIE CINCH RAIL — five gold teeth at the gate, lighting in sequence.
-   Each tooth fades on at its own moment within a shared 6s cycle, stays
-   lit, and at the end of the cycle ALL teeth fade out simultaneously.
-   There is no per-tooth "unlocking" step — the cinch only ever tightens;
-   the rail reset is a synchronous opacity drop, not a backward animation.
-   Each tooth uses its own keyframes so all teeth share the same loop seam. */
+/* ISOTOPE RINGS — the concentric contour stack tightens (scales down) and
+   lifts in lockstep with the vault's six ratchet clicks. Each pass of the
+   information flow visibly cinches the rings closer to the central record.
+
+   transform-origin is anchored at the gate (360,230 in SVG user units) via
+   transform-box: view-box, so the rings scale toward the central vault and
+   the upward translate compounds the cinch — they pull in AND drift up.
+
+   Scale: 1 → 0.82 (six 3% steps). translateY: 0 → -10px (six ~1.7px steps).
+   Both values are monotonically forward — no positive translateY and no
+   scale > 1 in the keyframes. The reset back to scale(1) translateY(0) is
+   masked by ic-isotope-seam (opacity drops to 0 at 86%–100%). */
+.ic-isotope-rings {
+  transform-box: view-box;
+  transform-origin: 360px 230px;
+  animation:
+    ic-isotope-cinch 7s steps(6, end) infinite,
+    ic-isotope-seam  7s linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes ic-isotope-cinch {
+  from { transform: translateY(0)     scale(1); }
+  to   { transform: translateY(-10px) scale(0.82); }
+}
+@keyframes ic-isotope-seam {
+  /* Floor opacity = 0.18 so the rings don't go fully invisible mid-cycle
+     (the stack should always read as ambient structure); the seam dips to
+     0 briefly at 88%–100% to hide the snap back to the widest state. */
+  0%   { opacity: 0; }
+  6%   { opacity: 0.45; }
+  86%  { opacity: 0.45; }
+  100% { opacity: 0; }
+}
+
+/* LOCK TICKS — six gold tick marks along the threaded rod that light in
+   sequence as the vault clicks upward. Each tick lights at the moment its
+   corresponding step occurs in the 7s cycle (tick 1 ≈ step 1 at ~14%, tick
+   6 ≈ step 6 at ~86%). All ticks hold lit until the seam, then fade out
+   together — there is no per-tick "unlocking" step. The cycle matches
+   .ic-ratchet-cinch (7s) so the lights and the vault climb together. */
 .ic-cinch-tooth {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation-duration: 6s;
+  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -1392,57 +1444,219 @@ html, body { overflow-x: hidden; }
 .ic-cinch-tooth:nth-child(3) { animation-name: ic-cinch-tooth-3; }
 .ic-cinch-tooth:nth-child(4) { animation-name: ic-cinch-tooth-4; }
 .ic-cinch-tooth:nth-child(5) { animation-name: ic-cinch-tooth-5; }
+.ic-cinch-tooth:nth-child(6) { animation-name: ic-cinch-tooth-6; }
 
-/* Tooth 1 (bottom): lights early. Tooth 5 (top): lights late.
-   All five hold through 88%, then fade out together by 92%. The window
-   from 92% → 100% (about 0.48s within the 6s cycle) is the synchronous
-   dark seam: every tooth is at opacity 0, so when t wraps from 100% back
-   to 0% there is no visible change in any tooth — no backward "unlock"
-   anywhere. */
+/* Tick 1 (bottom) lights at ~14% (end of click 1). Each subsequent tick
+   lights at the end of its click. All six hold through 86%, then fade
+   out together by 92%. The 92% → 100% window is the dark seam where the
+   vault snaps back invisibly. No keyframe ever runs backward. */
 @keyframes ic-cinch-tooth-1 {
-  0%   { opacity: 0; filter: none; }
-  6%   { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
-  88%  { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
-  92%  { opacity: 0; filter: none; }
-  100% { opacity: 0; filter: none; }
+  0%, 12%   { opacity: 0; filter: none; }
+  16%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  86%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%, 100% { opacity: 0; filter: none; }
 }
 @keyframes ic-cinch-tooth-2 {
-  0%, 20%   { opacity: 0; filter: none; }
-  26%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
-  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  0%, 26%   { opacity: 0; filter: none; }
+  30%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  86%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
   92%, 100% { opacity: 0; filter: none; }
 }
 @keyframes ic-cinch-tooth-3 {
   0%, 40%   { opacity: 0; filter: none; }
-  46%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
-  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  44%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  86%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
   92%, 100% { opacity: 0; filter: none; }
 }
 @keyframes ic-cinch-tooth-4 {
-  0%, 60%   { opacity: 0; filter: none; }
-  66%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
-  88%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  0%, 54%   { opacity: 0; filter: none; }
+  58%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  86%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
   92%, 100% { opacity: 0; filter: none; }
 }
 @keyframes ic-cinch-tooth-5 {
-  0%, 78%   { opacity: 0; filter: none; }
-  84%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.7)); }
+  0%, 68%   { opacity: 0; filter: none; }
+  72%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }
+  86%       { opacity: 1; filter: drop-shadow(0 0 2px rgba(239,199,102,0.45)); }
+  92%, 100% { opacity: 0; filter: none; }
+}
+@keyframes ic-cinch-tooth-6 {
+  0%, 82%   { opacity: 0; filter: none; }
+  86%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.7)); }
   90%       { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.55)); }
   92%, 100% { opacity: 0; filter: none; }
 }
-/* Static rail dashes stay constant; only the teeth animate. */
+/* Static rod threads stay constant; only the ticks animate. */
+
+/* LINEAR PATH STRIP — the "before" panel sitting directly above the
+   Infinity Curve. Visually subordinate to the Infinity Curve below: thinner
+   border, dimmer gradient, desaturated steel tones, no glow. The eye reads
+   the legacy 2D path first, then drops to the Infinity Curve as the focal
+   K1 transformation. */
+.linear-path {
+  margin: 0 0 8px;
+  padding: 10px clamp(14px, 2vw, 22px) 8px;
+  background:
+    linear-gradient(180deg, rgba(11,26,31,0.85), rgba(7,17,21,0.85));
+  border: 1px solid rgba(95,115,120,0.28);
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  position: relative;
+}
+.linear-path-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.linear-path-cap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(95,115,120,0.20);
+}
+.linear-path-title {
+  font-family: var(--f-display);
+  font-size: clamp(13px, 1.3vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark-mu);
+}
+.linear-path-sub {
+  font-family: var(--f-sans);
+  font-size: 11.5px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: rgba(159,177,181,0.78);
+}
+
+/* TRANSFORM CONNECTOR — bridges the linear strip and the Infinity Curve.
+   A small gold chevron + label. Quiet, no animation; the dynamism lives in
+   the Infinity Curve below. */
+.path-transform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 0 10px;
+  pointer-events: none;
+}
+.path-transform-arrow {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+.path-transform-label {
+  font-family: var(--f-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  opacity: 0.85;
+}
+
+/* SCREW STRIP — the dedicated horizontal "screw + climbing hub" panel that
+   sits directly beneath the Infinity Curve figure. The hub steps rightward
+   along the rod in six discrete clicks on the same 7s cadence as the central
+   vault, with the reset hidden behind a seam opacity fade. Forward only:
+   translateX is always >= 0, never negative. */
+.screw-strip {
+  margin: 14px 0 0;
+  padding: 14px clamp(14px, 2vw, 22px) 12px;
+  background:
+    radial-gradient(120% 80% at 20% 50%, rgba(63,168,181,0.10), transparent 60%),
+    radial-gradient(120% 80% at 85% 50%, rgba(201,157,63,0.10), transparent 60%),
+    linear-gradient(180deg, #0B1A1F, #071115);
+  border: 1px solid rgba(201,157,63,0.22);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.42);
+  position: relative;
+  overflow: hidden;
+}
+.screw-strip::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(rgba(63,168,181,0.05) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(63,168,181,0.05) 1px, transparent 1px) 0 0 / 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 78%);
+  pointer-events: none;
+}
+.screw-strip-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.screw-strip-cap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(244,233,204,0.10);
+}
+.screw-strip-title {
+  font-family: var(--f-display);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-bright);
+}
+.screw-strip-sub {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark-mu);
+}
+
+/* The hub travels rightward along the rod. transform-origin via view-box so
+   the translate compounds cleanly. Six clicks × 90px = 540px total travel,
+   matching the spacing between the six tick marks under the rod. The reset
+   to translateX(0) happens during the seam fade — never visible as a snap. */
+.screw-strip-hub-wrap {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  animation:
+    screw-strip-step 7s steps(6, end) infinite,
+    screw-strip-seam 7s linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes screw-strip-step {
+  from { transform: translateX(0); }
+  to   { transform: translateX(540px); }
+}
+@keyframes screw-strip-seam {
+  0%   { opacity: 0; }
+  6%   { opacity: 1; }
+  86%  { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ic-ratchet-spin,
   .ic-ratchet-cinch,
-  .ic-cinch-tooth { animation: none; }
+  .ic-cinch-tooth,
+  .ic-isotope-rings,
+  .screw-strip-hub-wrap { animation: none; }
   /* With animations off, the cinch wrapper rests at translateY(0) and the
      vault sits at the gate (its parent <g transform="translate(360 230)">).
      Teeth fall back to a calm half-lit opacity so the rail stays legible
      without flicker. The proof pulses are hidden entirely since SMIL
-     animateMotion isn't governed by CSS animation: none. */
+     animateMotion isn't governed by CSS animation: none. The isotope
+     rings hold at their widest state with the original ambient opacity. */
   .ic-cinch-tooth { opacity: 0.55; }
+  .ic-isotope-rings { opacity: 0.45; }
   .ic-proof-pulses { display: none; }
+  /* Screw-strip hub: with animation off, it rests at translateX(0) (start
+     of the rod) and stays fully visible. The diagram still reads as a
+     ratchet — just static. */
+  .screw-strip-hub-wrap { opacity: 1; }
 }
 .vp--featured {
   aspect-ratio: 16 / 9;
