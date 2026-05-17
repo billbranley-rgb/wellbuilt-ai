@@ -258,6 +258,133 @@ function extractKeyframesBody(src, name) {
   }
 }
 
+// 11) Screw imagery legibility. Bill should not have to squint to see the
+//     screw — the rod, threads, and ticks must be sized to read at viewing
+//     distance.
+//
+//     a) Central rod: the outer guide channel inside .ic-cinch must be at
+//        least 10px wide. The previous 5px hairline rod was the regression
+//        Bill flagged.
+//     b) Central ticks (.ic-cinch-tooth rects): at least 12×4 each.
+//     c) Screw-strip horizontal rod: at least 16px tall.
+//     d) Screw-strip ticks: at least 14×5 each.
+{
+  const cinchOpen = html.indexOf('class="ic-cinch"');
+  if (cinchOpen === -1) fail("missing .ic-cinch group — central screw mechanism is gone");
+  else {
+    const block = html.slice(cinchOpen, cinchOpen + 6000);
+    // Scan every <rect> inside .ic-cinch and pick the widest narrow rod
+    // (the outer guide channel). The widest rect in this block is the
+    // visible rod itself, not the inner shadow groove or the caps.
+    const rectWidths = [...block.matchAll(/<rect\b[^>]*\bwidth="(\d+(?:\.\d+)?)"[^>]*\bheight="(\d+(?:\.\d+)?)"/g)]
+      .map(m => ({ w: parseFloat(m[1]), h: parseFloat(m[2]) }))
+      // Rod-shaped: tall and narrow (height > width × 4).
+      .filter(r => r.h > r.w * 4);
+    if (rectWidths.length === 0) fail("could not locate central screw guide rod inside .ic-cinch");
+    else {
+      const w = Math.max(...rectWidths.map(r => r.w));
+      if (w < 10) fail(`central screw rod width=${w}px — Bill said he can barely see it; must be ≥10px`);
+      else ok(`central screw rod is ${w}px wide (legible)`);
+    }
+    // Sample one tooth — all six are sized identically.
+    const tooth = block.match(/<rect class="ic-cinch-tooth"[^>]*width="(\d+(?:\.\d+)?)" height="(\d+(?:\.\d+)?)"/);
+    if (!tooth) fail("could not locate .ic-cinch-tooth rect");
+    else {
+      const tw = parseFloat(tooth[1]);
+      const th = parseFloat(tooth[2]);
+      if (tw < 12 || th < 4) fail(`central screw tick is ${tw}×${th}px — must be ≥12×4 to read as a click stop`);
+      else ok(`central screw ticks are ${tw}×${th}px (legible click stops)`);
+    }
+  }
+
+  // Screw-strip horizontal rod.
+  const stripOpen = html.indexOf('class="screw-strip-svg"');
+  if (stripOpen === -1) fail("missing .screw-strip-svg — horizontal screw panel is gone");
+  else {
+    const stripClose = html.indexOf("</svg>", stripOpen);
+    const stripBlock = html.slice(stripOpen, stripClose);
+    // The rod rect is the wide horizontal one (width="640") inside the strip.
+    const rod = stripBlock.match(/<rect[^>]*width="640"[^>]*height="(\d+(?:\.\d+)?)"/);
+    if (!rod) fail("could not locate horizontal screw-strip rod (width=640 rect)");
+    else {
+      const rh = parseFloat(rod[1]);
+      if (rh < 16) fail(`screw-strip rod is only ${rh}px tall — must be ≥16px to read as a screw`);
+      else ok(`screw-strip rod is ${rh}px tall (legible)`);
+    }
+    const stripTooth = stripBlock.match(/<rect class="ic-cinch-tooth"[^>]*width="(\d+(?:\.\d+)?)" height="(\d+(?:\.\d+)?)"/);
+    if (!stripTooth) fail("could not locate screw-strip tick rect");
+    else {
+      const tw = parseFloat(stripTooth[1]);
+      const th = parseFloat(stripTooth[2]);
+      if (tw < 14 || th < 5) fail(`screw-strip tick is ${tw}×${th}px — must be ≥14×5 to read at viewing distance`);
+      else ok(`screw-strip ticks are ${tw}×${th}px (legible click stops)`);
+    }
+  }
+}
+
+// 12) Linear strip uses a distinct accent color — not the same gold/teal as
+//     the Infinity Curve. The "traditional construction" path should read as
+//     the OLD lifecycle, visually separate from the live Infinity Curve.
+//
+//     Strategy: confirm a Seahawks-style action / construction green color
+//     (any color in the "69BE28" / "3F7A18" / "A8D169" / "0F3D08" family of
+//     legacy-accent hexes) appears inside the linear-path figure AND that
+//     the strip's dominant labels are NOT the cool teal (#6FA8B0/#8FA3A8)
+//     used by the Infinity Curve board. The strip must also be free of
+//     the gold (#C99D3F/#E2B860) tones the Infinity Curve uses, so the two
+//     palettes remain visually distinct.
+{
+  const linOpen = html.indexOf('class="linear-path"');
+  if (linOpen === -1) fail("missing .linear-path — traditional strip is gone");
+  else {
+    const linClose = html.indexOf("</figure>", linOpen);
+    const block = html.slice(linOpen, linClose);
+    const GREEN = /#69BE28|#3F7A18|#A8D169|#0F3D08/i;
+    const COOL = /#6FA8B0|#8FA3A8|#5C7378|#3A4F54/i;
+    const GOLD = /#C99D3F|#E2B860|#B58A2A/i;
+    const hasGreen = GREEN.test(block);
+    const stillCool = COOL.test(block);
+    const stillGold = GOLD.test(block);
+    if (!hasGreen) fail("linear strip has no construction-green accent color (#69BE28/#3F7A18/#A8D169) — should read as the legacy 'before' path");
+    else ok("linear strip uses a distinct construction-green accent palette");
+    if (stillCool) fail(`linear strip still contains steel/teal palette hex (${(block.match(COOL) || [""])[0]}) — accent must be distinct from Infinity Curve cool tones`);
+    else ok("linear strip is free of the Infinity Curve's steel/teal palette");
+    if (stillGold) fail(`linear strip contains Infinity Curve gold hex (${(block.match(GOLD) || [""])[0]}) — green accent must stay distinct from the gold/teal palette`);
+    else ok("linear strip is free of the Infinity Curve's gold palette");
+
+    // Five stage labels are still all present (regression-guard the rename).
+    const stages = ["RFI", "SUBMITTAL", "CHANGE ORDER", "PUNCH", "CLOSEOUT"];
+    const missing = stages.filter(s => !block.includes(s));
+    if (missing.length) fail(`linear path lost stage label(s) during recolor: ${missing.join(", ")}`);
+    else ok(`linear strip preserves stage labels (${stages.join(" → ")})`);
+
+    // The linear strip's CSS border-left must use the same green accent so
+    // the panel chrome agrees with the SVG inside it.
+    const linRule = css.match(/\.linear-path\s*\{([\s\S]*?)\}/);
+    if (!linRule) fail("missing .linear-path CSS rule");
+    else if (!/#69BE28|rgba\(105,\s*190,\s*40/i.test(linRule[1])) {
+      fail(".linear-path CSS rule does not include the construction-green accent (#69BE28 / rgba(105,190,40,...)) — panel chrome should match the SVG palette");
+    } else ok(".linear-path panel chrome uses the construction-green accent");
+  }
+}
+
+// 13) Central K1 vault is not so large that it hides the threaded rod. The
+//     wheel-scale transform inside .ic-ratchet-spin must be < 0.85 so the
+//     screw mechanism around it is visible. (Old: 0.85; polished: 0.72.)
+{
+  const spinOpen = html.indexOf("ic-ratchet-spin");
+  if (spinOpen !== -1) {
+    const slice = html.slice(spinOpen, spinOpen + 400);
+    const m = slice.match(/<g transform="scale\((\d*\.?\d+)\)">\s*<use href="#ic-ratchet-wheel"/);
+    if (!m) fail("could not parse central vault scale transform");
+    else {
+      const s = parseFloat(m[1]);
+      if (s >= 0.85) fail(`central vault scale=${s} — too large; reduce to <0.85 so the screw mechanism reads`);
+      else ok(`central vault scaled to ${s} (screw mechanism is not obscured)`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error("\nratchet-check: FAILED");
   for (const e of errors) console.error("  - " + e);
