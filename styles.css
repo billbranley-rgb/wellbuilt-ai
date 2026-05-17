@@ -1295,6 +1295,28 @@ html, body { overflow-x: hidden; }
   letter-spacing: 0.02em;
   color: var(--text-on-dark-mu);
 }
+.infinity-ratchet-lock {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(201, 157, 63, 0.18);
+  font-family: var(--f-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--text-on-dark);
+}
+.infinity-ratchet-lock::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 1px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 6px rgba(239, 199, 102, 0.55);
+  transform: translateY(-1px);
+}
 
 /* Forward-only ratchet wheel rotation. 0deg → 360deg, no recoil, no reset.
    The wheel rotates continuously as it orbits the infinity curve. */
