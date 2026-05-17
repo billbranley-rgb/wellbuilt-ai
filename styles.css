@@ -1332,7 +1332,7 @@ html, body { overflow-x: hidden; }
 .ic-ratchet-spin {
   transform-box: fill-box;
   transform-origin: center;
-  animation: ic-ratchet-spin 9s linear infinite;
+  animation: ic-ratchet-spin 4s linear infinite;
 }
 @keyframes ic-ratchet-spin {
   from { transform: rotate(0deg); }
@@ -1342,11 +1342,11 @@ html, body { overflow-x: hidden; }
 /* CINCH — forward-only upward drift on the central ratchet/vault. The
    vault is anchored at the gate (its parent .ic-ratchet-anchor applies
    transform="translate(360 230)" inline); this rule layers a vertical
-   lift + opacity fade on top. The wrapper rises ~8px over each 18s cycle,
-   reads as "tightening" like a zip tie. The reset back to translateY(0)
-   happens while opacity is 0, so the eye never sees a downward snap. The
-   vault stays centered horizontally; the field-event flow advances around
-   it via the proof pulses.
+   lift + opacity fade on top. The wrapper rises ~22px over each 6s cycle,
+   reads as "tightening" like a zip tie that you can actually see moving.
+   The reset back to translateY(0) happens while opacity is 0, so the eye
+   never sees a downward snap. The vault stays centered horizontally; the
+   field-event flow advances around it via the proof pulses.
 
    IMPORTANT: there is intentionally NO motion-path or horizontal travel
    animation on the vault. An earlier iteration sent the vault traveling
@@ -1358,21 +1358,23 @@ html, body { overflow-x: hidden; }
 .ic-ratchet-cinch {
   transform-box: fill-box;
   transform-origin: center;
-  animation: ic-ratchet-cinch 18s linear infinite;
+  animation: ic-ratchet-cinch 6s linear infinite;
   will-change: transform, opacity;
 }
 @keyframes ic-ratchet-cinch {
   /* Fade in low, rise upward, hold lifted, fade out high. The wrapper is
      invisible at both the seam end (100%) and the seam start (0%), so the
-     position reset from -8px back to 0px is never visible. */
-  0%   { transform: translateY(0);    opacity: 0; }
-  8%   { transform: translateY(0);    opacity: 1; }
-  92%  { transform: translateY(-8px); opacity: 1; }
-  100% { transform: translateY(-8px); opacity: 0; }
+     position reset from -22px back to 0px is never visible. The travel is
+     deliberately larger (22px vs the prior 8px) and the cycle shorter
+     (6s vs 18s) so the upward movement reads clearly on first glance. */
+  0%   { transform: translateY(0);     opacity: 0; }
+  8%   { transform: translateY(0);     opacity: 1; }
+  92%  { transform: translateY(-22px); opacity: 1; }
+  100% { transform: translateY(-22px); opacity: 0; }
 }
 
 /* ZIP-TIE CINCH RAIL — five gold teeth at the gate, lighting in sequence.
-   Each tooth fades on at its own moment within a shared 18s cycle, stays
+   Each tooth fades on at its own moment within a shared 6s cycle, stays
    lit, and at the end of the cycle ALL teeth fade out simultaneously.
    There is no per-tooth "unlocking" step — the cinch only ever tightens;
    the rail reset is a synchronous opacity drop, not a backward animation.
@@ -1381,7 +1383,7 @@ html, body { overflow-x: hidden; }
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation-duration: 18s;
+  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -1393,9 +1395,10 @@ html, body { overflow-x: hidden; }
 
 /* Tooth 1 (bottom): lights early. Tooth 5 (top): lights late.
    All five hold through 88%, then fade out together by 92%. The window
-   from 92% → 100% (about 1.4s) is the synchronous dark seam: every tooth
-   is at opacity 0, so when t wraps from 100% back to 0% there is no
-   visible change in any tooth — no backward "unlock" anywhere. */
+   from 92% → 100% (about 0.48s within the 6s cycle) is the synchronous
+   dark seam: every tooth is at opacity 0, so when t wraps from 100% back
+   to 0% there is no visible change in any tooth — no backward "unlock"
+   anywhere. */
 @keyframes ic-cinch-tooth-1 {
   0%   { opacity: 0; filter: none; }
   6%   { opacity: 1; filter: drop-shadow(0 0 3px rgba(239,199,102,0.65)); }

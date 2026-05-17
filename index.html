@@ -408,36 +408,38 @@
                  Multiple staggered pulses keep at least one bead visible at all
                  times — the eye reads continuous forward flow, never a rewind. -->
             <g class="ic-proof-pulses">
-              <!-- Teal stream — FIELD TRUTH IN → gate. Two pulses, 3.5s apart. -->
+              <!-- Teal stream — FIELD TRUTH IN → gate. Two pulses, 1.75s apart.
+                   Cycle shortened from 7s to 3.5s so the forward motion reads
+                   immediately instead of drifting. -->
               <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
-                <animateMotion dur="7s" repeatCount="indefinite" rotate="auto"
+                <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto"
                   keyPoints="0;1" keyTimes="0;1" calcMode="linear"
                   path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
-                <animate attributeName="opacity" dur="7s" repeatCount="indefinite"
+                <animate attributeName="opacity" dur="3.5s" repeatCount="indefinite"
                   values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
               </circle>
               <circle r="4.5" fill="#A9E6EE" filter="url(#ic-soft)" opacity="0">
-                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.75s" rotate="auto"
                   keyPoints="0;1" keyTimes="0;1" calcMode="linear"
                   path="M 40,230 C 110,230 140,250 160,200 C 200,110 320,130 360,230"/>
-                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                <animate attributeName="opacity" dur="3.5s" repeatCount="indefinite" begin="1.75s"
                   values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
               </circle>
 
-              <!-- Gold stream — gate → PROOF OUT. Offset by 3.5s from teal start
+              <!-- Gold stream — gate → PROOF OUT. Offset by 1.75s from teal start
                    so the bead hands off through the gate as forward motion. -->
               <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
-                <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s" rotate="auto"
+                <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.75s" rotate="auto"
                   keyPoints="0;1" keyTimes="0;1" calcMode="linear"
                   path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
-                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="3.5s"
+                <animate attributeName="opacity" dur="3.5s" repeatCount="indefinite" begin="1.75s"
                   values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
               </circle>
               <circle r="4.5" fill="#F2D88A" filter="url(#ic-soft)" opacity="0">
-                <animateMotion dur="7s" repeatCount="indefinite" begin="7s" rotate="auto"
+                <animateMotion dur="3.5s" repeatCount="indefinite" begin="3.5s" rotate="auto"
                   keyPoints="0;1" keyTimes="0;1" calcMode="linear"
                   path="M 360,230 C 400,130 520,110 560,200 C 580,250 610,230 680,230"/>
-                <animate attributeName="opacity" dur="7s" repeatCount="indefinite" begin="7s"
+                <animate attributeName="opacity" dur="3.5s" repeatCount="indefinite" begin="3.5s"
                   values="0;0.95;0.95;0" keyTimes="0;0.08;0.86;1" calcMode="linear"/>
               </circle>
             </g>
