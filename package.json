@@ -1,0 +1,11 @@
+{
+  "name": "wellbuilt-ai",
+  "version": "0.0.0",
+  "private": true,
+  "description": "K1 / WellBuilt AI public site (k1.construction).",
+  "scripts": {
+    "check:media": "node scripts/check-media.mjs",
+    "predeploy": "node scripts/check-media.mjs",
+    "prevercel-build": "node scripts/check-media.mjs"
+  }
+}
