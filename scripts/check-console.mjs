@@ -1,16 +1,17 @@
 #!/usr/bin/env node
-// Guardrail: user-facing "Open full command center" / "Open console" CTAs
-// must point to the canonical Perplexity-hosted K1 Command Center, while
-// the in-page preview <iframe> keeps using the locally bundled console so
-// the preview never depends on a live external host.
+// Guardrail: user-facing "K1" / "Open console" CTAs must point to the
+// canonical Perplexity-hosted K1 Command Center, while the in-page
+// preview <iframe> keeps using the locally bundled console so the
+// preview never depends on a live external host.
 //
-// History: PR #8 broke "Open full command center" by pointing CTAs at
+// History: PR #8 broke the CTAs by pointing them at
 // https://k1.construction/assets/embed/console.html (popup blockers,
 // cross-origin quirks). PR #9 first bundled console.html locally and
 // pointed every CTA at the relative path. Bill then provided the
 // Perplexity Computer URL below as the real destination — user-facing
 // CTAs now go there in a new tab; the iframe preview still uses the
-// local bundle as a same-origin fallback.
+// local bundle as a same-origin fallback. The visible CTA label was
+// later shortened from "Open full command center" to just "K1".
 //
 // Run: node scripts/check-console.mjs
 // Exits non-zero on any failure.
@@ -58,21 +59,23 @@ if (absMatches.length > 0) {
   ok("index.html has no absolute k1.construction console.html references");
 }
 
-// 3) Every user-facing "Open full command center" link must point to the
-//    Perplexity-hosted K1 Command Center URL.
-const cccLinkRe = /<a\b[^>]*\bhref=(["'])([^"']+)\1[^>]*>\s*Open full command center\s*<\/a>/gi;
+// 3) Every user-facing "K1" command center link must point to the
+//    Perplexity-hosted K1 Command Center URL. (Was previously labelled
+//    "Open full command center"; the visible CTA text was shortened to
+//    just "K1" — the destination is unchanged.)
+const cccLinkRe = /<a\b[^>]*\bhref=(["'])([^"']+)\1[^>]*>\s*K1\s*<\/a>/g;
 const cccMatches = [...index.matchAll(cccLinkRe)];
 if (cccMatches.length === 0) {
-  fail(`could not find any "Open full command center" link in index.html`);
+  fail(`could not find any "K1" command center link in index.html`);
 } else {
   let goodCount = 0;
   for (const m of cccMatches) {
     const href = m[2];
     const line = index.slice(0, m.index).split("\n").length;
     if (href === CCC_URL) goodCount++;
-    else fail(`index.html:${line} "Open full command center" href is ${JSON.stringify(href)} — should be ${JSON.stringify(CCC_URL)}`);
+    else fail(`index.html:${line} "K1" command center href is ${JSON.stringify(href)} — should be ${JSON.stringify(CCC_URL)}`);
   }
-  if (goodCount === cccMatches.length) ok(`${goodCount} "Open full command center" link(s) point to the Perplexity K1 Command Center URL`);
+  if (goodCount === cccMatches.length) ok(`${goodCount} "K1" command center link(s) point to the Perplexity K1 Command Center URL`);
 }
 
 // 4) The "Open console →" CTA next to the preview iframe should also point
@@ -95,7 +98,7 @@ if (consoleCtaMatches.length === 0) {
 // 5) Because the Perplexity destination is cross-origin, those CTAs must
 //    open in a new tab with safe rel attributes. (This inverts the old
 //    rule, which forbade target="_blank" on the same-origin link.)
-const ctaBlockRe = /<a\b[^>]*>\s*Open (?:full command center|console)\s*(?:→|&rarr;)?\s*<\/a>/gi;
+const ctaBlockRe = /<a\b[^>]*\bhref=["']https:\/\/www\.perplexity\.ai\/computer\/a\/k1-command-center[^"']*["'][^>]*>[^<]*<\/a>/g;
 let relErrCount = errors.length;
 for (const m of index.matchAll(ctaBlockRe)) {
   const tag = m[0];
