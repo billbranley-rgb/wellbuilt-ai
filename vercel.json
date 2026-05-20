@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/command-center",
+      "destination": "/command-center/index.html"
+    },
+    {
+      "source": "/command-center/",
+      "destination": "/command-center/index.html"
+    },
+    {
+      "source": "/command-center/(.*)",
+      "destination": "/command-center/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/command-center/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/embed/console/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
