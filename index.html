@@ -1446,20 +1446,23 @@
     <section class="k1-front-video" aria-labelledby="k1-front-video-title">
       <div class="k1-front-video__shell">
         <div class="k1-front-video__copy">
-	          <p class="k1-front-video__eyebrow">K1 Systems · Controlled Construction Proof</p>
-	          <h1 id="k1-front-video-title">Field truth becomes project control.</h1>
+	          <p class="k1-front-video__eyebrow">K1 Systems · Built for the field</p>
+	          <h1 id="k1-front-video-title">Stop bleeding money on change orders that never should have happened.</h1>
 	          <p>
-	            Watch the approved K1 walkthrough: capture at the work face, human validate,
-	            vault seal, then route defensible proof into the commercial record.
+	            K1 captures validated truth at the work face, seals it forever, and routes
+	            defensible proof straight into Procore — before the dispute even starts.
 	          </p>
 	          <div class="k1-front-video__trust" aria-label="K1 trust signals">
-	            <span>Patent-pending</span>
-	            <span>Complex projects</span>
-	            <span>Evidence-first</span>
+	            <span>Third-generation builder</span>
+	            <span>30+ years in the field</span>
+	            <span>Contractor-ready pilot</span>
 	          </div>
 	          <div class="k1-front-video__actions">
-	            <a href="https://k1-command-center.vercel.app/#/" target="_blank" rel="noopener">
-	              Open Command Center
+	            <a class="k1-front-video__primary" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">
+	              Start a focused change-order pilot
+	            </a>
+	            <a class="k1-front-video__secondary" href="https://k1-command-center.vercel.app/#/" target="_blank" rel="noopener">
+	              See how K1 protects the record
 	            </a>
             <span>37 second master cut</span>
           </div>
@@ -1474,6 +1477,51 @@
           >
             Your browser does not support this K1 video.
           </video>
+        </div>
+      </div>
+    </section>
+    <section class="k1-builder-block" aria-labelledby="k1-builder-block-title">
+      <div class="k1-builder-block__shell">
+        <article class="k1-builder-block__founder">
+          <p class="k1-builder-block__eyebrow">From the founder</p>
+          <h2 id="k1-builder-block-title">Built by a guy who&rsquo;s actually swung a hammer.</h2>
+          <p class="k1-builder-block__lede">Third-generation builder. 30+ years in the field. Tired of watching good crews get screwed by weak paperwork. So I built the system I wish existed when I was running jobs.</p>
+        </article>
+        <aside class="k1-builder-block__proof" aria-label="K1 social proof">
+          <p class="k1-builder-block__eyebrow">On the ground</p>
+          <ul>
+            <li><strong>Focused pilot workflow</strong><span>One change-order scenario, one crew, one clean record.</span></li>
+            <li><strong>Built with field operators</strong><span>Designed alongside supers, PMs, and trade partners running real jobs.</span></li>
+            <li><strong>Contractor-ready pilot</strong><span>Phone-first capture, human validation, defensible record into Procore.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="k1-why-k1" aria-labelledby="k1-why-k1-title">
+      <div class="k1-why-k1__shell">
+        <p class="k1-why-k1__eyebrow">Why K1</p>
+        <h2 id="k1-why-k1-title">Most tools help the office. K1 finally helps the guy in the hard hat.</h2>
+        <div class="k1-why-k1__grid">
+          <article>
+            <h3>Stop rebuilding from memory</h3>
+            <p>Crews capture what happened on the phone they already carry, while the facts are fresh.</p>
+          </article>
+          <article>
+            <h3>Validate before the fight starts</h3>
+            <p>An authorized human confirms the record on the spot, so the proof is locked before the dispute.</p>
+          </article>
+          <article>
+            <h3>Defensible record into Procore</h3>
+            <p>Validated field truth flows straight into the tools the office already uses — no parallel system to chase.</p>
+          </article>
+          <article>
+            <h3>Stand behind every change order</h3>
+            <p>When the back-and-forth starts, you have the receipts. Time, place, crew, conditions, evidence.</p>
+          </article>
+        </div>
+        <div class="k1-why-k1__actions">
+          <a class="k1-why-k1__primary" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">Start a focused change-order pilot</a>
+          <a class="k1-why-k1__secondary" href="https://k1-command-center.vercel.app/#/" target="_blank" rel="noopener">See how K1 protects the record</a>
         </div>
       </div>
     </section>
@@ -1560,6 +1608,199 @@
         padding: 14px 18px;
         text-decoration: none;
         text-transform: uppercase;
+      }
+
+      .k1-front-video__actions a.k1-front-video__secondary {
+        background: transparent;
+        border: 1px solid rgba(91, 213, 255, 0.45);
+        box-shadow: none;
+        color: #9be8ff;
+      }
+
+      .k1-builder-block {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(0, 170, 255, 0.14), transparent 38%),
+          linear-gradient(180deg, #03050a 0%, #050a14 100%);
+        color: #f4fbff;
+        padding: 48px 18px 56px;
+      }
+
+      .k1-builder-block__shell {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .k1-builder-block__eyebrow {
+        color: #5bd5ff;
+        font: 900 11px/1.2 "JetBrains Mono", monospace;
+        letter-spacing: 0.14em;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      .k1-builder-block__founder {
+        border: 1px solid rgba(91, 213, 255, 0.22);
+        border-radius: 22px;
+        background: rgba(8, 16, 28, 0.72);
+        padding: 26px;
+      }
+
+      .k1-builder-block__founder h2 {
+        color: #ffffff;
+        font: 900 clamp(24px, 3.2vw, 34px)/1.05 "Inter", system-ui, sans-serif;
+        letter-spacing: -0.03em;
+        margin: 0 0 14px;
+      }
+
+      .k1-builder-block__founder p:not(.k1-builder-block__eyebrow) {
+        color: rgba(235, 247, 255, 0.86);
+        font: 500 16px/1.55 "Inter", system-ui, sans-serif;
+        margin: 0;
+        white-space: pre-line;
+      }
+
+      .k1-builder-block__proof {
+        border: 1px solid rgba(91, 213, 255, 0.18);
+        border-radius: 22px;
+        background: rgba(5, 12, 22, 0.7);
+        padding: 26px;
+      }
+
+      .k1-builder-block__proof ul {
+        display: grid;
+        gap: 14px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .k1-builder-block__proof li {
+        display: grid;
+        gap: 4px;
+      }
+
+      .k1-builder-block__proof strong {
+        color: #ffffff;
+        font: 800 14px/1.2 "Inter", system-ui, sans-serif;
+        letter-spacing: 0.01em;
+      }
+
+      .k1-builder-block__proof span {
+        color: rgba(235, 247, 255, 0.72);
+        font: 500 14px/1.5 "Inter", system-ui, sans-serif;
+      }
+
+      .k1-why-k1 {
+        background: linear-gradient(180deg, #050a14 0%, #060d1a 100%);
+        color: #f4fbff;
+        padding: 56px 18px 64px;
+      }
+
+      .k1-why-k1__shell {
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .k1-why-k1__eyebrow {
+        color: #5bd5ff;
+        font: 900 11px/1.2 "JetBrains Mono", monospace;
+        letter-spacing: 0.14em;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      .k1-why-k1 h2 {
+        color: #ffffff;
+        font: 900 clamp(26px, 3.6vw, 42px)/1.05 "Inter", system-ui, sans-serif;
+        letter-spacing: -0.035em;
+        margin: 0 0 26px;
+        max-width: 940px;
+      }
+
+      .k1-why-k1__grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .k1-why-k1__grid article {
+        border: 1px solid rgba(91, 213, 255, 0.2);
+        border-radius: 18px;
+        background: rgba(8, 16, 28, 0.7);
+        padding: 22px;
+      }
+
+      .k1-why-k1__grid h3 {
+        color: #ffffff;
+        font: 800 16px/1.25 "Inter", system-ui, sans-serif;
+        letter-spacing: -0.005em;
+        margin: 0 0 8px;
+      }
+
+      .k1-why-k1__grid p {
+        color: rgba(235, 247, 255, 0.78);
+        font: 500 14px/1.55 "Inter", system-ui, sans-serif;
+        margin: 0;
+      }
+
+      .k1-why-k1__actions {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .k1-why-k1__primary {
+        background: linear-gradient(135deg, #14c8ff, #1769ff);
+        border-radius: 999px;
+        box-shadow: 0 14px 34px rgba(0, 170, 255, 0.24);
+        color: white;
+        font: 900 12px/1 "JetBrains Mono", monospace;
+        letter-spacing: 0.08em;
+        padding: 14px 18px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .k1-why-k1__secondary {
+        border: 1px solid rgba(91, 213, 255, 0.45);
+        border-radius: 999px;
+        color: #9be8ff;
+        font: 900 12px/1 "JetBrains Mono", monospace;
+        letter-spacing: 0.08em;
+        padding: 13px 18px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 860px) {
+        .k1-builder-block__shell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .k1-builder-block,
+        .k1-why-k1 {
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+
+        .k1-why-k1__actions {
+          align-items: stretch;
+          display: grid;
+        }
+
+        .k1-why-k1__primary,
+        .k1-why-k1__secondary {
+          justify-content: center;
+          min-height: 54px;
+          text-align: center;
+        }
       }
 
       .k1-front-video__actions span {
@@ -1868,8 +2109,8 @@
                     Field crews capture real events on their phones. Human-validated records flow through the K1 spine into your existing tools: Procore, Autodesk, project controls, closeout, and the Evidence Vault.
                   </p>
                   <div class="k1-hero-actions">
-                    <a class="k1-primary-cta" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">Start a 30-Day Focused Pilot</a>
-                    <a class="k1-command-cta" href="https://k1-command-center.vercel.app/#/" target="_blank" rel="noopener">Open Command Center</a>
+                    <a class="k1-primary-cta" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">Start a focused change-order pilot</a>
+                    <a class="k1-command-cta" href="https://k1-command-center.vercel.app/#/" target="_blank" rel="noopener">See how K1 protects the record</a>
                     <a class="k1-secondary-cta" href="index.html#/" data-k1-scroll-target="k1-work-module">See the job spine</a>
                   </div>
                   <div class="k1-trust-line">
@@ -1973,7 +2214,7 @@
                 </article>
               </div>
             </section>
-            <a class="k1-sticky-pilot" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">Start a 30-Day Focused Pilot</a>
+            <a class="k1-sticky-pilot" href="mailto:billbranley@gmail.com?subject=K1%2030-Day%20Focused%20Pilot%20Request">Start a focused change-order pilot</a>
           `;
         }
 
