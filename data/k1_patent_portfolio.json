@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "company": "K1",
+    "founder": "William E. Branley",
+    "founder_full_name": "William Edward Branley",
+    "positioning": "Trusted evidence-to-money infrastructure layer for construction and critical infrastructure.",
+    "tagline": "K1 turns field evidence into financial-grade truth.",
+    "narrative_flow": [
+      "Field event",
+      "Validated evidence",
+      "AI + human scoring",
+      "Immutable record",
+      "Workflow / compliance / risk",
+      "Financial impact",
+      "Payment / settlement action"
+    ],
+    "as_of": "2026-05-25",
+    "source_archive_base": "K1_All_Code_Updated_2026-05-24.zip"
+  },
+  "counts": {
+    "clean_nonprovisional_utility": 16,
+    "mismatched_duplicate_nonprovisional": 2,
+    "provisionals_total_strategically_covered": 17,
+    "total_nonprovisional_filings_attempted": 18
+  },
+  "mismatched_filings_for_counsel_review": [
+    {
+      "application_number": "19/686,754",
+      "status": "Mismatched duplicate filing — flagged for counsel cleanup / review.",
+      "notes": "Not centered in narrative; preserved in record for outside-counsel review."
+    },
+    {
+      "application_number": "19/686,755",
+      "status": "Mismatched duplicate filing — flagged for counsel cleanup / review.",
+      "notes": "Not centered in narrative; preserved in record for outside-counsel review."
+    }
+  ],
+  "provisionals_summary": {
+    "total": 17,
+    "coverage": "Provisional family establishes priority across the full Infinity Curve category: evidence capture, AI/human validation, multi-modal fusion, gravity-weighted scoring, ruggedized field intake, vertical-specific compliance (nuclear, semiconductor, defense, corrections), change-order economics, evidence-backed finance, payment orchestration, and tokenized payment rights.",
+    "purpose": "Priority anchors backing the 16 clean utility nonprovisionals and any continuations."
+  },
+  "clean_nonprovisional_filings": [
+    {
+      "index": 1,
+      "application_number": "19/686,747",
+      "title": "Enhanced Infinity Curve: AI-Assisted Evidence Scoring, Digital Twin Integration, Multi-Modal Fusion, Gravity-Weighted Validation, and Post-Quantum Secure Settlement System for Construction and Critical Infrastructure",
+      "confirmation_number": "2865",
+      "patent_center_id": "76610451",
+      "received_et": "2026-05-24 21:25:16",
+      "documents": [
+        {"name": "ADS76610451.pdf", "pages": 5},
+        {"name": "Document 10.pdf", "pages": 5}
+      ],
+      "category": "lead_platform",
+      "themes": ["AI evidence scoring", "digital twin", "multi-modal fusion", "gravity-weighted validation", "post-quantum settlement"]
+    },
+    {
+      "index": 2,
+      "application_number": "19/686,751",
+      "title": "Integrated Field-First Construction Intelligence Operating System with Evidence Capture, Agency-Aware Compliance, Tamper-Evident Vaulting, Ruggedized Field Intake, and Project Controls",
+      "confirmation_number": "3596",
+      "patent_center_id": "76610790",
+      "received_et": "2026-05-24 21:46:46",
+      "documents": [
+        {"name": "k1_group_1_core_field_os_nonprovisional_draft.pdf", "pages": 12}
+      ],
+      "category": "core_field_os",
+      "themes": ["field operating system", "agency-aware compliance", "tamper-evident vault", "project controls"]
+    },
+    {
+      "index": 3,
+      "application_number": "19/686,758",
+      "title": "Systems and Methods for Controlled Construction Evidence Using Mandatory Human Validation, Spatial Context, Cryptographic Sealing, and Real-Time Evidence Strength Feedback",
+      "confirmation_number": "6671",
+      "patent_center_id": "76611290",
+      "received_et": "2026-05-24 22:12:33",
+      "documents": [
+        {"name": "k1_group_2_controlled_construction_evidence.pdf", "pages": 14}
+      ],
+      "category": "controlled_evidence",
+      "themes": ["mandatory human validation", "spatial context", "cryptographic sealing", "evidence strength feedback"]
+    },
+    {
+      "index": 4,
+      "application_number": "19/686,761",
+      "title": "Systems and Methods for Critical Infrastructure Construction Evidence Using Gravity-Adjusted Validation, Nuclear Quality Gates, Radiation Context Tagging, Spatial Telemetry, and Long-Term Quantum-Resistant Archiving",
+      "confirmation_number": "9293",
+      "patent_center_id": "76611430",
+      "received_et": "2026-05-24 22:22:23",
+      "documents": [
+        {"name": "K1_Group4_Critical_Infrastructure_Patent.pdf", "pages": 13}
+      ],
+      "category": "critical_infrastructure",
+      "themes": ["gravity-adjusted validation", "nuclear quality gates", "radiation tagging", "quantum-resistant archiving"]
+    },
+    {
+      "index": 5,
+      "application_number": "19/686,765",
+      "title": "System and Method for AI-Powered Construction Change Order Detection, Automated Justification Generation, and Dynamic Multi-Party Approval Routing",
+      "confirmation_number": "9190",
+      "patent_center_id": "76611630",
+      "received_et": "2026-05-24 22:36:07",
+      "documents": [
+        {"name": "K1_Group5_Patent_Application.pdf", "pages": 16}
+      ],
+      "category": "change_order_core",
+      "themes": ["change order detection", "automated justification", "multi-party approval routing"]
+    },
+    {
+      "index": 6,
+      "application_number": "19/686,770",
+      "title": "System and Method for Specialized Change Order Management, Validation, and Settlement in Semiconductor Manufacturing Facility Construction",
+      "confirmation_number": "3711",
+      "patent_center_id": "76611910",
+      "received_et": "2026-05-24 22:49:40",
+      "documents": [
+        {"name": "k1semiconductor .pdf", "pages": 15}
+      ],
+      "category": "vertical_semiconductor",
+      "themes": ["semiconductor fab construction", "change order validation", "settlement"]
+    },
+    {
+      "index": 7,
+      "application_number": "19/686,773",
+      "title": "System and Method for Secure Classified Evidence Management, Multi-Level Security Validation, and Chain-of-Custody in Defense and Military Construction Projects",
+      "confirmation_number": "3119",
+      "patent_center_id": "76612150",
+      "received_et": "2026-05-24 23:01:10",
+      "documents": [
+        {"name": "group8_defense_patent.pdf", "pages": 12}
+      ],
+      "category": "vertical_defense",
+      "themes": ["classified evidence", "multi-level security", "chain-of-custody", "defense / military construction"]
+    },
+    {
+      "index": 8,
+      "application_number": "19/686,774",
+      "title": "System and Method for Secure Change Order Management, Multi-Stakeholder Validation, and Evidence Chain-of-Custody in Correctional Facility Construction and Operations",
+      "confirmation_number": "3322",
+      "patent_center_id": "76612290",
+      "received_et": "2026-05-24 23:05:22",
+      "documents": [
+        {"name": "k1_group_7.pdf", "pages": 19}
+      ],
+      "category": "vertical_corrections",
+      "themes": ["correctional facility construction", "multi-stakeholder validation", "chain-of-custody"]
+    },
+    {
+      "index": 9,
+      "application_number": "19/686,779",
+      "title": "System and Method for Regulatory-Compliant Change Order Management, Long-Term Evidence Retention, and Radiation Safety Validation in Nuclear Power and Nuclear Facility Construction Projects",
+      "confirmation_number": "1941",
+      "patent_center_id": "76612430",
+      "received_et": "2026-05-24 23:20:30",
+      "documents": [
+        {"name": "k1_group9_nuclear_patent_application.pdf", "pages": 13}
+      ],
+      "category": "vertical_nuclear",
+      "themes": ["nuclear power construction", "regulatory compliance", "radiation safety validation", "long-term retention"]
+    },
+    {
+      "index": 10,
+      "application_number": "19/686,780",
+      "title": "Ruggedized Field Validation Device with Integrated Biometric Authentication, Environmental Sensors, and Secure Evidence Capture for Construction and Critical Infrastructure Environments",
+      "confirmation_number": "7995",
+      "patent_center_id": "76612591",
+      "received_et": "2026-05-24 23:25:09",
+      "documents": [
+        {"name": "k1_ruggedized.pdf", "pages": 7}
+      ],
+      "category": "hardware_ruggedized",
+      "themes": ["ruggedized device", "biometric authentication", "environmental sensors", "secure capture"]
+    },
+    {
+      "index": 11,
+      "application_number": "19/686,784",
+      "title": "System and Method for Autonomous Financial Settlement and Dynamic Risk Premium Adjustment Based on Validated Construction Evidence",
+      "confirmation_number": "8125",
+      "patent_center_id": "76612730",
+      "received_et": "2026-05-24 23:28:41",
+      "documents": [
+        {"name": "K1_Group10_Patent_Application.pdf", "pages": 13}
+      ],
+      "category": "finance_settlement",
+      "themes": ["autonomous financial settlement", "dynamic risk premium", "evidence-driven pricing"]
+    },
+    {
+      "index": 12,
+      "application_number": "19/686,789",
+      "title": "System and Method for Evidence-Based Construction Finance Validation, Lending Draw Authorization, Receivables Verification, Payment Fraud Detection, Contractor Credit Scoring, and Ledger-Based Settlement Rights",
+      "confirmation_number": "6236",
+      "patent_center_id": "76612932",
+      "received_et": "2026-05-24 23:46:52",
+      "documents": [
+        {"name": "k1_evidence_based_construction_finance_patent.pdf", "pages": 18}
+      ],
+      "category": "finance_lending",
+      "themes": ["construction finance", "lending draw authorization", "receivables verification", "fraud detection", "contractor credit scoring", "ledger-based settlement rights"]
+    },
+    {
+      "index": 13,
+      "application_number": "19/686,793",
+      "title": "System and Method for Evidence-Based Final Payment Authorization, Escrow and Payment Rail Orchestration, Automated Lien Waiver and Retainage Release, Payment Waterfall Management, Fraud Detection, and Contractor Credit Integration in Construction Projects",
+      "confirmation_number": "9055",
+      "patent_center_id": "76613212",
+      "received_et": "2026-05-25 00:07:55",
+      "documents": [
+        {"name": "k1_final_payment_controls_patent.pdf", "pages": 12}
+      ],
+      "category": "finance_payment_controls",
+      "themes": ["final payment authorization", "escrow orchestration", "payment rails", "lien waiver", "retainage release", "payment waterfall"]
+    },
+    {
+      "index": 14,
+      "application_number": "19/686,794",
+      "title": "System and Method for Job-Specific Payment Structures, Automated Milestone Billing, and Evidence-Linked Payment Authorization in Construction Projects",
+      "confirmation_number": "2728",
+      "patent_center_id": "76613312",
+      "received_et": "2026-05-25 00:13:02",
+      "documents": [
+        {"name": "k1_job_specific_milestone_billing_patent.pdf", "pages": 9}
+      ],
+      "category": "finance_billing",
+      "themes": ["job-specific payment structures", "milestone billing", "evidence-linked payment authorization"]
+    },
+    {
+      "index": 15,
+      "application_number": "19/686,795",
+      "title": "System and Method for Automated Change Order Financial Impact Analysis, Cash Flow Modeling, and Real-Time Project Financial Forecasting in Construction Projects",
+      "confirmation_number": "1475",
+      "patent_center_id": "76613770",
+      "received_et": "2026-05-25 00:41:27",
+      "documents": [
+        {"name": "k1_change_order_financial_impact_forecasting_patent.pdf", "pages": 10}
+      ],
+      "category": "finance_forecasting",
+      "themes": ["change order financial impact", "cash flow modeling", "real-time forecasting"]
+    },
+    {
+      "index": 16,
+      "application_number": "19/686,798",
+      "title": "System and Method for Evidence-Backed Tokenized Construction Payment Rights, Smart Escrow, Retainage Release, Receivables Financing, and Ledger-Based Settlement",
+      "confirmation_number": "6464",
+      "patent_center_id": "76614131",
+      "received_et": "2026-05-25 01:12:46",
+      "documents": [
+        {"name": "k1_tokenized_construction_payment_rights_patent.pdf", "pages": 18}
+      ],
+      "category": "finance_tokenized_rights",
+      "themes": ["tokenized payment rights", "smart escrow", "retainage release", "receivables financing", "ledger settlement"]
+    }
+  ],
+  "strategic_architecture": {
+    "layers": [
+      {
+        "layer": "Platform / Lead",
+        "filings": ["19/686,747"],
+        "purpose": "Anchors the Infinity Curve category: AI scoring, digital twin, multi-modal fusion, gravity-weighted validation, post-quantum settlement."
+      },
+      {
+        "layer": "Core Field OS",
+        "filings": ["19/686,751"],
+        "purpose": "Field-first OS, agency-aware compliance, tamper-evident vault, ruggedized intake, project controls."
+      },
+      {
+        "layer": "Controlled Evidence",
+        "filings": ["19/686,758"],
+        "purpose": "Mandatory human validation, spatial context, cryptographic sealing, real-time evidence strength feedback."
+      },
+      {
+        "layer": "Critical Infrastructure / Hardware",
+        "filings": ["19/686,761", "19/686,780"],
+        "purpose": "Gravity-adjusted validation, nuclear quality gates, radiation tagging, ruggedized biometric device."
+      },
+      {
+        "layer": "Change Order Core",
+        "filings": ["19/686,765"],
+        "purpose": "AI change order detection, justification generation, dynamic multi-party approval routing."
+      },
+      {
+        "layer": "Vertical Coverage",
+        "filings": ["19/686,770", "19/686,773", "19/686,774", "19/686,779"],
+        "purpose": "Semiconductor fabs, defense / classified, correctional facilities, nuclear power — vertical-specific compliance and settlement."
+      },
+      {
+        "layer": "Evidence-to-Money / Financial Stack",
+        "filings": ["19/686,784", "19/686,789", "19/686,793", "19/686,794", "19/686,795", "19/686,798"],
+        "purpose": "Autonomous settlement, lending draw authorization, receivables verification, fraud detection, contractor credit, final payment authorization, escrow / payment rails, lien waiver, retainage release, milestone billing, financial forecasting, and evidence-backed tokenized payment rights."
+      }
+    ]
+  },
+  "valuation_ranges": {
+    "current_pre_money": {"low_usd": 10000000, "high_usd": 15000000, "stage": "Current — IP + founder + roadmap"},
+    "post_mvp_pilot":    {"low_usd": 15000000, "high_usd": 25000000, "stage": "Post-MVP / first paid pilot"},
+    "early_revenue":     {"low_usd": 30000000, "high_usd": 60000000, "stage": "Early revenue (multi-customer)"},
+    "strategic_finance_payment_traction": {"low_usd": 75000000, "high_usd": 150000000, "stage": "Material payments / finance traction"},
+    "strategic_acquisition": {"low_usd": 100000000, "high_usd": 250000000, "stage": "Strategic acquisition scenario", "open_ended": true}
+  },
+  "value_drivers": [
+    "16 clean utility nonprovisional filings spanning platform, field OS, controlled evidence, critical infrastructure, change orders, four high-value verticals, and a six-filing financial stack.",
+    "17 provisionals anchoring priority across the full Infinity Curve category.",
+    "Defensible category position: trusted evidence-to-money infrastructure layer.",
+    "Vertical coverage in regulated, high-trust segments: nuclear, semiconductor, defense, corrections.",
+    "Financial stack covers lending, receivables, fraud, credit, escrow, lien waiver, retainage, milestone billing, forecasting, and tokenized payment rights — bridging construction-tech and fintech.",
+    "Founder concentration risk mitigated by codified IP and structured documentation."
+  ],
+  "buyer_categories": [
+    {
+      "category": "Construction technology platforms",
+      "examples_generic": ["large project controls vendors", "BIM / digital twin vendors", "field productivity vendors"],
+      "why": "Adds defensible evidence-to-money layer and regulated-vertical coverage they cannot replicate quickly."
+    },
+    {
+      "category": "Enterprise software / vertical SaaS acquirers",
+      "examples_generic": ["enterprise infrastructure software acquirers"],
+      "why": "Acquire a category-defining IP estate plus a financial workflow surface."
+    },
+    {
+      "category": "Financial institutions and payment networks",
+      "examples_generic": ["construction lenders", "surety carriers", "payment networks", "B2B fintechs"],
+      "why": "Evidence-validated lending, payment, lien waiver, retainage, and tokenized payment rights directly reduce loss content and unlock new credit products."
+    },
+    {
+      "category": "Insurance and risk carriers",
+      "examples_generic": ["builders risk carriers", "surety carriers", "specialty risk markets"],
+      "why": "Dynamic risk premium adjustment and validated evidence reduce claims leakage and improve pricing precision."
+    },
+    {
+      "category": "Critical infrastructure / defense primes",
+      "examples_generic": ["nuclear constructors", "defense primes", "semiconductor capex programs"],
+      "why": "Regulated-vertical patents (nuclear, defense, corrections, semiconductor) align with multi-decade capex programs."
+    },
+    {
+      "category": "Public market strategics in adjacent stacks",
+      "examples_generic": ["ERP suites with construction modules", "payments / spend management platforms"],
+      "why": "K1 is a natural bolt-on layer that converts their workflows into evidence-validated, settlement-grade flows."
+    }
+  ],
+  "what_is_it_worth_to_whom": [
+    {"buyer": "ConstructionTech platforms", "value_lens": "Defensible moat + regulated-vertical coverage; multi-year roadmap leapfrog."},
+    {"buyer": "Vertical SaaS acquirers",    "value_lens": "Category ownership of evidence-to-money infrastructure."},
+    {"buyer": "Lenders / surety / payments", "value_lens": "Loss reduction, new credit products, programmatic payment authorization, tokenized rights."},
+    {"buyer": "Insurance / risk carriers",  "value_lens": "Lower claims leakage, dynamic risk premium pricing, validated chain-of-custody."},
+    {"buyer": "Defense / critical infra primes", "value_lens": "Compliance-grade evidence and chain-of-custody for high-trust capex programs."},
+    {"buyer": "Public market strategics",   "value_lens": "Bolt-on layer that turns existing workflows into settlement-grade flows."}
+  ],
+  "key_messaging": {
+    "what_we_are": "K1 is the trusted evidence-to-money infrastructure layer for construction and critical infrastructure.",
+    "what_we_do": "We turn field events into financial-grade truth — validated evidence that can drive workflow, compliance, risk, and payment actions.",
+    "why_it_matters": "Construction and critical infrastructure currently rely on unverifiable field reporting to authorize huge sums of money. K1 closes that gap.",
+    "why_ip_matters": "16 clean utility nonprovisionals plus 17 provisionals create a defensible category position spanning platform, evidence, verticals, and finance.",
+    "why_finance_and_payments_matter": "Six of the 16 filings sit directly in the financial stack — lending, receivables, fraud, credit, escrow, lien waiver, retainage, milestone billing, forecasting, and tokenized rights. This is where the value is captured.",
+    "why_tokenized_rights_matter": "Tokenized, evidence-backed construction payment rights make construction receivables programmable, transferable, and financeable on rails — unlocking new credit and liquidity products."
+  }
+}
