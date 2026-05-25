@@ -52,6 +52,23 @@ This isn't a list of features. It's a layered claim on the **evidence-to-money i
 - Lenders, surety carriers, insurers, and payment networks who want to price and settle risk against records they can trust.
 - Defense, nuclear, semiconductor, and corrections programs whose compliance demands cannot be met with paperwork.
 
+## Built for the post-quantum era
+
+K1 is **post-quantum-ready evidence-to-money infrastructure**.
+
+Large-scale quantum computers are expected, on long-enough horizons, to threaten the public-key cryptography that secures most of today's digital records. Construction, infrastructure, finance, retainage ledgers, BIM/IP, and multi-party payment records routinely live for decades — well inside the window where quantum-aware design matters.
+
+K1's cryptographic roadmap tracks the NIST post-quantum standards finalized in 2024 — including **ML-KEM (FIPS 203)** for key establishment and **ML-DSA (FIPS 204)** for digital signatures — alongside continued SHA-2/SHA-3 hashing and additional standards as they mature. Hybrid classical + post-quantum modes are the default migration path.
+
+What that unlocks:
+
+- **Quantum-resistant evidence anchoring** — hash-based seals, signature agility, and a path to post-quantum signatures so sealed records remain verifiable across long project lifecycles.
+- **Long-duration project verification** — decade-scale chain-of-custody for nuclear, semiconductor, defense, and major capex programs.
+- **Government and critical-infrastructure relevance** — aligned with the direction of U.S. federal guidance (NSM-10, OMB M-23-02, CNSA 2.0) for critical-infrastructure operators and vendors.
+- **Tokenized payment rights that age well** — smart escrow, retainage, receivables financing, lien waivers, and surety reporting rooted in a record built to hold up under future cryptographic scrutiny.
+
+K1 makes no claim that current public-key cryptography is broken today, or that any specific blockchain or ledger will fail. The position is simpler: long-lived records deserve a cryptographic roadmap that anticipates the horizon, and K1's architecture and patent estate are explicitly built for that.
+
 ## The K1 promise
 
 If it happened, the record proves it. If the record proves it, the money can move.

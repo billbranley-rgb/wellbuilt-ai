@@ -80,6 +80,31 @@ Because they make construction receivables **programmable, transferable, and fin
 
 …all gated by evidence K1 has already validated. This is a fintech-grade primitive that did not exist for construction before. It is why the upper valuation ranges are credible.
 
+## Why is K1 described as "post-quantum-ready"?
+
+Because construction, infrastructure, finance, retainage ledgers, BIM/IP, and multi-party payment records routinely live for decades. Large-scale quantum computers are expected, on long-enough horizons, to threaten the public-key cryptography that secures most of today's digital records. That horizon falls inside the working life of the records K1 produces — so designing for it now is the responsible position, not a marketing claim.
+
+Specifically:
+
+- **NIST-aligned cryptographic roadmap.** K1 tracks the post-quantum standards finalized by NIST in 2024 — including **ML-KEM (FIPS 203)** for key establishment and **ML-DSA (FIPS 204)** for digital signatures — alongside SHA-2/SHA-3 hashing and additional standards as they mature. Hybrid classical + post-quantum modes are the default migration path.
+- **Quantum-resistant evidence anchoring.** Hash-based seals, signature agility, and a path to post-quantum signatures so sealed records remain verifiable across long project lifecycles.
+- **Long-duration project verification.** Decade-scale chain-of-custody for nuclear, semiconductor, defense, and major capex programs.
+- **Government and critical-infrastructure relevance.** Aligned with the direction of U.S. federal guidance for critical-infrastructure operators and vendors (NSM-10, OMB M-23-02, CNSA 2.0).
+
+K1 makes no claim that current public-key cryptography is broken today, or that any specific blockchain or ledger will fail. The position is that long-lived records deserve a cryptographic roadmap that anticipates the horizon.
+
+## How does post-quantum tie into the financial stack?
+
+The financial-stack filings sit on top of the same evidence layer:
+
+- **Tokenized construction payment rights (19/686,798)** that remain cryptographically credible across the secondary-market lifetime of the underlying receivable.
+- **Smart escrow and milestone billing (19/686,793, 19/686,794)** gated by evidence whose integrity is designed to outlast the project.
+- **Retainage and receivables financing (19/686,789, 19/686,798)** backed by long-lived, quantum-aware seals — important when retainage can sit for years.
+- **Lien waivers, payment authorization, and surety reporting** rooted in a record built to hold up under future cryptographic scrutiny.
+- **Long-term evidence vault integrity** for BIM, IP, change-order history, and capex audit trails across multi-decade asset lives.
+
+The platform / lead filing (19/686,747) explicitly contemplates post-quantum secure settlement, and the critical-infrastructure filing (19/686,761) contemplates quantum-resistant archiving — so the post-quantum posture is encoded in the IP, not bolted on.
+
 ## What about the duplicate filings?
 
 Two nonprovisional filings — **19/686,754** and **19/686,755** — are mismatched duplicates flagged for outside counsel cleanup. They are preserved in the record but are not centered in the narrative or the valuation case.

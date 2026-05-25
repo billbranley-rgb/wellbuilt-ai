@@ -290,6 +290,47 @@
       }
     ]
   },
+  "post_quantum": {
+    "positioning": "Built for the post-quantum era — post-quantum-ready evidence-to-money infrastructure.",
+    "framing": "Large-scale quantum computers are expected, on long-enough horizons, to threaten the public-key cryptography that secures most of today's digital records. Construction, infrastructure, finance, retainage ledgers, BIM/IP, and multi-party payment records routinely live for decades — well inside the window where quantum-aware design matters.",
+    "nist_standards_referenced": [
+      "ML-KEM (FIPS 203) — module-lattice key encapsulation, finalized by NIST in 2024.",
+      "ML-DSA (FIPS 204) — module-lattice digital signature, finalized by NIST in 2024.",
+      "SLH-DSA (FIPS 205) — stateless hash-based signatures, finalized by NIST in 2024.",
+      "Continued tracking of additional NIST post-quantum standards as they mature."
+    ],
+    "pillars": [
+      {
+        "name": "NIST-aligned cryptographic roadmap",
+        "summary": "Standards-track cryptography with hybrid classical + post-quantum modes as the default migration path."
+      },
+      {
+        "name": "Quantum-resistant evidence anchoring",
+        "summary": "Hash-based seals, signature agility, and a path to post-quantum signatures so sealed records remain verifiable across long lifecycles."
+      },
+      {
+        "name": "Long-duration project verification",
+        "summary": "Decade-scale chain-of-custody for nuclear, semiconductor, defense, and major capex programs — archive-and-verify, not today-only proofs."
+      },
+      {
+        "name": "Government and critical-infrastructure relevance",
+        "summary": "Aligned with the direction of U.S. federal guidance for critical-infrastructure operators and vendors (NSM-10, OMB M-23-02, CNSA 2.0) over the coming years."
+      }
+    ],
+    "financial_stack_tieins": [
+      "Tokenized construction payment rights that remain cryptographically credible across the secondary-market lifetime of the underlying receivable.",
+      "Smart escrow and milestone billing gated by evidence whose integrity is designed to outlast the project, not just the build phase.",
+      "Retainage and receivables financing backed by long-lived, quantum-aware seals — important when retainage can sit for years.",
+      "Lien waivers, payment authorization, and surety reporting rooted in a record built to hold up under future cryptographic scrutiny.",
+      "Long-term evidence vault integrity for BIM, IP, change-order history, and capex audit trails across multi-decade asset lives."
+    ],
+    "careful_phrasing_note": "K1 makes no claim that current public-key cryptography is broken today, or that any specific blockchain or ledger will fail. The position is that long-lived records deserve a cryptographic roadmap that anticipates the horizon — and K1's architecture and patent estate are explicitly built for that.",
+    "ip_anchor_filings": [
+      {"application_number": "19/686,747", "relevance": "Platform / lead — Enhanced Infinity Curve, including post-quantum secure settlement."},
+      {"application_number": "19/686,761", "relevance": "Critical infrastructure — gravity-adjusted validation and quantum-resistant archiving."},
+      {"application_number": "19/686,798", "relevance": "Evidence-backed tokenized construction payment rights with smart escrow, retainage, and receivables financing."}
+    ]
+  },
   "valuation_ranges": {
     "current_pre_money": {"low_usd": 10000000, "high_usd": 15000000, "stage": "Current — IP + founder + roadmap"},
     "post_mvp_pilot":    {"low_usd": 15000000, "high_usd": 25000000, "stage": "Post-MVP / first paid pilot"},
