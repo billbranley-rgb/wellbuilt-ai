@@ -839,26 +839,44 @@ a{color:inherit;text-decoration:none}
 
 /* ============ EXPLAINER VIDEO ============ */
 .section-explainer{
+  position:relative;
   background:
-    radial-gradient(900px 480px at 50% -10%, rgba(57,211,229,.10), transparent 60%),
-    linear-gradient(180deg,#0B1E3F 0%, #081730 100%);
+    radial-gradient(1100px 520px at 50% -8%, rgba(57,211,229,.18), transparent 62%),
+    linear-gradient(180deg,#102A57 0%, #0A1C3D 55%, #06122A 100%);
   color:#E5ECF8;
   padding:88px 0;
+  border-top:1px solid rgba(57,211,229,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.section-explainer::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;pointer-events:none;
+  background:linear-gradient(90deg, transparent, rgba(57,211,229,.55), transparent);
 }
 .explainer-inner{
+  position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;text-align:center;
 }
 .explainer-head{max-width:720px;margin:0 0 36px}
-.explainer-head .lede-light{margin:14px auto 0}
-.explainer-head .lede-light strong{color:#F4F8FF;font-weight:600}
+.explainer-head .eyebrow-light{
+  background:rgba(57,211,229,.18);
+  border-color:rgba(57,211,229,.45);
+  color:#C8F2F8;
+}
+.explainer-head .h2-light{color:#FFFFFF}
+.explainer-head .lede-light{margin:14px auto 0;color:#D6E2F5}
+.explainer-head .lede-light strong{color:#FFFFFF;font-weight:600}
 .explainer-figure{
   width:100%;max-width:980px;margin:0;
 }
 .explainer-frame{
   position:relative;border-radius:var(--r-lg);overflow:hidden;
   background:#04101F;
-  border:1px solid rgba(57,211,229,.22);
-  box-shadow:0 30px 80px rgba(0,0,0,.45), 0 6px 16px rgba(0,0,0,.30);
+  border:1px solid rgba(57,211,229,.38);
+  box-shadow:
+    0 0 0 1px rgba(57,211,229,.08),
+    0 30px 80px rgba(0,0,0,.55),
+    0 6px 16px rgba(0,0,0,.35),
+    0 0 60px rgba(57,211,229,.10);
 }
 .explainer-frame::before{
   content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
@@ -869,7 +887,7 @@ a{color:inherit;text-decoration:none}
   background:#04101F;object-fit:cover;
 }
 .explainer-caption{
-  margin-top:16px;color:#94A6C4;font-size:13px;line-height:1.6;
+  margin-top:16px;color:#B7C6E0;font-size:13px;line-height:1.6;
   max-width:780px;margin-left:auto;margin-right:auto;
 }
 .explainer-caption-k{
