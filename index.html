@@ -105,21 +105,21 @@
       </h1>
 
       <p class="hero-sub">
-        Construction payments are slow, disputed, and trapped in paperwork. K1 turns verified jobsite evidence into instant, secure, and financeable payment rights — with humans in control of every release.
+        Construction money gets trapped in paperwork, disputes, and delayed approvals. K1 turns verified field evidence into secure, financeable payment rights — with humans controlling every release.
       </p>
 
       <p class="hero-kicker">Prove the work. Protect the payment. Get funded faster.</p>
 
-      <div class="chips" role="list" aria-label="K1 evidence workflow">
-        <span class="chip" role="listitem"><i class="chip-num">1</i>Capture</span>
+      <div class="chips" role="list" aria-label="K1 evidence-to-payment flow">
+        <span class="chip" role="listitem"><i class="chip-num">1</i><span class="chip-label">Capture</span></span>
         <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">2</i>Validate</span>
+        <span class="chip" role="listitem"><i class="chip-num">2</i><span class="chip-label">Validate</span></span>
         <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">3</i>Hash</span>
+        <span class="chip" role="listitem"><i class="chip-num">3</i><span class="chip-label">Hash &amp; Anchor</span></span>
         <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">4</i>Vault</span>
+        <span class="chip" role="listitem"><i class="chip-num">4</i><span class="chip-label">Vault</span></span>
         <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip chip-strong" role="listitem"><i class="chip-num">5</i>Prove</span>
+        <span class="chip chip-strong" role="listitem"><i class="chip-num">5</i><span class="chip-label">Prove &amp; Pay</span></span>
       </div>
 
       <div class="hero-cta">
@@ -127,7 +127,10 @@
         <a href="mailto:hello@k1.construction?subject=K1%20Walkthrough%20Request%20(20%20minutes)" class="btn btn-outline btn-lg">Book a 20-Minute Walkthrough</a>
       </div>
       <div class="hero-cta-secondary">
-        <a href="#watch" class="link-arrow">Watch the 90-sec explainer →</a>
+        <a href="#watch" class="link-arrow link-arrow-play">
+          <span class="link-play" aria-hidden="true">▶</span>
+          Watch the 90-sec explainer
+        </a>
         <a href="https://k1-command-center.vercel.app/" class="link-arrow" target="_blank" rel="noopener">Open Command Deck →</a>
       </div>
 
@@ -142,20 +145,29 @@
     </div>
 
     <!-- ============ FLOATING EVIDENCE CARD ============ -->
-    <aside class="hero-card" aria-label="Example sealed evidence item">
+    <aside class="hero-card" aria-label="Example sealed K1 evidence packet">
       <div class="card-top">
         <div class="card-top-left">
           <div class="card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <div>
-            <div class="card-eyebrow">Evidence item · EV-2418</div>
-            <div class="card-title">Slab pour — Level 14, Grid C-7</div>
+            <div class="card-eyebrow">Evidence packet · EV-2418</div>
+            <div class="card-title">Slab pour verified — Level 14 / Grid C-7</div>
           </div>
         </div>
-        <span class="status">
-          <span class="status-dot"></span> Sealed
+        <span class="status status-pulse" title="Sealed &amp; approved">
+          <span class="status-dot"></span>
+          <span class="status-text">Sealed · Approved</span>
         </span>
+      </div>
+
+      <div class="card-stamp" aria-hidden="true">
+        <span class="stamp-k">K1NYC</span>
+        <span class="stamp-divider"></span>
+        <span class="stamp-v">432 W 33rd · L14 · C-7</span>
+        <span class="stamp-divider"></span>
+        <span class="stamp-time"><span class="live-dot"></span>14:02 EDT · today</span>
       </div>
 
       <div class="card-media" aria-hidden="true">
@@ -169,6 +181,11 @@
             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
               <path d="M20 0H0V20" fill="none" stroke="#2a4774" stroke-width="0.5" opacity="0.5"/>
             </pattern>
+            <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#39d3e5" stop-opacity="0"/>
+              <stop offset="0.5" stop-color="#39d3e5" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="#39d3e5" stop-opacity="0"/>
+            </linearGradient>
           </defs>
           <rect width="400" height="200" fill="url(#cm)"/>
           <rect width="400" height="200" fill="url(#grid)"/>
@@ -185,52 +202,67 @@
             <line x1="320" y1="40" x2="320" y2="170"/>
           </g>
           <!-- pour zone highlight -->
-          <rect x="140" y="90" width="120" height="60" fill="#39d3e5" opacity="0.18" stroke="#39d3e5" stroke-width="1"/>
+          <rect class="pour-zone" x="140" y="90" width="120" height="60" fill="#39d3e5" fill-opacity="0.18" stroke="#39d3e5" stroke-width="1"/>
           <text x="146" y="84" fill="#bfeef5" font-size="9" font-family="system-ui">POUR ZONE · 14C-7</text>
           <!-- pin -->
           <g transform="translate(200,120)">
-            <circle r="14" fill="#39d3e5" opacity="0.18"/>
+            <circle class="pin-halo" r="14" fill="#39d3e5" fill-opacity="0.18"/>
             <circle r="5" fill="#39d3e5"/>
           </g>
+          <!-- scan line -->
+          <rect class="card-scan" x="0" y="0" width="400" height="36" fill="url(#scanline)"/>
         </svg>
-        <div class="card-media-meta">
-          <span>📍 K1NYC · 432 W 33rd · L14</span>
-          <span>14:02 EDT · Mar 14</span>
+        <div class="card-media-tags">
+          <span class="media-tag"><span class="media-tag-dot"></span>CV match · slab geometry</span>
+          <span class="media-tag">drone pass · 4K</span>
         </div>
       </div>
 
       <div class="card-rows">
         <div class="row">
-          <div class="row-k">Capture source</div>
-          <div class="row-v">Field Mode · iPhone + tethered drone pass</div>
+          <div class="row-k">Capture sources</div>
+          <div class="row-v">
+            <span class="src-pill">Field Mode · iPhone 15</span>
+            <span class="src-pill">Tethered drone</span>
+            <span class="src-pill src-pill-sensor">Cure-temp sensor</span>
+          </div>
         </div>
         <div class="row">
           <div class="row-k">Supervisor approval</div>
           <div class="row-v">
             <span class="avatar">MR</span>
-            M. Reyes · Foreman <span class="check">✓ approved 14:07</span>
+            <span class="row-name">M. Reyes</span>
+            <span class="row-role">· Foreman</span>
+            <span class="check">✓ approved 14:07</span>
           </div>
         </div>
         <div class="row">
-          <div class="row-k">SHA-256</div>
-          <div class="row-v mono">9f3a…b71c <span class="seal">sealed</span></div>
+          <div class="row-k">SHA-256 · anchor</div>
+          <div class="row-v">
+            <span class="mono hash">9f3a&hairsp;…&hairsp;b71c</span>
+            <span class="seal seal-anchor">PQ-Sealed · #482,119</span>
+          </div>
         </div>
         <div class="row">
-          <div class="row-k">Vault</div>
-          <div class="row-v">Immutable · anchor #482,119</div>
+          <div class="row-k">Evidence Vault</div>
+          <div class="row-v">
+            <span class="vault-pill">Immutable</span>
+            <span class="vault-meta">Linked: RFI&nbsp;#214 · Daily Log · Sensor 71°F</span>
+          </div>
         </div>
       </div>
 
       <div class="card-meter">
         <div class="meter-head">
           <span class="meter-label">Evidence strength · Infinity Curve</span>
-          <span class="meter-delta">+18%</span>
+          <span class="meter-delta">+18% vs. last pour</span>
         </div>
         <div class="meter-track" aria-hidden="true">
-          <div class="meter-fill" style="width:84%"></div>
+          <div class="meter-fill" style="--w:84%"></div>
+          <span class="meter-mark" style="left:66%" aria-hidden="true" title="Financeable threshold"></span>
         </div>
         <div class="meter-foot">
-          <span>Linked: RFI #214 · Daily Log · Sensor temp 71°F</span>
+          <span class="meter-foot-status"><span class="ok-dot"></span>Financeable · ready for Prove &amp; Pay</span>
           <span class="strong">84 / 100</span>
         </div>
       </div>
