@@ -592,6 +592,13 @@ a{color:inherit;text-decoration:none}
   margin:0;letter-spacing:-.01em;color:#F4F8FF;line-height:1.25;
 }
 .whynow-card p{font-size:14px;color:#C7D3EB;margin:0;line-height:1.55}
+.whynow-eyebrow{
+  font-size:13.5px;font-weight:800;letter-spacing:.14em;
+  color:#9CE6F0;
+  padding:4px 10px;border:1px solid rgba(156,230,240,.45);border-radius:999px;
+  background:rgba(57,211,229,.08);
+  margin-bottom:14px;
+}
 
 /* ============ FOUNDATION ============ */
 .section-foundation{background:var(--paper)}
