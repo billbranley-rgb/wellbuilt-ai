@@ -551,6 +551,47 @@ a{color:inherit;text-decoration:none}
 .trust-link{color:#9CE6F0;font-weight:600;border-bottom:1px dashed rgba(156,230,240,.4);padding-bottom:1px}
 .trust-link:hover{color:#E8FAFD;border-bottom-color:#E8FAFD}
 
+/* ============ EXPLAINER VIDEO ============ */
+.section-explainer{
+  background:
+    radial-gradient(900px 480px at 50% -10%, rgba(57,211,229,.10), transparent 60%),
+    linear-gradient(180deg,#0B1E3F 0%, #081730 100%);
+  color:#E5ECF8;
+  padding:88px 0;
+}
+.explainer-inner{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.explainer-head{max-width:720px;margin:0 0 36px}
+.explainer-head .lede-light{margin:14px auto 0}
+.explainer-head .lede-light strong{color:#F4F8FF;font-weight:600}
+.explainer-figure{
+  width:100%;max-width:980px;margin:0;
+}
+.explainer-frame{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  background:#04101F;
+  border:1px solid rgba(57,211,229,.22);
+  box-shadow:0 30px 80px rgba(0,0,0,.45), 0 6px 16px rgba(0,0,0,.30);
+}
+.explainer-frame::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.explainer-video{
+  display:block;width:100%;height:auto;aspect-ratio:16/9;
+  background:#04101F;object-fit:cover;
+}
+.explainer-caption{
+  margin-top:16px;color:#94A6C4;font-size:13px;line-height:1.6;
+  max-width:780px;margin-left:auto;margin-right:auto;
+}
+.explainer-caption-k{
+  display:inline-block;color:#9CE6F0;
+  font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  margin-right:8px;
+}
+
 /* ============ PATENT FAMILY ============ */
 .section-patents{
   background:
@@ -710,6 +751,8 @@ a{color:inherit;text-decoration:none}
   .cta-form .btn{width:100%}
   .patents-grid{grid-template-columns:1fr}
   .patents-headline-num{font-size:52px}
+  .section-explainer{padding:64px 0}
+  .explainer-head{margin-bottom:24px}
   .pillars{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion: reduce){
