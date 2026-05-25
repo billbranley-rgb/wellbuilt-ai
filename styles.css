@@ -512,6 +512,7 @@ a{color:inherit;text-decoration:none}
   margin-bottom:18px;
 }
 .patents-stat-row-2{grid-template-columns:repeat(2,1fr)}
+.patents-stat-row-1{grid-template-columns:1fr}
 .patents-stat{
   background:var(--slate-50);border:1px solid var(--slate-100);
   border-radius:var(--r-md);padding:14px 12px;text-align:center;
@@ -629,6 +630,7 @@ a{color:inherit;text-decoration:none}
   .patents-grid{grid-template-columns:1fr}
   .patents-features-grid{grid-template-columns:1fr}
   .patents-stat-row{grid-template-columns:1fr 1fr}
+  .patents-stat-row-1{grid-template-columns:1fr}
   .patents-features{padding:22px}
 }
 @media (prefers-reduced-motion: reduce){
