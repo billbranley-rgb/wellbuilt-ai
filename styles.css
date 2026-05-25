@@ -152,6 +152,7 @@ a{color:inherit;text-decoration:none}
   gap:56px;align-items:center;
 }
 
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
 .badge{
   display:inline-flex;align-items:center;gap:10px;
   padding:8px 14px;
@@ -162,6 +163,12 @@ a{color:inherit;text-decoration:none}
   backdrop-filter:blur(6px);
 }
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(57,211,229,.22)}
+.badge-patent{
+  background:rgba(57,211,229,.12);
+  border-color:rgba(57,211,229,.42);
+  color:#E8FAFD;
+}
+.badge-shield{width:14px;height:14px;color:var(--cyan)}
 
 .hero-title{
   font-family:'General Sans',var(--f-sans);
@@ -468,6 +475,116 @@ a{color:inherit;text-decoration:none}
 .footer .brand{color:#fff}
 .footer .brand-sub{color:#94A6C4}
 
+/* ============ HERO PATENT TRUST LINE ============ */
+.trust-patent{
+  display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;
+  margin-top:14px;color:#B7C7E2;font-size:13.5px;line-height:1.55;
+  max-width:62ch;
+}
+.trust-pat-badge{
+  flex:0 0 auto;
+  display:inline-flex;align-items:center;
+  background:rgba(57,211,229,.12);border:1px solid rgba(57,211,229,.32);
+  color:#9CE6F0;
+  padding:3px 9px;border-radius:999px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.trust-link{color:#9CE6F0;font-weight:600;border-bottom:1px dashed rgba(156,230,240,.4);padding-bottom:1px}
+.trust-link:hover{color:#E8FAFD;border-bottom-color:#E8FAFD}
+
+/* ============ PATENT PORTFOLIO ============ */
+.patents{
+  display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:32px;align-items:start;
+}
+.patents-card{
+  background:#fff;border:1px solid var(--slate-100);border-radius:var(--r-lg);
+  padding:24px;box-shadow:var(--sh-2);
+  position:sticky;top:96px;
+}
+.patents-card-head{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:18px;gap:10px;flex-wrap:wrap;
+}
+.patents-card .vault-anchor{color:var(--slate-500);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.patents-stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-bottom:18px;
+}
+.patents-stat-row-2{grid-template-columns:repeat(2,1fr)}
+.patents-stat{
+  background:var(--slate-50);border:1px solid var(--slate-100);
+  border-radius:var(--r-md);padding:14px 12px;text-align:center;
+}
+.patents-stat-num{
+  font-family:'General Sans';font-weight:700;font-size:34px;
+  color:var(--navy-800);letter-spacing:-.02em;line-height:1;
+}
+.patents-stat-k{
+  font-size:11.5px;color:var(--slate-500);
+  text-transform:uppercase;letter-spacing:.06em;font-weight:600;
+  margin-top:8px;
+}
+.patents-stat-strong{
+  background:linear-gradient(180deg,#0B1E3F,#0A1730);
+  border-color:transparent;color:#fff;
+}
+.patents-stat-strong .patents-stat-num{color:#fff}
+.patents-stat-strong .patents-stat-k{color:#9CE6F0}
+.patents-card-line{
+  display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;
+  padding:12px 0;border-top:1px dashed var(--slate-100);font-size:13.5px;
+}
+.patents-line-k{color:var(--slate-500);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding-top:2px}
+.patents-line-v{color:var(--slate-700);font-weight:500;line-height:1.5}
+
+.patents-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+}
+.patent-card{
+  background:#fff;border:1px solid var(--slate-100);border-radius:var(--r-md);
+  padding:18px;box-shadow:var(--sh-1);
+  display:flex;flex-direction:column;gap:6px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.patent-card:hover{transform:translateY(-2px);box-shadow:var(--sh-2);border-color:var(--slate-200)}
+.patent-card-num{
+  font-family:'General Sans';font-weight:700;font-size:12px;
+  color:var(--cyan-ink);letter-spacing:.08em;
+}
+.patent-card h3{font-family:'General Sans';font-size:16px;margin:0;letter-spacing:-.01em;color:var(--navy-800)}
+.patent-card p{font-size:13.5px;color:var(--slate-700);margin:0;line-height:1.5}
+.patent-card-strong{
+  background:linear-gradient(180deg,#0B1E3F,#0A1730);border-color:transparent;
+}
+.patent-card-strong .patent-card-num{color:var(--cyan)}
+.patent-card-strong h3{color:#fff}
+.patent-card-strong p{color:#C2D0E8}
+
+/* Enhanced Infinity Curve feature strip */
+.patents-features{
+  margin-top:48px;padding:32px;
+  background:#fff;border:1px solid var(--slate-100);border-radius:var(--r-lg);box-shadow:var(--sh-1);
+}
+.patents-features-head{margin-bottom:20px}
+.patents-features-head h3{
+  font-family:'General Sans';font-weight:700;font-size:24px;letter-spacing:-.015em;
+  color:var(--navy-800);margin:8px 0 0;
+}
+.patents-features-grid{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.patents-features-grid li{
+  background:var(--slate-50);border:1px solid var(--slate-100);
+  border-radius:var(--r-md);padding:14px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.patents-features-grid strong{
+  font-family:'General Sans';font-weight:700;font-size:14px;color:var(--navy-800);letter-spacing:-.005em;
+}
+.patents-features-grid span{font-size:12.5px;color:var(--slate-700);line-height:1.5}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px){
   .hero-inner{grid-template-columns:1fr;gap:36px;padding-top:60px;padding-bottom:48px}
@@ -480,6 +597,9 @@ a{color:inherit;text-decoration:none}
   .two-col{grid-template-columns:1fr;gap:36px}
   .cta-inner{grid-template-columns:1fr;gap:24px}
   .footer-inner{grid-template-columns:1fr}
+  .patents{grid-template-columns:1fr;gap:24px}
+  .patents-card{position:static}
+  .patents-features-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width: 760px){
   .nav-links,.nav-cta{display:none}
@@ -506,6 +626,10 @@ a{color:inherit;text-decoration:none}
   .footer-cols{grid-template-columns:1fr 1fr}
   .cta-form{flex-direction:column;align-items:stretch}
   .cta-form .btn{width:100%}
+  .patents-grid{grid-template-columns:1fr}
+  .patents-features-grid{grid-template-columns:1fr}
+  .patents-stat-row{grid-template-columns:1fr 1fr}
+  .patents-features{padding:22px}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important;animation:none!important}
