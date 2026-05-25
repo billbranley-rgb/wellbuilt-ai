@@ -218,6 +218,16 @@ a{color:inherit;text-decoration:none}
 
 .trust{color:#94A6C4;font-size:13px;margin:6px 0 0;max-width:62ch}
 
+.hero-kicker{
+  margin:0 0 22px;
+  font-family:'General Sans',var(--f-sans);
+  font-weight:600;
+  font-size:clamp(14px,1.15vw,16px);
+  letter-spacing:-.005em;
+  color:#9CE6F0;
+  max-width:62ch;
+}
+
 /* ============ FLOATING EVIDENCE CARD ============ */
 .hero-card{
   background:#fff;color:var(--ink);
@@ -445,6 +455,55 @@ a{color:inherit;text-decoration:none}
 }
 .proof-card p{font-size:14px;color:var(--slate-700);margin:0}
 
+/* ============ WHY / NARRATIVE ============ */
+.section-head-narrow{max-width:760px}
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  margin-top:8px;
+}
+.why-col{
+  background:#fff;border:1px solid var(--slate-100);border-radius:var(--r-lg);
+  padding:24px;box-shadow:var(--sh-1);
+}
+.why-col-strong{
+  background:linear-gradient(180deg,#0B1E3F,#0A1932);
+  border-color:transparent;color:#E4ECF8;box-shadow:var(--sh-2);
+}
+.why-tag{
+  display:inline-flex;align-items:center;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  color:var(--slate-500);background:var(--slate-50);border:1px solid var(--slate-100);
+  padding:4px 10px;border-radius:999px;margin-bottom:14px;
+}
+.why-tag-strong{
+  color:#062a30;background:var(--cyan);border-color:var(--cyan);
+}
+.why-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.why-list li{
+  font-size:14.5px;line-height:1.5;color:var(--slate-700);
+  padding-left:22px;position:relative;
+}
+.why-list li::before{
+  content:"";position:absolute;left:0;top:9px;width:10px;height:1.6px;background:var(--slate-500);
+}
+.why-col-strong .why-list li{color:#C2D0E8}
+.why-col-strong .why-list li::before{background:var(--cyan)}
+
+/* ============ PILLARS ============ */
+.pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pillar{
+  background:#fff;border:1px solid var(--slate-100);border-radius:var(--r-lg);
+  padding:22px;box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:10px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.pillar-icon{
+  width:40px;height:40px;border-radius:11px;background:#EAF6F9;color:var(--cyan-ink);
+  display:grid;place-items:center;border:1px solid #C9E6EC;
+}
+.pillar h3{font-family:'General Sans';font-size:16px;margin:0;letter-spacing:-.01em;line-height:1.25}
+.pillar p{font-size:13.5px;color:var(--slate-700);margin:0;line-height:1.5}
+
 /* ============ FINAL CTA ============ */
 .cta{
   background:
@@ -600,6 +659,8 @@ a{color:inherit;text-decoration:none}
   .patents{grid-template-columns:1fr;gap:24px}
   .patents-card{position:static}
   .patents-features-grid{grid-template-columns:repeat(2,1fr)}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
 }
 @media (max-width: 760px){
   .nav-links,.nav-cta{display:none}
@@ -630,6 +691,7 @@ a{color:inherit;text-decoration:none}
   .patents-features-grid{grid-template-columns:1fr}
   .patents-stat-row{grid-template-columns:1fr 1fr}
   .patents-features{padding:22px}
+  .pillars{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important;animation:none!important}
