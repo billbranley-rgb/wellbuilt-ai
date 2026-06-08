@@ -1,929 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>K1 — Evidence-Backed Financial Operating System for Construction</title>
-<meta name="description" content="K1 is the evidence-backed financial operating system for construction. AI, computer vision, tokenized payment rights, autonomous governance, and quantum-resistant security turn verified field evidence into payment, financing, and settlement — faster and with less risk." />
-<meta name="keywords" content="construction financial operating system, evidence-backed payments, quantum-resistant construction, AI work verification, computer vision construction, tokenized payment rights, autonomous governance, construction financing marketplace, Evidence Vault, controlled construction" />
-<meta property="og:title" content="K1 — Evidence-Backed Financial Operating System for Construction" />
-<meta property="og:description" content="The first quantum-resistant, AI-native financial OS for construction. K1 combines computer vision, autonomous agents, tokenized payment rights, and post-quantum security to turn verified field evidence into payment, financing, and settlement." />
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@500,600,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230B1E3F'/><path d='M9 7v18M9 16l9-9M9 16l9 9' stroke='%23E6F0FF' stroke-width='3' stroke-linecap='square' fill='none'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K1 — Field-First Evidence Platform</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="brand" aria-label="K1 home">
-      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <rect x="0.5" y="0.5" width="39" height="39" rx="7" fill="#0B1E3F" stroke="#0B1E3F"/>
-        <path d="M12 9v22M12 20l10-11M12 20l10 11" stroke="#F4F7FB" stroke-width="3.2" stroke-linecap="square" fill="none"/>
-        <circle cx="29.5" cy="9.5" r="2.2" fill="#39D3E5"/>
-      </svg>
-      <span class="brand-word">K1<span class="brand-dot">.</span><span class="brand-sub">construction</span></span>
-    </a>
-
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#watch">Watch</a>
-      <a href="#whynow">Why now</a>
-      <a href="#pillars">Financial OS</a>
-      <a href="#how">How K1 works</a>
-      <a href="#vault">Evidence Vault</a>
-      <a href="#spine">Controlled Construction</a>
-      <a href="#sectors">Who it's for</a>
-      <a href="#patents">Patent family</a>
-      <a href="#founder">Founder</a>
-    </nav>
-
-    <div class="nav-cta">
-      <a href="https://k1-command-center.vercel.app/" class="btn btn-ghost" target="_blank" rel="noopener">Command Deck</a>
-      <a href="mailto:investors@k1.construction?subject=K1%20Investor%20Deck%20Request" class="btn btn-primary">Request Investor Deck</a>
+<header>
+    <div class="container">
+        <div class="nav">
+            <div class="logo">K1</div>
+            <div class="nav-links">
+                <a href="#how">How it Works</a>
+                <a href="#infinity">Infinity Curve</a>
+                <a href="#markets">Markets</a>
+            </div>
+        </div>
     </div>
-
-    <button class="nav-toggle" aria-label="Open menu" id="navToggle">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-bg-grad"></div>
-    <div class="hero-bg-rails"></div>
-    <div class="hero-bg-fog"></div>
-    <svg class="hero-bg-skyline" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <!-- silhouette of jobsite cranes + buildings -->
-      <g fill="#0a1830" opacity="0.55">
-        <rect x="80" y="380" width="120" height="320"/>
-        <rect x="220" y="300" width="180" height="400"/>
-        <rect x="420" y="420" width="80" height="280"/>
-        <rect x="520" y="340" width="160" height="360"/>
-        <rect x="700" y="260" width="140" height="440"/>
-        <rect x="860" y="380" width="120" height="320"/>
-        <rect x="1000" y="320" width="200" height="380"/>
-        <rect x="1220" y="400" width="100" height="300"/>
-        <rect x="1340" y="280" width="160" height="420"/>
-      </g>
-      <!-- crane -->
-      <g stroke="#142a4a" stroke-width="3" fill="none" opacity="0.7">
-        <line x1="780" y1="60" x2="780" y2="280"/>
-        <line x1="540" y1="120" x2="980" y2="120"/>
-        <line x1="540" y1="120" x2="780" y2="60"/>
-        <line x1="980" y1="120" x2="780" y2="60"/>
-        <line x1="640" y1="120" x2="640" y2="190"/>
-        <rect x="618" y="190" width="44" height="26" fill="#142a4a"/>
-      </g>
-      <!-- window grid hints -->
-      <g fill="#1a3258" opacity="0.5">
-        <g>
-          <rect x="240" y="320" width="6" height="8"/><rect x="256" y="320" width="6" height="8"/><rect x="272" y="320" width="6" height="8"/>
-          <rect x="240" y="340" width="6" height="8"/><rect x="256" y="340" width="6" height="8"/><rect x="272" y="340" width="6" height="8"/>
-        </g>
-      </g>
-    </svg>
-  </div>
-
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badges">
-        <span class="badge">
-          <span class="badge-dot"></span>
-          Evidence-Backed · AI-Driven · Future-Proof
-        </span>
-        <span class="badge badge-patent">
-          <svg class="badge-shield" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.4-2.4 5.6-5.5 6.8-3.1-1.2-5.5-3.4-5.5-6.8V3.5L8 1.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M5.5 8.2l1.8 1.8L11 6.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Quantum-Resistant · AI-Native Financial OS
-        </span>
-      </div>
-
-      <h1 class="hero-title">
-        <span class="hl">Prove the work. Protect the payment. Get paid faster.</span>
-      </h1>
-
-      <p class="hero-sub">
-        Construction payments are slow because proof is scattered across photos, texts, emails, drawings, RFIs, inspections, and approvals. K1 turns verified jobsite evidence into payment-ready records, so teams can reduce disputes and get paid faster for the work they already performed.
-      </p>
-
-      <p class="hero-kicker">Under the hood, K1 uses AI, human validation, and quantum-resistant records to turn field evidence into trusted payment rights.</p>
-
-      <div class="chips" role="list" aria-label="K1 evidence-to-payment flow">
-        <span class="chip" role="listitem"><i class="chip-num">1</i><span class="chip-label">Capture</span></span>
-        <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">2</i><span class="chip-label">Validate</span></span>
-        <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">3</i><span class="chip-label">Hash &amp; Anchor</span></span>
-        <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip" role="listitem"><i class="chip-num">4</i><span class="chip-label">Vault</span></span>
-        <span class="chip-arrow" aria-hidden="true">→</span>
-        <span class="chip chip-strong" role="listitem"><i class="chip-num">5</i><span class="chip-label">Prove &amp; Pay</span></span>
-      </div>
-
-      <div class="hero-cta">
-        <a href="mailto:investors@k1.construction?subject=K1%20Investor%20Deck%20Request" class="btn btn-primary btn-lg">Request Investor Deck</a>
-        <a href="mailto:hello@k1.construction?subject=K1%20Walkthrough%20Request%20(20%20minutes)" class="btn btn-outline btn-lg">Book a 20-Minute Walkthrough</a>
-      </div>
-      <div class="hero-cta-secondary">
-        <a href="#watch" class="link-arrow link-arrow-play">
-          <span class="link-play" aria-hidden="true">▶</span>
-          Watch the K1 explainer
-        </a>
-        <a href="https://k1-command-center.vercel.app/" class="link-arrow" target="_blank" rel="noopener">Open Command Deck →</a>
-      </div>
-
-      <p class="trust">
-        Built for general contractors, owners, lenders, sureties, and construction counsel · SOC-aligned · Pilot programs running on active NYC jobsites
-      </p>
-
-      <p class="trust trust-patent">
-        <span class="trust-pat-badge">15+ Nonprovisional Applications Filed</span>
-        across K1's construction intelligence architecture — covering the Infinity Curve, human validation gates, gravity-inertial positioning, tokenized payment rights, AI-agent governance, and specialized systems for nuclear, data centers, and future space construction. <a href="#patents" class="trust-link">See the patent family →</a>
-      </p>
-    </div>
-
-    <!-- ============ FLOATING EVIDENCE CARD ============ -->
-    <aside class="hero-card" aria-label="Example sealed K1 evidence packet">
-      <div class="card-top">
-        <div class="card-top-left">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4v6c0 5-4 8-9 9-5-1-9-4-9-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <div>
-            <div class="card-eyebrow">Evidence packet · EV-2418</div>
-            <div class="card-title">Slab pour verified — Level 14 / Grid C-7</div>
-          </div>
-        </div>
-        <span class="status status-pulse" title="Sealed &amp; approved">
-          <span class="status-dot"></span>
-          <span class="status-text">Sealed · Approved</span>
-        </span>
-      </div>
-
-      <div class="card-stamp" aria-hidden="true">
-        <span class="stamp-k">K1NYC</span>
-        <span class="stamp-divider"></span>
-        <span class="stamp-v">432 W 33rd · L14 · C-7</span>
-        <span class="stamp-divider"></span>
-        <span class="stamp-time"><span class="live-dot"></span>14:02 EDT · today</span>
-      </div>
-
-      <div class="card-media" aria-hidden="true">
-        <div class="card-media-grad"></div>
-        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" class="card-media-svg">
-          <defs>
-            <linearGradient id="cm" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#1c3358"/>
-              <stop offset="1" stop-color="#0a1730"/>
-            </linearGradient>
-            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M20 0H0V20" fill="none" stroke="#2a4774" stroke-width="0.5" opacity="0.5"/>
-            </pattern>
-            <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#39d3e5" stop-opacity="0"/>
-              <stop offset="0.5" stop-color="#39d3e5" stop-opacity="0.55"/>
-              <stop offset="1" stop-color="#39d3e5" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="200" fill="url(#cm)"/>
-          <rect width="400" height="200" fill="url(#grid)"/>
-          <!-- rebar grid -->
-          <g stroke="#5b7aa8" stroke-width="1.2" opacity="0.7">
-            <line x1="40" y1="60" x2="380" y2="60"/>
-            <line x1="40" y1="90" x2="380" y2="90"/>
-            <line x1="40" y1="120" x2="380" y2="120"/>
-            <line x1="40" y1="150" x2="380" y2="150"/>
-            <line x1="80" y1="40" x2="80" y2="170"/>
-            <line x1="140" y1="40" x2="140" y2="170"/>
-            <line x1="200" y1="40" x2="200" y2="170"/>
-            <line x1="260" y1="40" x2="260" y2="170"/>
-            <line x1="320" y1="40" x2="320" y2="170"/>
-          </g>
-          <!-- pour zone highlight -->
-          <rect class="pour-zone" x="140" y="90" width="120" height="60" fill="#39d3e5" fill-opacity="0.18" stroke="#39d3e5" stroke-width="1"/>
-          <text x="146" y="84" fill="#bfeef5" font-size="9" font-family="system-ui">POUR ZONE · 14C-7</text>
-          <!-- pin -->
-          <g transform="translate(200,120)">
-            <circle class="pin-halo" r="14" fill="#39d3e5" fill-opacity="0.18"/>
-            <circle r="5" fill="#39d3e5"/>
-          </g>
-          <!-- scan line -->
-          <rect class="card-scan" x="0" y="0" width="400" height="36" fill="url(#scanline)"/>
-        </svg>
-        <div class="card-media-tags">
-          <span class="media-tag"><span class="media-tag-dot"></span>CV match · slab geometry</span>
-          <span class="media-tag">drone pass · 4K</span>
-        </div>
-      </div>
-
-      <div class="card-rows">
-        <div class="row">
-          <div class="row-k">Capture sources</div>
-          <div class="row-v">
-            <span class="src-pill">Field Mode · iPhone 15</span>
-            <span class="src-pill">Tethered drone</span>
-            <span class="src-pill src-pill-sensor">Cure-temp sensor</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="row-k">Supervisor approval</div>
-          <div class="row-v">
-            <span class="avatar">MR</span>
-            <span class="row-name">M. Reyes</span>
-            <span class="row-role">· Foreman</span>
-            <span class="check">✓ approved 14:07</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="row-k">SHA-256 · anchor</div>
-          <div class="row-v">
-            <span class="mono hash">9f3a&hairsp;…&hairsp;b71c</span>
-            <span class="seal seal-anchor">PQ-Sealed · #482,119</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="row-k">Evidence Vault</div>
-          <div class="row-v">
-            <span class="vault-pill">Immutable</span>
-            <span class="vault-meta">Linked: RFI&nbsp;#214 · Daily Log · Sensor 71°F</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-meter">
-        <div class="meter-head">
-          <span class="meter-label">Evidence strength · Infinity Curve</span>
-          <span class="meter-delta">+18% vs. last pour</span>
-        </div>
-        <div class="meter-track" aria-hidden="true">
-          <div class="meter-fill" style="--w:84%"></div>
-          <span class="meter-mark" style="left:66%" aria-hidden="true" title="Financeable threshold"></span>
-        </div>
-        <div class="meter-foot">
-          <span class="meter-foot-status"><span class="ok-dot"></span>Financeable · ready for Prove &amp; Pay</span>
-          <span class="strong">84 / 100</span>
-        </div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- logo row / proof strip -->
-  <div class="proof-strip">
-    <span class="proof-label">Trusted across the construction capital stack</span>
-    <div class="proof-logos" aria-hidden="true">
-      <span>GENERAL&nbsp;CONTRACTORS</span>
-      <span class="dot">·</span>
-      <span>OWNERS&nbsp;&amp;&nbsp;OWNER&nbsp;REPS</span>
-      <span class="dot">·</span>
-      <span>LENDERS&nbsp;&amp;&nbsp;FINANCING</span>
-      <span class="dot">·</span>
-      <span>SURETY&nbsp;&amp;&nbsp;INSURANCE</span>
-      <span class="dot">·</span>
-      <span>CONSTRUCTION&nbsp;COUNSEL</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXPLAINER VIDEO ============ -->
-<section class="section section-explainer" id="watch" aria-labelledby="watch-title">
-  <div class="section-inner explainer-inner">
-    <div class="explainer-head">
-      <span class="eyebrow eyebrow-light">Watch · K1 explainer walkthrough</span>
-      <h2 class="h2-light" id="watch-title">From field proof to financial OS — in one cut.</h2>
-      <p class="lede lede-light">See how K1 turns verified field evidence into payment, financing, and settlement. <strong>Evidence-Backed. AI-Driven. Future-Proof.</strong></p>
-    </div>
-
-    <figure class="explainer-figure">
-      <div class="explainer-frame">
-        <video
-          class="explainer-video"
-          controls
-          preload="metadata"
-          playsinline
-          poster="assets/k1-review-cut-poster-v2.jpg"
-          aria-label="K1 explainer walkthrough — capture, validate, hash, vault, prove"
-          title="K1 explainer walkthrough">
-          <source src="assets/k1-review-cut-mobile-v2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          <a href="assets/k1-review-cut-mobile-v2.mp4">Download the K1 walkthrough video</a>.
-        </video>
-      </div>
-      <figcaption class="explainer-caption">
-        <span class="explainer-caption-k">Transcript summary</span>
-        Capture in the field · Supervisor validates · Cryptographic hash · Sealed in the Evidence Vault · Proven on the financial OS.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ PROBLEM ============ -->
-<section class="section section-soft" id="why">
-  <div class="section-inner">
-    <div class="section-head section-head-narrow">
-      <span class="eyebrow">The problem</span>
-      <h2>Construction payments are broken.</h2>
-      <p class="lede">The trillion-dollar U.S. construction market still moves money on faxes, PDFs, and trust. AI and robotics are transforming the jobsite — the financial layer is still stuck in the 1990s. And tomorrow's quantum computing breaks the cryptography most platforms rely on today.</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-col">
-        <div class="why-tag">Today</div>
-        <ul class="why-list">
-          <li>Subs and suppliers wait <strong>45–90 days</strong> to get paid for work already done.</li>
-          <li>Retainage and progress dollars sit locked while disputes, liens, and cash-flow crises stack up.</li>
-          <li>Owners and lenders underwrite on stale reports and out-of-date paperwork.</li>
-          <li>AI and robotics are accelerating jobsite work — finance, payment, and proof have not kept up.</li>
-          <li>Quantum computing is on a clear path to break today's encryption — and the records it secures.</li>
-        </ul>
-      </div>
-      <div class="why-col why-col-strong">
-        <div class="why-tag why-tag-strong">With K1</div>
-        <ul class="why-list">
-          <li>Every pay app is backed by sealed, supervisor-validated jobsite evidence.</li>
-          <li>Change detection flags scope deltas before the dispute forms.</li>
-          <li>Lenders and sureties see live, hash-verified project signal — not month-old PDFs.</li>
-          <li>Closeout exports the same record that paid and financed the work.</li>
-          <li>Hybrid post-quantum cryptography keeps the record defensible for decades.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOLUTION ============ -->
-<section class="section" id="solution">
-  <div class="section-inner">
-    <div class="section-head section-head-narrow">
-      <span class="eyebrow">The K1 answer</span>
-      <h2>K1 turns verified jobsite evidence into instant, secure, and financeable payment rights.</h2>
-    </div>
-
-    <ul class="solution-grid" role="list">
-      <li class="solution-card">
-        <div class="solution-card-k">Quantum-safe</div>
-        <strong>Post-quantum cryptography</strong>
-        <p>Hybrid quantum-resistant hashing and signing protect today's record against tomorrow's compute.</p>
-      </li>
-      <li class="solution-card">
-        <div class="solution-card-k">AI-native</div>
-        <strong>Computer vision &amp; AI agents</strong>
-        <p>Photos, video, drones, and sensors are read against scope by autonomous agents — every item still gated by a responsible human.</p>
-      </li>
-      <li class="solution-card">
-        <div class="solution-card-k">Liquidity</div>
-        <strong>Tokenized payment rights</strong>
-        <p>Verified progress is converted into transferable digital assets on the K1 ledger — backed by cryptographic proof of the work.</p>
-      </li>
-      <li class="solution-card">
-        <div class="solution-card-k">Governance</div>
-        <strong>Smart governance</strong>
-        <p>Approval thresholds, escalation, and release rules run as policy — fewer bottlenecks, complete audit trail, no quiet exceptions.</p>
-      </li>
-      <li class="solution-card">
-        <div class="solution-card-k">Capital</div>
-        <strong>Financing marketplace</strong>
-        <p>Lenders, sureties, and capital partners bid against live, verified jobsite data — better rates, faster payments, lower risk.</p>
-      </li>
-    </ul>
-
-    <p class="solution-outcome">Faster payments, fewer disputes, and capital that moves at the speed of modern construction.</p>
-  </div>
-</section>
-
-<!-- ============ K1 ADVANTAGE / VALUE PILLARS ============ -->
-<section class="section section-soft" id="pillars">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="eyebrow">The K1 advantage · five core pillars</span>
-      <h2>What you get — not just how it works.</h2>
-    </div>
-
-    <div class="pillars">
-      <article class="pillar">
-        <div class="pillar-tag">Risk</div>
-        <div class="pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <h3>Quantum-resistant by design</h3>
-        <p>Records are secured with hybrid post-quantum cryptography from day one.</p>
-        <p class="pillar-benefit"><strong>Why it matters:</strong> evidence and payment rights stay defensible for decades — even against tomorrow's compute.</p>
-      </article>
-
-      <article class="pillar">
-        <div class="pillar-tag">Speed</div>
-        <div class="pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
-        </div>
-        <h3>AI-powered verification</h3>
-        <p>Computer vision and autonomous AI agents analyze photo, video, drone, and sensor evidence — with a human supervisor in control of every release.</p>
-        <p class="pillar-benefit"><strong>Why it matters:</strong> faster verification, fewer disputes, fewer surprises at closeout.</p>
-      </article>
-
-      <article class="pillar">
-        <div class="pillar-tag">Liquidity</div>
-        <div class="pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M7 9v6M17 9v6"/></svg>
-        </div>
-        <h3>Tokenized payment rights</h3>
-        <p>Verified progress is converted into transferable digital assets on the K1 ledger.</p>
-        <p class="pillar-benefit"><strong>Why it matters:</strong> liquidity for subs and suppliers, financeable assets for lenders and capital partners.</p>
-      </article>
-
-      <article class="pillar">
-        <div class="pillar-tag">Control</div>
-        <div class="pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M5.5 18.5l2.1-2.1M16.4 7.6l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
-        </div>
-        <h3>Autonomous governance</h3>
-        <p>Smart rules and thresholds manage approvals, escalations, and releases on the record itself.</p>
-        <p class="pillar-benefit"><strong>Why it matters:</strong> fewer bottlenecks, complete audit trails, faster closeouts.</p>
-      </article>
-
-      <article class="pillar">
-        <div class="pillar-tag">Capital</div>
-        <div class="pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/><path d="M3 13h18"/></svg>
-        </div>
-        <h3>Financing marketplace</h3>
-        <p>Lenders, sureties, and capital partners bid against verified jobsite data — not stale draws.</p>
-        <p class="pillar-benefit"><strong>Why it matters:</strong> better rates, faster payments, lower risk on every project.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HOW IT WORKS ============ -->
-<section class="section" id="how">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="eyebrow">How it works</span>
-      <h2>Five simple steps — from jobsite to capital.</h2>
-      <p class="lede">Every K1 evidence item moves through the same five-step path. Each step is logged, attributed, and verifiable on its own — together they turn a jobsite event into a payable, financeable record.</p>
-    </div>
-
-    <ol class="steps">
-      <li class="step">
-        <div class="step-num">01</div>
-        <h3>Capture</h3>
-        <p>Photos, video, drone, robot, and sensor data come in from the field — tagged with project, location, and operator at the moment of capture.</p>
-        <span class="step-tag">Field Mode · Modules · Sensors</span>
-      </li>
-      <li class="step">
-        <div class="step-num">02</div>
-        <h3>Validate</h3>
-        <p>A supervisor reviews the item against the work in front of them. Nothing reaches the vault without human approval — that's what makes it controlled construction.</p>
-        <span class="step-tag">Supervisor approval gate</span>
-      </li>
-      <li class="step">
-        <div class="step-num">03</div>
-        <h3>Hash &amp; anchor</h3>
-        <p>Approved evidence is cryptographically fingerprinted and anchored to a tamper-evident ledger reference. Any future tampering breaks the chain instantly.</p>
-        <span class="step-tag">Hybrid post-quantum · anchored</span>
-      </li>
-      <li class="step">
-        <div class="step-num">04</div>
-        <h3>Vault</h3>
-        <p>Sealed records land in the Evidence Vault — immutable, anchored, and tied to the project's spine: RFP, Estimate, Bid, Live Job, Closeout.</p>
-        <span class="step-tag">Evidence Vault · sealed</span>
-      </li>
-      <li class="step step-strong">
-        <div class="step-num">05</div>
-        <h3>Prove &amp; pay</h3>
-        <p>The same sealed record drives the pay app, financing draw, settlement package, and closeout export — proof releases the money.</p>
-        <span class="step-tag">Pay · finance · settle</span>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ EVIDENCE VAULT ============ -->
-<section class="section section-dark" id="vault">
-  <div class="section-inner two-col">
-    <div>
-      <span class="eyebrow eyebrow-light">Evidence Vault</span>
-      <h2 class="h2-light">The vault is the point.</h2>
-      <p class="lede lede-light">
-        Most jobsite software is built to make today easier. K1 is built so the record of today survives every dispute, audit, and insurance review that comes after it.
-      </p>
-      <ul class="bullets">
-        <li><strong>Immutable storage.</strong> Once a supervisor seals an item, it cannot be edited, replaced, or quietly removed.</li>
-        <li><strong>Cryptographic chain-of-custody.</strong> Every event — capture, approval, link, export — is signed and timestamped.</li>
-        <li><strong>Court-ready export.</strong> Counsel gets a package they can hand to an arbitrator, expert, or judge without reformatting.</li>
-        <li><strong>Infinity Curve.</strong> The more linked context an item has — RFIs, daily logs, sensor data, approvals — the stronger it scores.</li>
-      </ul>
-      <a href="#demo" class="btn btn-primary">See a sealed record</a>
-    </div>
-
-    <div class="vault-card">
-      <div class="vault-head">
-        <span class="status status-light"><span class="status-dot"></span> Vault · live</span>
-        <span class="vault-anchor mono">anchor #482,119</span>
-      </div>
-
-      <div class="vault-row">
-        <span class="vault-k">Project</span>
-        <span class="vault-v">K1NYC · 432 W 33rd</span>
-      </div>
-      <div class="vault-row">
-        <span class="vault-k">Items sealed</span>
-        <span class="vault-v mono">14,802</span>
-      </div>
-      <div class="vault-row">
-        <span class="vault-k">Last seal</span>
-        <span class="vault-v mono">12s ago · 9f3a…b71c</span>
-      </div>
-      <div class="vault-row">
-        <span class="vault-k">Tamper events</span>
-        <span class="vault-v mono ok">0</span>
-      </div>
-
-      <div class="vault-chart" aria-hidden="true">
-        <svg viewBox="0 0 320 90" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="vc" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#39d3e5" stop-opacity="0.45"/>
-              <stop offset="1" stop-color="#39d3e5" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,70 L20,62 L40,66 L60,55 L80,58 L100,46 L120,49 L140,38 L160,42 L180,32 L200,36 L220,25 L240,28 L260,18 L280,22 L300,12 L320,16 L320,90 L0,90 Z" fill="url(#vc)"/>
-          <path d="M0,70 L20,62 L40,66 L60,55 L80,58 L100,46 L120,49 L140,38 L160,42 L180,32 L200,36 L220,25 L240,28 L260,18 L280,22 L300,12 L320,16" fill="none" stroke="#39d3e5" stroke-width="1.6"/>
-        </svg>
-        <div class="vault-chart-foot">
-          <span>Sealed items / day</span>
-          <span class="up">▲ 22% this week</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTROLLED CONSTRUCTION SPINE ============ -->
-<section class="section" id="spine">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="eyebrow">Controlled Construction · the K1 spine</span>
-      <h2>One project. One spine. Every artifact attached.</h2>
-      <p class="lede">K1 is organized around how construction actually moves — not around tabs. Each stage is a node on the spine, and every captured item attaches to the node it belongs to.</p>
-    </div>
-
-    <div class="spine">
-      <div class="spine-line" aria-hidden="true"></div>
-      <div class="spine-grid">
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">RFP</div><p>Scope of work, drawings, addenda — captured at the source.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Upload</div><p>Documents, plans, and reference data ingested and indexed.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Estimate</div><p>Quantities and cost basis tied to the same record.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Bid</div><p>Submissions, addenda, qualifications — all attached to the spine.</p></div>
-        <div class="spine-node spine-node-strong"><div class="spine-dot"></div><div class="spine-label">Live Job</div><p>Daily logs, RFIs, captures, and approvals flow in from the field.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Field Mode</div><p>The on-site capture surface used by foremen and crews.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Modules</div><p>Specialty workflows — concrete, MEP, façade — bolt onto the spine.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">K1NYC</div><p>City-specific overlays for NYC permitting, DOB, and inspections.</p></div>
-        <div class="spine-node"><div class="spine-dot"></div><div class="spine-label">Closeout</div><p>Punch, warranty, and turnover handed off with the record intact.</p></div>
-        <div class="spine-node spine-node-strong"><div class="spine-dot"></div><div class="spine-label">Evidence Vault</div><p>Sealed, immutable, court-ready — the record that survives the project.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY NOW ============ -->
-<section class="section section-whynow" id="whynow" aria-labelledby="whynow-title">
-  <div class="section-inner">
-    <div class="section-head section-head-narrow">
-      <span class="eyebrow eyebrow-light whynow-eyebrow">Why now</span>
-      <h2 class="h2-light" id="whynow-title">Construction is entering the AI era — but its financial infrastructure is not ready.</h2>
-      <p class="lede lede-light">Three forces are converging on the same jobsite at the same time. K1 is built for the new reality, not the old paperwork.</p>
-    </div>
-
-    <ul class="whynow-grid" role="list">
-      <li class="whynow-card">
-        <div class="whynow-num">01</div>
-        <h3>AI and robotics are accelerating the work</h3>
-        <p>Computer vision, autonomous equipment, and field AI are producing more verifiable signal than the paperwork-based payment layer can absorb.</p>
-      </li>
-      <li class="whynow-card">
-        <div class="whynow-num">02</div>
-        <h3>Quantum compute is on a clear path</h3>
-        <p>The cryptography most platforms rely on today will not survive the next decade. Records and payment rights need to be defensible against tomorrow's compute, not yesterday's.</p>
-      </li>
-      <li class="whynow-card">
-        <div class="whynow-num">03</div>
-        <h3>Payment needs proof to move faster</h3>
-        <p>Lenders, sureties, and owners are pricing risk on stale draws. They need live, verifiable jobsite data to keep deploying capital at scale.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ SECTORS / WHO K1 IS FOR ============ -->
-<section class="section section-soft" id="sectors">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="eyebrow">Who K1 is for</span>
-      <h2>Built for the people who carry the risk — and need the capital.</h2>
-    </div>
-
-    <div class="sectors">
-      <article class="sector">
-        <div class="sector-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-        </div>
-        <h3>General Contractors</h3>
-        <p>Faster closeouts and better subcontractor relationships — with a record your PM, your owner, and your counsel all trust.</p>
-        <ul>
-          <li>Delay claim defense</li>
-          <li>Faster subcontractor payment cycles</li>
-          <li>Closeout that exports the record that paid the work</li>
-        </ul>
-      </article>
-
-      <article class="sector">
-        <div class="sector-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l9-8 9 8M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
-        </div>
-        <h3>Owners &amp; Developers</h3>
-        <p>Real-time visibility and reduced risk — see what's actually on site, attached to the project spine, not a stream of unverified phone photos.</p>
-        <ul>
-          <li>Independent verification</li>
-          <li>Closeout that survives audit</li>
-          <li>Insurance and surety reporting</li>
-        </ul>
-      </article>
-
-      <article class="sector">
-        <div class="sector-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg>
-        </div>
-        <h3>Subcontractors &amp; Suppliers</h3>
-        <p>Faster payments and access to capital — verified progress becomes a transferable payment right you can finance, not a 90-day wait.</p>
-        <ul>
-          <li>Cut payment cycles from months to days</li>
-          <li>Finance verified progress, not promises</li>
-          <li>Reduce dispute exposure with sealed evidence</li>
-        </ul>
-      </article>
-
-      <article class="sector">
-        <div class="sector-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
-        </div>
-        <h3>Lenders &amp; Sureties</h3>
-        <p>Live, verified data for smarter underwriting — fund and bond against hash-verified jobsite signal, not stale draws.</p>
-        <ul>
-          <li>Live evidence strength scoring</li>
-          <li>Tamper-event monitoring</li>
-          <li>Closeout-to-claim continuity</li>
-        </ul>
-      </article>
-
-      <article class="sector">
-        <div class="sector-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M8 9h6M8 13h8M8 17h5"/></svg>
-        </div>
-        <h3>Construction Counsel</h3>
-        <p>Court-ready, tamper-proof evidence with a verifiable chain of custody — packaged the way arbitrators and experts expect.</p>
-        <ul>
-          <li>Hash-verified exhibits</li>
-          <li>Linked RFIs and daily logs</li>
-          <li>Approval trail per item</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROOF LAYER ============ -->
-<section class="section" id="proof">
-  <div class="section-inner">
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-stat">SHA-256</div>
-        <p>Every sealed item is cryptographically fingerprinted. Tampering is detectable, not deniable.</p>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stat">100% supervisor-validated</div>
-        <p>Nothing reaches the vault without a human on the project approving it first.</p>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stat">Infinity Curve</div>
-        <p>Evidence strength grows as items link to RFIs, logs, and sensors — disputes get harder to win against you.</p>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stat">Court-ready export</div>
-        <p>One click hands counsel a verifiable package — no reformatting, no chain-of-custody gaps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PATENT PORTFOLIO ============ -->
-<section class="section section-patents" id="patents">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="eyebrow eyebrow-patents">Patent family</span>
-      <h2 class="patents-h2">15+ Nonprovisional Applications Filed. <span class="patents-h2-accent">One Clear Advantage.</span></h2>
-      <p class="lede patents-lede">
-        K1 has built a complete, layered patent family covering the <strong>Infinity Curve</strong>, <strong>mandatory human validation gates</strong>, <strong>gravity-inertial positioning</strong>, <strong>tokenized construction payment rights</strong>, <strong>AI-agent governance</strong>, <strong>financing marketplace workflows</strong>, and specialized systems for <strong>nuclear, data centers, and future space construction</strong>.
-      </p>
-      <p class="patents-moat">This creates a moat no competitor can easily replicate.</p>
-    </div>
-
-    <div class="patents">
-      <!-- LEFT: portfolio stat card -->
-      <aside class="patents-card" aria-label="Patent family at a glance">
-        <div class="patents-card-head">
-          <span class="status status-light"><span class="status-dot"></span> Patent family · active</span>
-          <span class="vault-anchor mono">USPTO · filed</span>
-        </div>
-
-        <div class="patents-headline">
-          <div class="patents-headline-num">15<span class="patents-headline-plus">+</span></div>
-          <div class="patents-headline-k">Nonprovisional Applications Filed</div>
-        </div>
-
-        <div class="patents-card-line">
-          <span class="patents-line-k">Latest filings</span>
-          <span class="patents-line-v">May 2026</span>
-        </div>
-        <div class="patents-card-line">
-          <span class="patents-line-k">Coverage</span>
-          <span class="patents-line-v">Infinity Curve · Human validation gates · Gravity-inertial positioning · Tokenized payment rights · AI-agent governance · Financing marketplace · Nuclear · Data centers · Future space construction</span>
-        </div>
-        <div class="patents-card-line">
-          <span class="patents-line-k">Status</span>
-          <span class="patents-line-v">Patent-pending across the K1 platform</span>
-        </div>
-      </aside>
-
-      <!-- RIGHT: coverage grid -->
-      <div class="patents-grid">
-        <article class="patent-card">
-          <div class="patent-card-tag">Math</div>
-          <h3>The Infinity Curve</h3>
-          <p>A compounding record-strength model where validated project evidence gets stronger forever.</p>
-        </article>
-        <article class="patent-card">
-          <div class="patent-card-tag">Core</div>
-          <h3>Human Validation Gates</h3>
-          <p>Nothing becomes permanent evidence until a responsible human approves it.</p>
-        </article>
-        <article class="patent-card">
-          <div class="patent-card-tag">Finance</div>
-          <h3>Tokenized Payment Rights</h3>
-          <p>Validated construction evidence can support receivables, retainage, escrow, and financing workflows.</p>
-        </article>
-        <article class="patent-card">
-          <div class="patent-card-tag">Positioning</div>
-          <h3>Gravity-Inertial &amp; Space-Time</h3>
-          <p>Spatial, inertial, and GPS-denied context for high-value construction environments.</p>
-        </article>
-        <article class="patent-card patent-card-strong patent-card-wide">
-          <div class="patent-card-tag patent-card-tag-light">Markets</div>
-          <h3>Specialized Markets</h3>
-          <p>Purpose-built for <strong>nuclear, data centers, and future space construction</strong> — the environments where <strong>proof, location, and chain-of-custody</strong> matter most.</p>
-        </article>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ FOUNDATION ============ -->
-<section class="section section-foundation" id="foundation" aria-labelledby="foundation-title">
-  <div class="section-inner">
-    <div class="section-head section-head-narrow">
-      <span class="eyebrow">Built on a strong foundation</span>
-      <h2 id="foundation-title">Defensible. Verifiable. Already in motion.</h2>
-    </div>
-    <ul class="foundation-grid" role="list">
-      <li class="foundation-card">
-        <div class="foundation-num">15<span class="foundation-plus">+</span></div>
-        <div class="foundation-k">Nonprovisional Applications Filed</div>
-        <p>Layered patent family across the Infinity Curve, validation gates, gravity-inertial positioning, tokenized payment rights, and AI-agent governance. <em>Latest Nonprovisional Filings: May 2026.</em></p>
-      </li>
-      <li class="foundation-card">
-        <div class="foundation-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <div class="foundation-k">Quantum-resistant from day one</div>
-        <p>Hybrid post-quantum cryptography across hashing, signing, and ledger anchoring — the record is built to survive the next decade of compute.</p>
-      </li>
-      <li class="foundation-card">
-        <div class="foundation-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <div class="foundation-k">Working prototype live</div>
-        <p>Pilot-ready workflows running end-to-end: capture, validate, hash &amp; anchor, vault, prove &amp; pay — on real construction data.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ FOUNDER ============ -->
-<section class="section section-founder" id="founder" aria-labelledby="founder-title">
-  <div class="section-inner founder-inner">
-    <div class="founder-head">
-      <span class="eyebrow">Founder</span>
-      <h2 id="founder-title" class="h2-light">Market-structure discipline, brought to the jobsite.</h2>
-      <p class="founder-thesis">
-        Construction payments are still operating like pre-digital financial markets. K1 brings electronic proof, trust, and execution to the jobsite.
-      </p>
-    </div>
-
-    <div class="founder-body">
-      <figure class="founder-portrait" aria-hidden="true">
-        <div class="founder-portrait-mark">
-          <svg viewBox="0 0 40 40" aria-hidden="true">
-            <rect x="0.5" y="0.5" width="39" height="39" rx="7" fill="#0B1E3F" stroke="#0B1E3F"/>
-            <path d="M12 9v22M12 20l10-11M12 20l10 11" stroke="#F4F7FB" stroke-width="3.2" stroke-linecap="square" fill="none"/>
-            <circle cx="29.5" cy="9.5" r="2.2" fill="#39D3E5"/>
-          </svg>
-        </div>
-        <figcaption class="founder-portrait-cap">
-          <span class="founder-name">Bill Branley</span>
-          <span class="founder-role">Founder, K1</span>
-        </figcaption>
-      </figure>
-
-      <div class="founder-copy">
-        <p class="founder-lede">
-          Bill Branley came of age during the <strong>eSpeed era</strong>, when financial markets began moving from phone calls and paper trails to <strong>trusted electronic execution</strong>. After decades in complex construction, he built K1 to bring that same <strong>market-structure discipline</strong> to <strong>jobsite evidence, payment protection, and getting paid faster</strong>.
+    <div class="container">
+        <h1 class="hero-title">
+            <span class="hl">Field evidence that actually holds up in disputes.</span>
+        </h1>
+        <p class="hero-sub">
+            K1 is a ruggedized, edge-based field OS that turns jobsite captures into cryptographically sealed, court-ready records. 
+            Built from the real pain of Build It Back — where weak documentation cost contractors real money.
         </p>
-
-        <ul class="founder-pillars" role="list">
-          <li>
-            <div class="founder-pillar-k">Proof of work</div>
-            <p>Field-validated evidence with cryptographic chain-of-custody — so contractors don't lose months trying to prove they did the work they're owed for.</p>
-          </li>
-          <li>
-            <div class="founder-pillar-k">Trusted execution</div>
-            <p>Electronic, rules-based progress and payment events instead of phone calls, paper trails, and disputed change orders.</p>
-          </li>
-          <li>
-            <div class="founder-pillar-k">Paid faster</div>
-            <p>Validated evidence supports receivables, retainage release, and project financing — turning weeks of waiting into a settled, defensible record.</p>
-          </li>
-        </ul>
-
-        <p class="founder-close">
-          The biggest pain in construction isn't building the work — it's <strong>getting paid for the work you've already done</strong>. K1 fixes the record first, so the money can follow.
-        </p>
-      </div>
+        <div class="cta-buttons">
+            <a href="#" class="btn primary">Start a Pilot</a>
+            <a href="#" class="btn secondary">Book a Demo</a>
+        </div>
+        <p class="hero-kicker">Offline-first • Human validated • Cryptographically sealed • Gets stronger over time</p>
     </div>
-  </div>
 </section>
 
-<!-- ============ FINAL CTA ============ -->
-<section class="section cta" id="demo">
-  <div class="section-inner cta-inner cta-inner-center">
-    <div>
-      <span class="eyebrow eyebrow-light">Get in touch</span>
-      <h2 class="h2-light">Ready to see how K1 works?</h2>
-      <p class="lede lede-light">Twenty minutes on a real K1NYC project — or the full investor deck. Either way, you see the same record that captures the work, releases the money, and survives every audit that comes after.</p>
-      <div class="cta-buttons">
-        <a href="mailto:investors@k1.construction?subject=K1%20Investor%20Deck%20Request" class="btn btn-primary btn-lg">Request Investor Deck</a>
-        <a href="mailto:hello@k1.construction?subject=K1%20Walkthrough%20Request%20(20%20minutes)" class="btn btn-outline-light btn-lg">Book a 20-Minute Walkthrough</a>
-      </div>
+<section id="how" class="how-it-works">
+    <div class="container">
+        <h2>How K1 Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Capture</h3>
+                <p>Superintendents and field teams capture photos, videos, notes, and sensor data directly on site — even offline.</p>
+            </div>
+            <div class="step">
+                <h3>2. Validate</h3>
+                <p>Every record requires mandatory human validation on site. No unverified data enters the system.</p>
+            </div>
+            <div class="step">
+                <h3>3. Seal</h3>
+                <p>Records are cryptographically sealed in real time, creating an immutable chain of custody.</p>
+            </div>
+            <div class="step">
+                <h3>4. Compound</h3>
+                <p>Through the Infinity Curve, every validated capture makes the entire project record stronger over time.</p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="#" class="brand" aria-label="K1 home">
-        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
-          <rect x="0.5" y="0.5" width="39" height="39" rx="7" fill="#0B1E3F"/>
-          <path d="M12 9v22M12 20l10-11M12 20l10 11" stroke="#F4F7FB" stroke-width="3.2" stroke-linecap="square" fill="none"/>
-          <circle cx="29.5" cy="9.5" r="2.2" fill="#39D3E5"/>
-        </svg>
-        <span class="brand-word">K1<span class="brand-dot">.</span><span class="brand-sub">construction</span></span>
-      </a>
-      <p class="footer-tag">Evidence-Backed. AI-Driven. Future-Proof. The financial operating system for construction.</p>
+<section id="infinity" class="infinity-curve">
+    <div class="container">
+        <h2>The Infinity Curve</h2>
+        <p class="subtitle">Evidence that gets stronger, not weaker, over the life of a project.</p>
+        <p>Most documentation degrades the longer a project runs. K1 flips that. Every human-validated capture compounds the strength of your entire evidence record — making change orders and payment claims more defensible the longer they sit.</p>
     </div>
-    <div class="footer-cols">
-      <div><div class="footer-h">Platform</div><a href="#pillars">Financial OS</a><a href="#how">How it works</a><a href="#watch">Watch the explainer</a><a href="#vault">Evidence Vault</a></div>
-      <div><div class="footer-h">Who it's for</div><a href="#sectors">General contractors</a><a href="#sectors">Owners &amp; developers</a><a href="#sectors">Subs &amp; suppliers</a><a href="#sectors">Lenders &amp; sureties</a></div>
-      <div><div class="footer-h">Company</div><a href="#founder">Founder</a><a href="#whynow">Why now</a><a href="#patents">Patent family</a><a href="#foundation">Foundation</a><a href="mailto:investors@k1.construction?subject=K1%20Investor%20Deck%20Request">Investor relations</a><a href="mailto:hello@k1.construction?subject=K1%20Walkthrough%20Request%20(20%20minutes)">Contact</a></div>
+</section>
+
+<section id="markets" class="markets">
+    <div class="container">
+        <h2>Built for the Toughest Environments</h2>
+        <div class="market-grid">
+            <div class="market">NYC Metro</div>
+            <div class="market">Nuclear</div>
+            <div class="market">Data Centers</div>
+            <div class="market">Complex Infrastructure</div>
+        </div>
     </div>
-  </div>
-  <div class="footer-base">
-    <span>© K1 Construction Intelligence · Patent family includes 15+ nonprovisional applications filed (latest: May 2026).</span>
-    <span>Design preview · not a live site</span>
-  </div>
+</section>
+
+<section class="founder">
+    <div class="container">
+        <h2>Built by someone who lived the problem.</h2>
+        <p>After years running change orders on some of the most complex recovery and capital programs in New York, the founder of K1 saw the same problem over and over: good work gets done, but the evidence to protect payment is scattered, weak, or missing when it matters most.</p>
+        <p>K1 was built to fix that — from the field, for the field.</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>K1 — Field evidence that protects payment.</p>
+        <p>© 2026 K1. All rights reserved.</p>
+    </div>
 </footer>
 
-<script>
-  // tiny nav scroll state + mobile toggle
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
-  document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  const toggle = document.getElementById('navToggle');
-  toggle?.addEventListener('click', () => nav.classList.toggle('is-open'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('is-open')));
-</script>
 </body>
 </html>
